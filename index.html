@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thai Garden - תפריט</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            direction: rtl;
+        }
+        
+        .bamboo-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.95)),
+                repeating-linear-gradient(
+                    90deg,
+                    #e8f5e9,
+                    #e8f5e9 3px,
+                    transparent 3px,
+                    transparent 20px
+                );
+            z-index: -1;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            animation: fadeIn 0.8s ease-in;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            background: linear-gradient(135deg, #ffffff 0%, #f8fdf8 100%);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "🌿";
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            font-size: 80px;
+            opacity: 0.1;
+            transform: rotate(-15deg);
+        }
+        
+        header::after {
+            content: "🍃";
+            position: absolute;
+            bottom: -20px;
+            left: -20px;
+            font-size: 80px;
+            opacity: 0.1;
+            transform: rotate(15deg);
+        }
+        
+        h1 {
+            color: #2e7d32;
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        .subtitle {
+            color: #558b2f;
+            font-size: 1.2em;
+            font-weight: 300;
+        }
+        
+        .category {
+            background: white;
+            margin-bottom: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .category-header {
+            background: linear-gradient(135deg, #81c784 0%, #66bb6a 100%);
+            color: white;
+            padding: 20px;
+            font-size: 1.5em;
+            font-weight: bold;
+            position: relative;
+        }
+        
+        .category-header::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            right: 0;
+            height: 10px;
+            background: repeating-linear-gradient(
+                -45deg,
+                transparent,
+                transparent 5px,
+                rgba(255, 255, 255, 0.1) 5px,
+                rgba(255, 255, 255, 0.1) 10px
+            );
+        }
+        
+        .menu-item {
+            padding: 20px;
+            border-bottom: 1px solid #f0f0f0;
+            transition: background 0.3s ease;
+            position: relative;
+        }
+        
+        .menu-item:last-child {
+            border-bottom: none;
+        }
+        
+        .menu-item:hover {
+            background: #f8fdf8;
+        }
+        
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        
+        .item-name {
+            color: #2e7d32;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        
+        .item-price {
+            color: #ff6b6b;
+            font-size: 1.1em;
+            font-weight: bold;
+            background: #fff3f3;
+            padding: 5px 15px;
+            border-radius: 20px;
+        }
+        
+        .item-description {
+            color: #666;
+            line-height: 1.6;
+            font-size: 0.95em;
+        }
+        
+        .warning {
+            background: #fff8e1;
+            border: 2px solid #ffd54f;
+            padding: 15px;
+            margin: 20px;
+            border-radius: 10px;
+            text-align: center;
+            color: #f57f17;
+            font-weight: bold;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        .add-on {
+            background: #e8f5e9;
+            padding: 10px 15px;
+            margin: 10px 20px;
+            border-radius: 10px;
+            color: #2e7d32;
+            font-size: 0.9em;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: #666;
+        }
+        
+        .leaf-decoration {
+            display: inline-block;
+            animation: sway 4s ease-in-out infinite;
+            margin: 0 10px;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+        
+        @keyframes sway {
+            0%, 100% { transform: rotate(-5deg); }
+            50% { transform: rotate(5deg); }
+        }
+        
+        @media (max-width: 600px) {
+            h1 { font-size: 2em; }
+            .category-header { font-size: 1.2em; }
+            .item-name { font-size: 1.1em; }
+            .container { padding: 10px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bamboo-bg"></div>
+    
+    <div class="container">
+        <header>
+            <h1>Thai Garden</h1>
+            <p class="subtitle">גן תאילנדי של טעמים</p>
+            <div class="leaf-decoration">🌿</div>
+        </header>
+        
+        <div class="category">
+            <div class="category-header">🍣 סושי ספיישל</div>
+            
+            <div class="warning">
+                ⚠️ לתשומת ליבכם: הטונה לא זמינה מדי יום. במידת הצורך, יוחלף בדג נא אחר.
+            </div>
+            
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">קשת בענן</span>
+                    <span class="item-price">53 ₪</span>
+                </div>
+                <div class="item-description">
+                    סלמון נא, אבוקדו, מלפפון ועירית | במעטפת סלמון, טונה ואבוקדו
+                </div>
+            </div>
+            
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">טייפו</span>
+                    <span class="item-price">52 ₪</span>
+                </div>
+                <div class="item-description">
+                    סלמון נא, אבוקדו ובטטה בטמפורה | במעטפת סלמון צרוב, ספייסי מיונז, קריספי בטטה ועירית
+                </div>
+            </div>
+            
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">קליפורניה</span>
+                    <span class="item-price">49 ₪</span>
+                </div>
+                <div class="item-description">
+                    סלמון, אבוקדו, גבינת שמנת, מלפפון ובצל ירוק | מצופה שומשום לבן ושחור
+                </div>
+            </div>
+            
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">גינת הגליל</span>
+                    <span class="item-price">44 ₪</span>
+                </div>
+                <div class="item-description">
+                    מלפפון, אבוקדו, בטטה ובצל ירוק | במעטפת סלק, טריאקי ועירית
+                </div>
+            </div>
+            
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">גולדן גארדן</span>
+                    <span class="item-price">47 ₪</span>
+                </div>
+                <div class="item-description">
+                    סלמון ובטטה | רול מטוגן בציפוי פריך של פנקו
+                </div>
+            </div>
+            
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">רולימון</span>
+                    <span class="item-price">55 ₪</span>
+                </div>
+                <div class="item-description">
+                    טונה, דג לבן ואבוקדו | במעטפת של דג לבן, לימון וצ׳ילי חריף
+                </div>
+            </div>
+            
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">טוגראשי פייר</span>
+                    <span class="item-price">53 ₪</span>
+                </div>
+                <div class="item-description">
+                    סלמון מתובל בטוגראשי ואבוקדו | ספייסי מיונז וקריספי בטטה
+                </div>
+            </div>
+            
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">טריפל סלמון</span>
+                    <span class="item-price">54 ₪</span>
+                </div>
+                <div class="item-description">
+                    סלמון נא, סלמון אפוי ואבוקדו במעטפת סלמון צרוב
+                </div>
+            </div>
+            
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">רול חרמון</span>
+                    <span class="item-price">49 ₪</span>
+                </div>
+                <div class="item-description">
+                    דג לבן נא בתיבול טוגראשי ואבוקדו | במעטפת דג לבן צרוב ושבבי פנקו
+                </div>
+            </div>
+        </div>
+        
+        <div class="category">
+            <div class="category-header">🍜 מוקפצים ותבשילים</div>
+            
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">פאד תאי עוף/טופו</span>
+                    <span class="item-price">60 ₪</span>
+                </div>
+                <div class="item-description">
+                    אטריות אורז דקות עם ביצה, נבטים, בצל ירוק, גזר וכרוב
+                </div>
+            </div>
+            
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">פאד תאי בקר</span>
+                    <span class="item-price">63 ₪</span>
+                </div>
+                <div class="item-description">
+                    אטריות אורז דקות עם ביצה, נבטים, בצל ירוק, גזר וכרוב
+                </div>
+            </div>
+            
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">פאד סי יו עוף/טופו</span>
+                    <span class="item-price">62 ₪</span>
+                </div>
+                <div class="item-description">
+                    אטריות אורז רחבות עם עוף/טופו ברוקולי, גמבה, באק צ'וי, פטריות ובצל ירוק ברוטב סויה כהה
+                </div>
+            </div>
+            
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">פאד סי יו בקר</span>
+                    <span class="item-price">65 ₪</span>
+                </div>
+                <div class="item-description">
+                    אטריות אורז רחבות עם רצועות בקר, ברוקולי, גמבה, באק צ'וי, פטריות ובצל ירוק ברוטב סויה כהה
+                </div>
+            </div>
+            
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">פאד קפאו בקר</span>
+                    <span class="item-price">62 ₪</span>
+                </div>
+                <div class="item-description">
+                    בקר טחון מוקפץ עם בזיליקום תאילנדי, צ'ילי חריף, שום ובצל | מוגש עם אורז לבן וביצת עין
+                </div>
+            </div>
+            
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">פרייד רייס עוף/טופו</span>
+                    <span class="item-price">59 ₪</span>
+                </div>
+                <div class="item-description">
+                    אורז מוקפץ עם עוף, ביצה, אפונה, גזר ובצל ירוק
+                </div>
+            </div>
+            
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">תבשיל קארי הבית</span>
+                    <span class="item-price">65 ₪</span>
+                </div>
+                <div class="item-description">
+                    תבשיל על בסיס חלב קוקוס וקארי עם ירקות עונתיים, מוגש לצד אורז
+                </div>
+            </div>
+            <div class="add-on">תוספת עוף/טופו - 10 ₪ | תוספת בקר - 12 ₪</div>
+            
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">צ'אנג מאי</span>
+                    <span class="item-price">63 ₪</span>
+                </div>
+                <div class="item-description">
+                    אטריות ביצים מוקפצות ברוטב קארי אדום עם ירקות עונתיים
+                </div>
+            </div>
+            <div class="add-on">תוספת עוף/טופו - 10 ₪ | תוספת בקר - 12 ₪</div>
+        </div>
+        
+        <div class="category">
+            <div class="category-header">🍽️ תפריט ילדים</div>
+            
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">שניצלונים עם אורז / נודלס</span>
+                    <span class="item-price">44 ₪</span>
+                </div>
+                <div class="item-description">
+                    שניצלוני עוף פריכים מוגשים עם אורז לבן או נודלס
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <div class="leaf-decoration">🌱</div>
+            <p>Thai Garden - טעמים אותנטיים בגן תאילנדי</p>
+            <div class="leaf-decoration">🌱</div>
+        </footer>
+    </div>
+</body>
+</html>
