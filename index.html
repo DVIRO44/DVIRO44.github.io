@@ -18,10 +18,6 @@
             direction: rtl;
         }
         
-        body.english {
-            direction: ltr;
-        }
-        
         .bamboo-bg {
             position: fixed;
             top: 0;
@@ -45,51 +41,6 @@
             margin: 0 auto;
             padding: 20px;
             animation: fadeIn 0.8s ease-in;
-        }
-        
-        .language-switcher {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            z-index: 1000;
-        }
-        
-        .lang-btn {
-            padding: 12px 20px;
-            border: none;
-            background: #66bb6a;
-            color: white;
-            border-radius: 25px;
-            cursor: pointer;
-            font-size: 16px;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
-            min-width: 60px;
-            text-align: center;
-        }
-        
-        .lang-btn:hover {
-            background: #558b2f;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        }
-        
-        .lang-btn:active {
-            transform: translateY(0);
-        }
-        
-        /* Hide/show based on language */
-        .when-english {
-            display: none;
-        }
-        
-        body.english .when-hebrew {
-            display: none;
-        }
-        
-        body.english .when-english {
-            display: inline;
         }
         
         header {
@@ -205,10 +156,10 @@
         }
         
         .item-price {
-            color: #ff6b6b;
+            color: #2e7d32;
             font-size: 1.1em;
             font-weight: bold;
-            background: #fff3f3;
+            background: #e8f5e9;
             padding: 5px 15px;
             border-radius: 20px;
         }
@@ -231,15 +182,6 @@
             animation: pulse 2s ease-in-out infinite;
         }
         
-        .add-on {
-            background: #e8f5e9;
-            padding: 10px 15px;
-            margin: 10px 20px;
-            border-radius: 10px;
-            color: #2e7d32;
-            font-size: 0.9em;
-        }
-        
         footer {
             text-align: center;
             margin-top: 40px;
@@ -251,20 +193,6 @@
             display: inline-block;
             animation: sway 4s ease-in-out infinite;
             margin: 0 10px;
-        }
-        
-        /* Hide English content by default */
-        .english-content {
-            display: none;
-        }
-        
-        /* Show English content when language is English */
-        body.english .hebrew-content {
-            display: none;
-        }
-        
-        body.english .english-content {
-            display: block;
         }
         
         @keyframes fadeIn {
@@ -292,7 +220,6 @@
             .category-header { font-size: 1.2em; }
             .item-name { font-size: 1.1em; }
             .container { padding: 10px; }
-            header { margin-top: 70px; }
         }
     </style>
 </head>
@@ -300,289 +227,193 @@
     <div class="bamboo-bg"></div>
     
     <div class="container">
-        <!-- Hebrew Content -->
-        <div class="hebrew-content">
-            <header>
-                <h1>Thai Garden</h1>
-                <p class="subtitle">גן תאילנדי של טעמים</p>
-                <div class="leaf-decoration">🌿</div>
-            </header>
+        <header>
+            <h1>Thai Garden</h1>
+            <p class="subtitle">גן תאילנדי של טעמים</p>
+            <div class="leaf-decoration">🌿</div>
+        </header>
+        
+        <div class="category">
+            <div class="category-header">🍣 סושי ספיישל</div>
             
-            <div class="category">
-                <div class="category-header">🍣 סושי ספיישל</div>
-                
-                <div class="warning">
-                    ⚠️ לתשומת ליבכם: הטונה לא זמינה מדי יום. במידת הצורך, יוחלף בדג נא אחר.
+            <div class="warning">
+                ⚠️ לתשומת ליבכם: הטונה לא זמינה מדי יום. במידת הצורך, יוחלף בדג נא אחר.
+            </div>
+            
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">קשת בענן</span>
+                    <span class="item-price">57 ₪</span>
                 </div>
-                
-                <div class="menu-item">
-                    <div class="item-header">
-                        <span class="item-name">קשת בענן</span>
-                        <span class="item-price">53 ₪</span>
-                    </div>
-                    <div class="item-description">
-                        סלמון נא, אבוקדו, מלפפון ועירית | במעטפת סלמון, טונה ואבוקדו
-                    </div>
-                </div>
-                
-                <div class="menu-item">
-                    <div class="item-header">
-                        <span class="item-name">טייפו</span>
-                        <span class="item-price">52 ₪</span>
-                    </div>
-                    <div class="item-description">
-                        סלמון נא, אבוקדו ובטטה בטמפורה | במעטפת סלמון צרוב, ספייסי מיונז, קריספי בטטה ועירית
-                    </div>
-                </div>
-                
-                <div class="menu-item">
-                    <div class="item-header">
-                        <span class="item-name">קליפורניה</span>
-                        <span class="item-price">49 ₪</span>
-                    </div>
-                    <div class="item-description">
-                        סלמון, אבוקדו, גבינת שמנת, מלפפון ובצל ירוק | מצופה שומשום לבן ושחור
-                    </div>
-                </div>
-                
-                <div class="menu-item">
-                    <div class="item-header">
-                        <span class="item-name">גינת הגליל</span>
-                        <span class="item-price">44 ₪</span>
-                    </div>
-                    <div class="item-description">
-                        מלפפון, אבוקדו, בטטה ובצל ירוק | במעטפת סלק, טריאקי ועירית
-                    </div>
-                </div>
-                
-                <div class="menu-item">
-                    <div class="item-header">
-                        <span class="item-name">גולדן גארדן</span>
-                        <span class="item-price">47 ₪</span>
-                    </div>
-                    <div class="item-description">
-                        סלמון ובטטה | רול מטוגן בציפוי פריך של פנקו
-                    </div>
-                </div>
-                
-                <div class="menu-item">
-                    <div class="item-header">
-                        <span class="item-name">רולימון</span>
-                        <span class="item-price">55 ₪</span>
-                    </div>
-                    <div class="item-description">
-                        טונה, דג לבן ואבוקדו | במעטפת של דג לבן, לימון וצ׳ילי חריף
-                    </div>
-                </div>
-                
-                <div class="menu-item">
-                    <div class="item-header">
-                        <span class="item-name">טוגראשי פייר</span>
-                        <span class="item-price">53 ₪</span>
-                    </div>
-                    <div class="item-description">
-                        סלמון מתובל בטוגראשי, אבוקדו, בצל ירוק ומלפפון | ספייסי מיונז וקריספי בטטה
-                    </div>
-                </div>
-                
-                <div class="menu-item">
-                    <div class="item-header">
-                        <span class="item-name">טריפל סלמון</span>
-                        <span class="item-price">54 ₪</span>
-                    </div>
-                    <div class="item-description">
-                        סלמון נא, סלמון אפוי ואבוקדו במעטפת סלמון צרוב
-                    </div>
-                </div>
-                
-                <div class="menu-item">
-                    <div class="item-header">
-                        <span class="item-name">רול חרמון</span>
-                        <span class="item-price">49 ₪</span>
-                    </div>
-                    <div class="item-description">
-                        דג לבן נא בתיבול טוגראשי ואבוקדו | במעטפת דג לבן צרוב ושבבי פנקו
-                    </div>
+                <div class="item-description">
+                    סלמון נא, אבוקדו, מלפפון ועירית | במעטפת סלמון, טונה ואבוקדו
                 </div>
             </div>
             
-            <div class="category">
-                <div class="category-header">🍜 מוקפצים ותבשילים</div>
-                
-                <div class="menu-item">
-                    <div class="item-header">
-                        <span class="item-name">פאד תאי עוף/טופו</span>
-                        <span class="item-price">60 ₪</span>
-                    </div>
-                    <div class="item-description">
-                        אטריות אורז דקות עם ביצה, נבטים, בצל ירוק, גזר וכרוב
-                    </div>
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">טייפו</span>
+                    <span class="item-price">55 ₪</span>
                 </div>
-                
-                <div class="menu-item">
-                    <div class="item-header">
-                        <span class="item-name">פאד תאי בקר</span>
-                        <span class="item-price">63 ₪</span>
-                    </div>
-                    <div class="item-description">
-                        אטריות אורז דקות עם ביצה, נבטים, בצל ירוק, גזר וכרוב
-                    </div>
-                </div>
-                
-                <div class="menu-item">
-                    <div class="item-header">
-                        <span class="item-name">פאד סי יו עוף/טופו</span>
-                        <span class="item-price">62 ₪</span>
-                    </div>
-                    <div class="item-description">
-                        אטריות אורז רחבות עם עוף/טופו ברוקולי, גמבה, באק צ'וי, פטריות ובצל ירוק ברוטב סויה כהה
-                    </div>
-                </div>
-                
-                <div class="menu-item">
-                    <div class="item-header">
-                        <span class="item-name">פאד סי יו בקר</span>
-                        <span class="item-price">65 ₪</span>
-                    </div>
-                    <div class="item-description">
-                        אטריות אורז רחבות עם רצועות בקר, ברוקולי, גמבה, באק צ'וי, פטריות ובצל ירוק ברוטב סויה כהה
-                    </div>
-                </div>
-                
-                <div class="menu-item">
-                    <div class="item-header">
-                        <span class="item-name">פאד קפאו בקר</span>
-                        <span class="item-price">62 ₪</span>
-                    </div>
-                    <div class="item-description">
-                        בקר טחון מוקפץ עם בזיליקום תאילנדי, צ'ילי חריף, שום ובצל | מוגש עם אורז לבן וביצת עין
-                    </div>
-                </div>
-                
-                <div class="menu-item">
-                    <div class="item-header">
-                        <span class="item-name">פרייד רייס עוף/טופו</span>
-                        <span class="item-price">59 ₪</span>
-                    </div>
-                    <div class="item-description">
-                        אורז מוקפץ עם עוף, ביצה, אפונה, גזר ובצל ירוק
-                    </div>
-                </div>
-                
-                <div class="menu-item">
-                    <div class="item-header">
-                        <span class="item-name">תבשיל קארי הבית</span>
-                        <span class="item-price">65 ₪</span>
-                    </div>
-                    <div class="item-description">
-                        תבשיל על בסיס חלב קוקוס וקארי עם ירקות עונתיים, מוגש לצד אורז
-                    </div>
-                </div>
-                <div class="add-on">תוספת עוף/טופו - 10 ₪ | תוספת בקר - 12 ₪</div>
-                
-                <div class="menu-item">
-                    <div class="item-header">
-                        <span class="item-name">צ'אנג מאי</span>
-                        <span class="item-price">63 ₪</span>
-                    </div>
-                    <div class="item-description">
-                        אטריות ביצים מוקפצות ברוטב קארי אדום עם ירקות עונתיים
-                    </div>
-                </div>
-                <div class="add-on">תוספת עוף/טופו - 10 ₪ | תוספת בקר - 12 ₪</div>
-            </div>
-            
-            <div class="category">
-                <div class="category-header">🍽️ תפריט ילדים</div>
-                
-                <div class="menu-item">
-                    <div class="item-header">
-                        <span class="item-name">שניצלונים עם אורז / נודלס</span>
-                        <span class="item-price">44 ₪</span>
-                    </div>
-                    <div class="item-description">
-                        שניצלוני עוף פריכים מוגשים עם אורז לבן או נודלס
-                    </div>
+                <div class="item-description">
+                    סלמון נא, אבוקדו ובטטה בטמפורה | במעטפת סלמון צרוב, ספייסי מיונז, קריספי בטטה ועירית
                 </div>
             </div>
             
-            <footer>
-                <div class="leaf-decoration">🌱</div>
-                <p>Thai Garden - טעמים אותנטיים בגן תאילנדי</p>
-                <div class="leaf-decoration">🌱</div>
-            </footer>
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">קליפורניה</span>
+                    <span class="item-price">49 ₪</span>
+                </div>
+                <div class="item-description">
+                    סלמון, אבוקדו, גבינת שמנת, מלפפון ובצל ירוק | מצופה שומשום לבן ושחור
+                </div>
+            </div>
+            
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">גינת הגליל</span>
+                    <span class="item-price">44 ₪</span>
+                </div>
+                <div class="item-description">
+                    מלפפון, אבוקדו, בטטה ובצל ירוק | במעטפת סלק, טריאקי ועירית
+                </div>
+            </div>
+            
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">גולדן גארדן</span>
+                    <span class="item-price">51 ₪</span>
+                </div>
+                <div class="item-description">
+                    סלמון ובטטה | רול מטוגן בציפוי פריך של פנקו עם מיונז וואסבי
+                </div>
+            </div>
+            
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">רולימון</span>
+                    <span class="item-price">55 ₪</span>
+                </div>
+                <div class="item-description">
+                    טונה, דג לבן ואבוקדו | במעטפת של דג לבן, לימון וצ׳ילי חריף
+                </div>
+            </div>
+            
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">טוגראשי פייר</span>
+                    <span class="item-price">53 ₪</span>
+                </div>
+                <div class="item-description">
+                    סלמון מתובל בטוגראשי, בצל ירוק, מלפפון ואבוקדו | ספייסי מיונז וקריספי בטטה
+                </div>
+            </div>
+            
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">טריפל סלמון</span>
+                    <span class="item-price">57 ₪</span>
+                </div>
+                <div class="item-description">
+                    סלמון נא, סלמון אפוי ואבוקדו במעטפת סלמון צרוב
+                </div>
+            </div>
+            
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">רול חרמון</span>
+                    <span class="item-price">51 ₪</span>
+                </div>
+                <div class="item-description">
+                    דג לבן נא בתיבול טוגראשי ואבוקדו | במעטפת דג לבן צרוב, טריאקי ושבבי פנקו
+                </div>
+            </div>
         </div>
         
-        <!-- English Content -->
-        <div class="english-content">
-            <header>
-                <h1>Thai Garden</h1>
-                <p class="subtitle">A Thai Garden of Flavors</p>
-                <div class="leaf-decoration">🌿</div>
-            </header>
+        <div class="category">
+            <div class="category-header">🍜 מוקפצים ותבשילים</div>
             
-            <div class="category">
-                <div class="category-header">🍣 Sushi Special</div>
-                
-                <div class="warning">
-                    ⚠️ Please note: Tuna is not available daily. If necessary, it will be replaced with another raw fish.
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">פאד תאי ירקות / עוף | טופו / בקר</span>
+                    <span class="item-price">58 / 63 / 67 ₪</span>
                 </div>
-                
-                <!-- Example of 2 dishes in English -->
-                <div class="menu-item">
-                    <div class="item-header">
-                        <span class="item-name">Rainbow Roll</span>
-                        <span class="item-price">₪53</span>
-                    </div>
-                    <div class="item-description">
-                        Raw salmon, avocado, cucumber and chives | Wrapped in salmon, tuna and avocado
-                    </div>
-                </div>
-                
-                <div class="menu-item">
-                    <div class="item-header">
-                        <span class="item-name">Tipo Roll</span>
-                        <span class="item-price">₪52</span>
-                    </div>
-                    <div class="item-description">
-                        Raw salmon, avocado and sweet potato tempura | Wrapped in seared salmon, spicy mayo, crispy sweet potato and chives
-                    </div>
-                </div>
-                
-                <!-- Add more menu items here in English -->
-                <div class="menu-item" style="text-align: center; color: #888;">
-                    <p>... Continue translating the rest of the menu ...</p>
+                <div class="item-description">
+                    אטריות אורז מוקפצות עם ביצה טרופה, נבטים, בצל ירוק ובוטנים כתושים בצד
                 </div>
             </div>
             
-            <footer>
-                <div class="leaf-decoration">🌱</div>
-                <p>Thai Garden - Authentic Flavors in a Thai Garden</p>
-                <div class="leaf-decoration">🌱</div>
-            </footer>
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">פאד סי יו ירקות / עוף | טופו / בקר</span>
+                    <span class="item-price">60 / 65 / 69 ₪</span>
+                </div>
+                <div class="item-description">
+                    אטריות אורז רחבות עם ברוקולי, גמבה, באק צ'וי, פטריות ובצל ירוק ברוטב סויה כהה
+                </div>
+            </div>
+            
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">פאד קא פאו</span>
+                    <span class="item-price">64 ₪</span>
+                </div>
+                <div class="item-description">
+                    בקר טחון מוקפץ עם בזיליקום תאילנדי, צ'ילי חריף, שום ובצל | מוגש בתוספת ביצת עין על אורז מאודה
+                </div>
+            </div>
+            
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">פרייד רייס ירקות / עוף | טופו</span>
+                    <span class="item-price">54 / 59 ₪</span>
+                </div>
+                <div class="item-description">
+                    אורז מוקפץ עם עוף, ביצה, אפונה, גזר ובצל ירוק
+                </div>
+            </div>
+            
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">תבשיל קארי הבית ירקות / עוף / בקר</span>
+                    <span class="item-price">70 / 75 / 79 ₪</span>
+                </div>
+                <div class="item-description">
+                    תבשיל על בסיס חלב קוקוס וקארי עם ירקות עונתיים, מוגש לצד אורז
+                </div>
+            </div>
+            
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">צ'אנג מאי ירקות / עוף / בקר</span>
+                    <span class="item-price">68 / 73 / 77 ₪</span>
+                </div>
+                <div class="item-description">
+                    אטריות ביצים מוקפצות ברוטב קארי אדום עם ירקות עונתיים
+                </div>
+            </div>
         </div>
+        
+        <div class="category">
+            <div class="category-header">🍽️ תפריט ילדים</div>
+            
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">שניצלונים עם אורז / נודלס</span>
+                    <span class="item-price">49 ₪</span>
+                </div>
+                <div class="item-description">
+                    שניצלוני עוף פריכים מוגשים עם אורז לבן או נודלס
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <div class="leaf-decoration">🌱</div>
+            <p>Thai Garden - טעמים אותנטיים בגן תאילנדי</p>
+            <div class="leaf-decoration">🌱</div>
+        </footer>
     </div>
-    
-    <script>
-        function toggleLanguage() {
-            const body = document.body;
-            const isEnglish = body.classList.contains('english');
-            
-            if (isEnglish) {
-                // Switch to Hebrew
-                body.classList.remove('english');
-                document.documentElement.setAttribute('dir', 'rtl');
-                document.documentElement.setAttribute('lang', 'he');
-            } else {
-                // Switch to English
-                body.classList.add('english');
-                document.documentElement.setAttribute('dir', 'ltr');
-                document.documentElement.setAttribute('lang', 'en');
-            }
-        }
-        
-        // Remove the old setLanguage function
-        // function setLanguage(lang) { ... }
-    </script>
 </body>
 </html>
