@@ -261,6 +261,19 @@
             margin-top: 5px;
         }
         
+        /* Hide/show language switcher content */
+        .when-english {
+            display: none;
+        }
+        
+        body.english .when-hebrew {
+            display: none;
+        }
+        
+        body.english .when-english {
+            display: inline;
+        }
+        
         footer {
             text-align: center;
             margin-top: 40px;
@@ -272,6 +285,60 @@
             display: inline-block;
             animation: sway 4s ease-in-out infinite;
             margin: 0 10px;
+        }
+        
+        /* Language switcher */
+        .language-switcher {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+        }
+        
+        .lang-btn {
+            padding: 12px 20px;
+            border: none;
+            background: white;
+            color: #2e7d32;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 24px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .lang-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .lang-btn:active {
+            transform: translateY(0);
+        }
+        
+        /* Hide/show based on language */
+        .hebrew-content {
+            display: block;
+        }
+        
+        .english-content {
+            display: none;
+        }
+        
+        body.english .hebrew-content {
+            display: none;
+        }
+        
+        body.english .english-content {
+            display: block;
+        }
+        
+        body.english {
+            direction: ltr;
         }
         
         @keyframes fadeIn {
@@ -360,17 +427,27 @@
 <body>
     <div class="bamboo-bg"></div>
     
+    <!-- Language Switcher -->
+    <div class="language-switcher">
+        <button class="lang-btn" onclick="toggleLanguage()">
+            <span class="when-hebrew">🇺🇸</span>
+            <span class="when-english">🇮🇱</span>
+        </button>
+    </div>
+    
     <div class="container">
-        <header>
-            <h1>Thai Garden</h1>
-            <p class="subtitle">הטעמים של בנגקוק, הנוף של הגליל</p>
-        </header>
-        
-        <!-- Tab Navigation -->
-        <div class="tab-nav">
-            <button class="tab-btn active" onclick="showTab('food')">🍴 אוכל</button>
-            <button class="tab-btn" onclick="showTab('drinks')">🥤 שתייה</button>
-        </div>
+        <!-- Hebrew Content -->
+        <div class="hebrew-content">
+            <header>
+                <h1>Thai Garden</h1>
+                <p class="subtitle">הטעמים של בנגקוק, הנוף של הגליל</p>
+            </header>
+            
+            <!-- Tab Navigation -->
+            <div class="tab-nav">
+                <button class="tab-btn active" onclick="showTab('food')">🍴 אוכל</button>
+                <button class="tab-btn" onclick="showTab('drinks')">🥤 שתייה</button>
+            </div>
         
         <!-- Food Tab -->
         <div id="food" class="tab-content active">
@@ -602,15 +679,284 @@
                         <span class="item-price">42 ₪</span>
                     </div>
                     
+                    <div class="drink-item">
+                        <div>
+                            <div class="drink-name">Tropical Sunset</div>
+                            <div class="drink-description">ברד טרופי של פסיפלורה ואננס על בסיס ג'ין</div>
+                        </div>
+                        <span class="item-price">42 ₪</span>
+                    </div>
                 </div>
             </div>
         </div>
         
-        <footer>
-            <div class="leaf-decoration">🌱</div>
-            <p>Thai Garden - הטעמים של בנגקוק, הנוף של הגליל</p>
-            <div class="leaf-decoration">🌱</div>
-        </footer>
+            <footer>
+                <div class="leaf-decoration">🌱</div>
+                <p>Thai Garden - הטעמים של בנגקוק, הנוף של הגליל</p>
+                <div class="leaf-decoration">🌱</div>
+            </footer>
+        </div>
+        
+        <!-- English Content -->
+        <div class="english-content">
+            <header>
+                <h1>Thai Garden</h1>
+                <p class="subtitle">Bangkok's Flavors, Galilee's Views</p>
+            </header>
+            
+            <!-- Tab Navigation -->
+            <div class="tab-nav">
+                <button class="tab-btn active" onclick="showTab('food-en')">🍴 Food</button>
+                <button class="tab-btn" onclick="showTab('drinks-en')">🥤 Drinks</button>
+            </div>
+            
+            <!-- Food Tab English -->
+            <div id="food-en" class="tab-content active">
+                <div class="category">
+                    <div class="category-header">🍣 Special Sushi Rolls</div>
+                    
+                    <div class="warning">
+                        ⚠️ Note: Tuna is not available daily. If needed, it will be replaced with another raw fish.
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <span class="item-name">Thai Pho Roll</span>
+                            <span class="item-price">₪59</span>
+                        </div>
+                        <div class="item-description">
+                            Raw salmon, avocado, tempura sweet potato | Wrapped in seared salmon, spicy mayo, crispy sweet potato & tempura crunch
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <span class="item-name">California Roll</span>
+                            <span class="item-price">₪52</span>
+                        </div>
+                        <div class="item-description">
+                            Salmon, avocado, cream cheese, cucumber, scallion | Coated with white and black sesame, wasabi mayo drizzle
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <span class="item-name">🌿 Galilee Garden Roll</span>
+                            <span class="item-price">₪46</span>
+                        </div>
+                        <div class="item-description">
+                            Cucumber, avocado, sweet potato, scallion | Wrapped in beetroot, teriyaki, and chives
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <span class="item-name">Golden Garden Roll</span>
+                            <span class="item-price">₪53</span>
+                        </div>
+                        <div class="item-description">
+                            Salmon and sweet potato | Deep-fried with crispy panko, topped with wasabi mayo
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <span class="item-name">Rainbow Roll</span>
+                            <span class="item-price">₪61</span>
+                        </div>
+                        <div class="item-description">
+                            Raw salmon, cucumber, chives | Wrapped with tuna, salmon, and avocado
+                        </div>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <span class="item-name">🌶️ Lemon Roll</span>
+                            <span class="item-price">₪57</span>
+                        </div>
+                        <div class="item-description">
+                            Tuna, white fish, avocado | Wrapped in white fish with lemon and hot chili
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <span class="item-name">🌶️ Togarashi Fire Roll</span>
+                            <span class="item-price">₪55</span>
+                        </div>
+                        <div class="item-description">
+                            Togarashi-seasoned salmon, scallion, cucumber, avocado | Spicy mayo, crispy sweet potato, and tempura crunch
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <span class="item-name">Triple Salmon Roll</span>
+                            <span class="item-price">₪59</span>
+                        </div>
+                        <div class="item-description">
+                            Raw salmon, baked salmon, and avocado | Wrapped in seared salmon and toasted almonds
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <span class="item-name">Mount Hermon Roll</span>
+                            <span class="item-price">₪55</span>
+                        </div>
+                        <div class="item-description">
+                            White fish seasoned with togarashi, avocado | Wrapped in seared white fish, teriyaki, and panko flakes
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="category">
+                    <div class="category-header">🍜 Stir-Fries & Dishes</div>
+                    
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <span class="item-name">🌿 Pad Thai (Vegetables / Chicken|Tofu / Beef)</span>
+                            <span class="item-price">₪58 / ₪63 / ₪67</span>
+                        </div>
+                        <div class="item-description">
+                            Stir-fried rice noodles with scrambled egg, cabbage, carrots, sprouts, and scallions | Served with crushed peanuts on the side
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <span class="item-name">Pad See Ew (Vegetables / Chicken|Tofu / Beef)</span>
+                            <span class="item-price">₪60 / ₪65 / ₪69</span>
+                        </div>
+                        <div class="item-description">
+                            Stir-fried wide rice noodles with broccoli, bell pepper, bok choy, mushrooms, and scallions | In dark soy sauce
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <span class="item-name">🌶️ Pad Ka Pao</span>
+                            <span class="item-price">₪64</span>
+                        </div>
+                        <div class="item-description">
+                            Ground beef stir-fried with Thai basil, chili, garlic, and onion | Served with steamed rice and a fried egg
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <span class="item-name">Fried Rice (Vegetables / Chicken|Tofu)</span>
+                            <span class="item-price">₪54 / ₪59</span>
+                        </div>
+                        <div class="item-description">
+                            Stir-fried jasmine rice with egg, peas, carrots, and scallions
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <span class="item-name">🌿🌶️ Signature Thai Curry (Vegetables / Chicken / Beef)</span>
+                            <span class="item-price">₪70 / ₪75 / ₪79</span>
+                        </div>
+                        <div class="item-description">
+                            A rich coconut milk curry with seasonal vegetables | Served with jasmine rice
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <span class="item-name">🌿🌶️ Chiang Mai Noodles (Vegetables / Chicken / Beef)</span>
+                            <span class="item-price">₪68 / ₪73 / ₪77</span>
+                        </div>
+                        <div class="item-description">
+                            Egg noodles stir-fried in red curry sauce with seasonal vegetables
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="category">
+                    <div class="category-header">👧 Kids Menu</div>
+                    
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <span class="item-name">Crispy Chicken Schnitzels with Rice / Noodles</span>
+                            <span class="item-price">₪49</span>
+                        </div>
+                        <div class="item-description">
+                            Served with white rice or noodles
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Drinks Tab English -->
+            <div id="drinks-en" class="tab-content">
+                <div class="category">
+                    <div class="category-header">🥤 Drinks</div>
+                    
+                    <div class="drinks-grid">
+                        <div class="drink-item">
+                            <div>
+                                <div class="drink-name">Soft Drinks</div>
+                                <div class="drink-description">Coca-Cola, Coca-Cola Zero, Sprite, grapefruit, orange, grape, energy drink, soda</div>
+                            </div>
+                            <span class="item-price">₪12</span>
+                        </div>
+                        
+                        <div class="drink-item">
+                            <div>
+                                <div class="drink-name">Water</div>
+                            </div>
+                            <span class="item-price">₪10</span>
+                        </div>
+                        
+                        <div class="drink-item">
+                            <div>
+                                <div class="drink-name">Beer</div>
+                                <div class="drink-description">Heineken, Goldstar, Obolon</div>
+                            </div>
+                            <span class="item-price">₪27</span>
+                        </div>
+                        
+                        <div class="drink-item">
+                            <div>
+                                <div class="drink-name">Wine Carafe (500 ml)</div>
+                                <div class="drink-description">White / Red</div>
+                            </div>
+                            <span class="item-price">₪49</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="category">
+                    <div class="category-header">🍹 Cocktails</div>
+                    
+                    <div class="drinks-grid">
+                        <div class="drink-item">
+                            <div>
+                                <div class="drink-name">Garden Breeze</div>
+                                <div class="drink-description">Frozen mojito with white rum, lime, and mint</div>
+                            </div>
+                            <span class="item-price">₪42</span>
+                        </div>
+                        
+                        <div class="drink-item">
+                            <div>
+                                <div class="drink-name">Tropical Sunset</div>
+                                <div class="drink-description">Tropical slush of passionfruit and pineapple with gin</div>
+                            </div>
+                            <span class="item-price">₪42</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <footer>
+                <div class="leaf-decoration">🌱</div>
+                <p>Thai Garden - Bangkok's Flavors, Galilee's Views</p>
+                <div class="leaf-decoration">🌱</div>
+            </footer>
+        </div>
     </div>
     
     <script>
@@ -626,8 +972,48 @@
             // Show selected tab
             document.getElementById(tabName).classList.add('active');
             
-            // Add active class to clicked button
-            event.target.classList.add('active');
+            // Add active class to the correct button
+            if (tabName === 'food' || tabName === 'food-en') {
+                const foodBtn = document.querySelector(`.${tabName.includes('en') ? 'english' : 'hebrew'}-content .tab-btn:first-child`);
+                if (foodBtn) foodBtn.classList.add('active');
+            } else {
+                const drinksBtn = document.querySelector(`.${tabName.includes('en') ? 'english' : 'hebrew'}-content .tab-btn:last-child`);
+                if (drinksBtn) drinksBtn.classList.add('active');
+            }
+        }
+        
+        function toggleLanguage() {
+            const body = document.body;
+            const isEnglish = body.classList.contains('english');
+            
+            // Find which tab is currently active
+            let currentTabType = 'food'; // default
+            
+            if (isEnglish) {
+                // Currently in English, check which English tab is active
+                const activeEnglishTab = document.querySelector('#food-en.active');
+                currentTabType = activeEnglishTab ? 'food' : 'drinks';
+                
+                // Switch to Hebrew
+                body.classList.remove('english');
+                document.documentElement.setAttribute('dir', 'rtl');
+                document.documentElement.setAttribute('lang', 'he');
+                
+                // Show the corresponding Hebrew tab
+                showTab(currentTabType);
+            } else {
+                // Currently in Hebrew, check which Hebrew tab is active
+                const activeHebrewTab = document.querySelector('#food.active');
+                currentTabType = activeHebrewTab ? 'food' : 'drinks';
+                
+                // Switch to English
+                body.classList.add('english');
+                document.documentElement.setAttribute('dir', 'ltr');
+                document.documentElement.setAttribute('lang', 'en');
+                
+                // Show the corresponding English tab
+                showTab(currentTabType + '-en');
+            }
         }
     </script>
 </body>
