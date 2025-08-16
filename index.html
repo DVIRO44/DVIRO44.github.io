@@ -16,6 +16,7 @@
             background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
             min-height: 100vh;
             direction: rtl;
+            scroll-behavior: smooth;
         }
         
         .bamboo-bg {
@@ -371,6 +372,14 @@
             fill: white;
         }
         
+        /* Quick Navigation Links */
+        .quick-nav-link:hover {
+            background: #66bb6a !important;
+            color: white !important;
+            transform: translateY(-2px);
+            box-shadow: 0 3px 10px rgba(102, 187, 106, 0.3);
+        }
+        
         .contact-label {
             font-size: 1.2em;
             color: #666;
@@ -556,8 +565,16 @@
         
         <!-- Food Tab -->
         <div id="food" class="tab-content active">
-            <div class="category">
-                <div class="category-header">🥟 מנות ראשונות</div>
+            <!-- Quick Navigation Menu -->
+            <div class="quick-nav" style="background: white; padding: 20px; border-radius: 15px; margin-bottom: 30px; box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);">
+                <div class="quick-nav-links" style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
+                    <a href="#appetizers" class="quick-nav-link" style="padding: 8px 16px; background: #e8f5e9; color: #2e7d32; text-decoration: none; border-radius: 20px; font-size: 0.9em; transition: all 0.3s ease;">🥟 ראשונות</a>
+                    <a href="#sushi-special" class="quick-nav-link" style="padding: 8px 16px; background: #e8f5e9; color: #2e7d32; text-decoration: none; border-radius: 20px; font-size: 0.9em; transition: all 0.3s ease;">🍣 סושי</a>
+                    <a href="#stir-fries" class="quick-nav-link" style="padding: 8px 16px; background: #e8f5e9; color: #2e7d32; text-decoration: none; border-radius: 20px; font-size: 0.9em; transition: all 0.3s ease;">🍜 מוקפצים ותבשילים</a>
+                </div>
+            </div>
+            <div class="category" id="appetizers">
+                <div class="category-header">🥟 ראשונות</div>
                 
                 <div class="menu-item">
                     <div class="item-header">
@@ -569,15 +586,6 @@
                     </div>
                 </div>
                 
-                <div class="menu-item">
-                    <div class="item-header">
-                        <span class="item-name">גיוזה שיטאקי</span>
-                        <span class="item-price">₪30 / ₪44</span>
-                    </div>
-                    <div class="item-description">
-                        גיוזה ממולאת בפטריות שיטאקי | 2 יח / 4 יח
-                    </div>
-                </div>
                 
                 <div class="menu-item">
                     <div class="item-header">
@@ -612,9 +620,9 @@
                 <div class="menu-item">
                     <div class="item-header">
                         <span class="item-name">גיוזה פטריות</span>
-                        <span class="item-price">₪30 / ₪46</span>
+                        <span class="item-price">₪30 / ₪44</span>
                     </div>
-                    <div class class="item-description">
+                    <div class="item-description">
                         גיוזה ממולאת בפטריות | 2 יח / 4 יח
                     </div>
                 </div>
@@ -631,17 +639,17 @@
                 
                 <div class="menu-item">
                     <div class="item-header">
-                        <span class="item-name">באן בשר</span>
+                        <span class="item-name">באן אסאדו</span>
                         <span class="item-price">₪44 / ₪75</span>
                     </div>
                     <div class="item-description">
-                        באן ממולא בבשר | 2 יח / 4 יח
+                        באן ממולא באסאדו | 2 יח / 4 יח
                     </div>
                 </div>
             </div>
             
-            <div class="category">
-                <div class="category-header">🍣 סושי ספיישל</div>
+            <div class="category" id="sushi-special">
+                <div class="category-header">🍣 סושי</div>
                 
                 <div class="warning">
                     ⚠️ לתשומת ליבכם: הטונה לא זמינה מדי יום. במידת הצורך, יוחלף בדג נא אחר.
@@ -742,7 +750,7 @@
                 </div>
             </div>
             
-            <div class="category">
+            <div class="category" id="classics">
                 <div class="category-header">🍣 קלאסיקות</div>
                 
                 <div class="menu-item">
@@ -776,7 +784,7 @@
                 </div>
             </div>  
             
-            <div class="category">
+            <div class="category" id="stir-fries">
                 <div class="category-header">🍜 מוקפצים ותבשילים</div>
                 
                 <div class="menu-item">
@@ -840,7 +848,7 @@
                 </div>
             </div>
             
-            <div class="category">
+            <div class="category" id="kids-menu">
                 <div class="category-header">🍽️ תפריט ילדים</div>
                 
                 <div class="menu-item">
@@ -854,7 +862,7 @@
                 </div>
             </div>
             
-            <div class="category">
+            <div class="category" id="desserts">
                 <div class="category-header">קינוחים</div>
                 
                 <div class="menu-item">
@@ -1005,7 +1013,16 @@
             
             <!-- Food Tab English -->
             <div id="food-en" class="tab-content active">
-                <div class="category">
+                <!-- Quick Navigation Menu -->
+                <div class="quick-nav" style="background: white; padding: 20px; border-radius: 15px; margin-bottom: 30px; box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);">
+                    <div class="quick-nav-links" style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
+                        <a href="#appetizers-en" class="quick-nav-link" style="padding: 8px 16px; background: #e8f5e9; color: #2e7d32; text-decoration: none; border-radius: 20px; font-size: 0.9em; transition: all 0.3s ease;">🥟 Appetizers</a>
+                        <a href="#sushi-special-en" class="quick-nav-link" style="padding: 8px 16px; background: #e8f5e9; color: #2e7d32; text-decoration: none; border-radius: 20px; font-size: 0.9em; transition: all 0.3s ease;">🍣 Sushi</a>
+                        <a href="#stir-fries-en" class="quick-nav-link" style="padding: 8px 16px; background: #e8f5e9; color: #2e7d32; text-decoration: none; border-radius: 20px; font-size: 0.9em; transition: all 0.3s ease;">🍜 Stir-Fries & Dishes</a>
+                    </div>
+                </div>
+                
+                <div class="category" id="appetizers-en">
                     <div class="category-header">🥟 Appetizers</div>
                     
                     <div class="menu-item">
@@ -1015,16 +1032,6 @@
                         </div>
                                             <div class="item-description">
                         Beef-filled gyoza dumplings | 2 pcs / 4 pcs
-                    </div>
-                </div>
-                
-                <div class="menu-item">
-                    <div class="item-header">
-                        <span class="item-name">Shiitake Gyoza</span>
-                        <span class="item-price">₪30 / ₪44</span>
-                    </div>
-                    <div class="item-description">
-                        Shiitake mushroom-filled gyoza | 2 pcs / 4 pcs
                     </div>
                 </div>
                 
@@ -1061,7 +1068,7 @@
                 <div class="menu-item">
                     <div class="item-header">
                         <span class="item-name">Mushroom Gyoza</span>
-                        <span class="item-price">₪30 / ₪46</span>
+                        <span class="item-price">₪30 / ₪44</span>
                     </div>
                     <div class="item-description">
                         Mushroom-filled gyoza | 2 pcs / 4 pcs
@@ -1080,17 +1087,17 @@
                 
                 <div class="menu-item">
                     <div class="item-header">
-                        <span class="item-name">Beef Bao Bun</span>
+                        <span class="item-name">Asado Bao Bun</span>
                         <span class="item-price">₪44 / ₪75</span>
                     </div>
                     <div class="item-description">
-                        Beef-filled bao bun | 2 pcs / 4 pcs
+                        Asado-filled bao bun | 2 pcs / 4 pcs
                     </div>
                 </div>
                 </div>
                 
-                <div class="category">
-                    <div class="category-header">🍣 Special Sushi Rolls</div>
+                <div class="category" id="sushi-special-en">
+                    <div class="category-header">🍣 Sushi</div>
                     
                     <div class="warning">
                         ⚠️ Note: Tuna is not available daily. If needed, it will be replaced with another raw fish.
@@ -1191,7 +1198,7 @@
                     </div>
                 </div>
                 
-                <div class="category">
+                <div class="category" id="classics-en">
                     <div class="category-header">🍣 Classics</div>
                     
                     <div class="menu-item">
@@ -1225,7 +1232,7 @@
                     </div>
                 </div>
                 
-                <div class="category">
+                <div class="category" id="stir-fries-en">
                     <div class="category-header">🍜 Stir-Fries & Dishes</div>
                     
                     <div class="menu-item">
@@ -1289,7 +1296,7 @@
                     </div>
                 </div>
                 
-                <div class="category">
+                <div class="category" id="kids-menu-en">
                     <div class="category-header">👧 Kids Menu</div>
                     
                     <div class="menu-item">
@@ -1303,7 +1310,7 @@
                     </div>
                 </div>
                 
-                <div class="category">
+                <div class="category" id="desserts-en">
                     <div class="category-header">Desserts</div>
                     
                     <div class="menu-item">
