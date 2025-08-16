@@ -516,6 +516,36 @@
                 font-size: 0.9em;
                 padding: 10px 15px;
             }
+            
+            /* Mobile social links */
+            .social-links {
+                gap: 15px;
+            }
+            
+            .social-link {
+                width: 45px;
+                height: 45px;
+            }
+            
+            .social-link svg,
+            .social-link img {
+                width: 24px;
+                height: 24px;
+            }
+            
+            /* Mobile quick navigation */
+            .quick-nav {
+                padding: 15px;
+            }
+            
+            .quick-nav-links {
+                gap: 8px;
+            }
+            
+            .quick-nav-link {
+                padding: 6px 12px !important;
+                font-size: 0.8em !important;
+            }
         }
         
         @media (max-width: 400px) {
@@ -534,6 +564,21 @@
             
             h1 {
                 font-size: 1.8em;
+            }
+            
+            /* Extra small mobile */
+            .social-links {
+                gap: 12px;
+            }
+            
+            .social-link {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .quick-nav-link {
+                padding: 5px 10px !important;
+                font-size: 0.75em !important;
             }
         }
     </style>
@@ -1496,6 +1541,40 @@
             
             // Show initial tab (Hebrew food tab)
             showTab('food');
+            
+            // Handle quick navigation links
+            const quickNavLinks = document.querySelectorAll('.quick-nav-link');
+            quickNavLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Remove active class from all links
+                    quickNavLinks.forEach(l => l.style.background = '#e8f5e9');
+                    quickNavLinks.forEach(l => l.style.color = '#2e7d32');
+                    
+                    // Add active class to clicked link temporarily
+                    this.style.background = '#66bb6a';
+                    this.style.color = 'white';
+                    
+                    // Get target section
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetSection = document.getElementById(targetId);
+                    
+                    if (targetSection) {
+                        // Smooth scroll to target
+                        targetSection.scrollIntoView({ 
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                        
+                        // Remove active class after animation
+                        setTimeout(() => {
+                            this.style.background = '#e8f5e9';
+                            this.style.color = '#2e7d32';
+                        }, 1000);
+                    }
+                });
+            });
         });
     </script>
 </body>
