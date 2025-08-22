@@ -533,6 +533,15 @@
                 height: 24px;
             }
             
+            /* Mobile welcome message */
+            .welcome-message h2 {
+                font-size: 1.2em !important;
+            }
+            
+            .welcome-message p {
+                font-size: 0.95em !important;
+            }
+            
             /* Mobile quick navigation */
             .quick-nav {
                 padding: 15px;
@@ -580,6 +589,15 @@
                 padding: 5px 10px !important;
                 font-size: 0.75em !important;
             }
+            
+            /* Extra small mobile welcome message */
+            .welcome-message h2 {
+                font-size: 1.1em !important;
+            }
+            
+            .welcome-message p {
+                font-size: 0.9em !important;
+            }
         }
     </style>
 </head>
@@ -602,22 +620,32 @@
                 <p class="subtitle">הטעמים של בנגקוק, הנוף של הגליל</p>
             </header>
             
+            <!-- Welcome Message -->
+            <div class="welcome-message" style="background: linear-gradient(135deg, #ffffff 0%, #f8fdf8 100%); padding: 20px; border-radius: 15px; margin-bottom: 20px; box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08); position: relative; overflow: hidden;">
+                <div style="position: absolute; top: -8px; right: -8px; font-size: 30px; opacity: 0.1;">🌿</div>
+                <h2 style="color: #2e7d32; font-size: 1.2em; margin-bottom: 12px; text-align: center; font-weight: 600;">ברוכים הבאים ל־Thai Garden 🌿</h2>
+                <p style="color: #558b2f; font-size: 1em; margin-bottom: 8px; text-align: center; line-height: 1.4;">חזרנו לפעול אחרי פינוי מהצפון – תודה שאתם פה ותומכים! ❤️</p>
+                <p style="color: #666; font-size: 0.9em; text-align: center; line-height: 1.5; margin: 0;">זה פוד טראק, לא מסעדה – המנות יוצאות אחת-אחת, ויש המתנה. אז קחו אוויר, חייכו, ותנו לנו לפנק אתכם</p>
+            </div>
+            
             <!-- Tab Navigation -->
             <div class="tab-nav">
                 <button class="tab-btn active" onclick="showTab('food')">🍴 אוכל</button>
                 <button class="tab-btn" onclick="showTab('drinks')">🥤 שתייה</button>
             </div>
+            
+            <!-- Quick Navigation Menu -->
+            <div class="quick-nav" style="background: white; padding: 15px; border-radius: 15px; margin-bottom: 20px; box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);">
+                <div class="quick-nav-links" style="display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;">
+                    <a href="#appetizers" class="quick-nav-link" style="padding: 6px 12px; background: #e8f5e9; color: #2e7d32; text-decoration: none; border-radius: 15px; font-size: 0.85em; transition: all 0.3s ease;">🥟 ראשונות</a>
+                    <a href="#sushi-special" class="quick-nav-link" style="padding: 6px 12px; background: #e8f5e9; color: #2e7d32; text-decoration: none; border-radius: 15px; font-size: 0.85em; transition: all 0.3s ease;">🍣 סושי</a>
+                    <a href="#stir-fries" class="quick-nav-link" style="padding: 6px 12px; background: #e8f5e9; color: #2e7d32; text-decoration: none; border-radius: 15px; font-size: 0.85em; transition: all 0.3s ease;">🍜 מוקפצים ותבשילים</a>
+                </div>
+            </div>
         
         <!-- Food Tab -->
         <div id="food" class="tab-content active">
-            <!-- Quick Navigation Menu -->
-            <div class="quick-nav" style="background: white; padding: 20px; border-radius: 15px; margin-bottom: 30px; box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);">
-                <div class="quick-nav-links" style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
-                    <a href="#appetizers" class="quick-nav-link" style="padding: 8px 16px; background: #e8f5e9; color: #2e7d32; text-decoration: none; border-radius: 20px; font-size: 0.9em; transition: all 0.3s ease;">🥟 ראשונות</a>
-                    <a href="#sushi-special" class="quick-nav-link" style="padding: 8px 16px; background: #e8f5e9; color: #2e7d32; text-decoration: none; border-radius: 20px; font-size: 0.9em; transition: all 0.3s ease;">🍣 סושי</a>
-                    <a href="#stir-fries" class="quick-nav-link" style="padding: 8px 16px; background: #e8f5e9; color: #2e7d32; text-decoration: none; border-radius: 20px; font-size: 0.9em; transition: all 0.3s ease;">🍜 מוקפצים ותבשילים</a>
-                </div>
-            </div>
+
             <div class="category" id="appetizers">
                 <div class="category-header">🥟 ראשונות</div>
                 
@@ -1045,26 +1073,42 @@
         
         <!-- English Content -->
         <div class="english-content">
-            <header>
-                <h1>Thai Garden</h1>
-                <p class="subtitle">Bangkok's Flavors, Galilee's Views</p>
-            </header>
-            
-            <!-- Tab Navigation -->
-            <div class="tab-nav">
-                <button class="tab-btn active" onclick="showTab('food-en')">🍴 Food</button>
-                <button class="tab-btn" onclick="showTab('drinks-en')">🥤 Drinks</button>
-            </div>
-            
-            <!-- Food Tab English -->
-            <div id="food-en" class="tab-content active">
+                            <header>
+                    <h1>Thai Garden</h1>
+                    <p class="subtitle">Bangkok's Flavors, Galilee's Views</p>
+                </header>
+                
+                <!-- Welcome Message -->
+                <div class="welcome-message" style="background: linear-gradient(135deg, #ffffff 0%, #f8fdf8 100%); padding: 20px; border-radius: 15px; margin-bottom: 20px; box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08); position: relative; overflow: hidden;">
+                    <div style="position: absolute; top: -8px; right: -8px; font-size: 30px; opacity: 0.1;">🌿</div>
+                    <h2 style="color: #2e7d32; font-size: 1.2em; margin-bottom: 12px; text-align: center; font-weight: 600;">Welcome to Thai Garden 🌿</h2>
+                    <p style="color: #558b2f; font-size: 1em; margin-bottom: 8px; text-align: center; line-height: 1.4;">We're back in business after evacuation from the North – thank you for being here and supporting us! ❤️</p>
+                    <p style="color: #666; font-size: 0.9em; text-align: center; line-height: 1.5; margin: 0;">This is a food truck, not a restaurant – dishes come out one by one, and there's a wait. So take a breath, smile, and let us spoil you</p>
+                </div>
+                
+                                <!-- Tab Navigation -->
+                <div class="tab-nav">
+                    <button class="tab-btn active" onclick="showTab('food-en')">🍴 Food</button>
+                    <button class="tab-btn" onclick="showTab('drinks-en')">🥤 Drinks</button>
+                </div>
+                
                 <!-- Quick Navigation Menu -->
-                <div class="quick-nav" style="background: white; padding: 20px; border-radius: 15px; margin-bottom: 30px; box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);">
-                    <div class="quick-nav-links" style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
-                        <a href="#appetizers-en" class="quick-nav-link" style="padding: 8px 16px; background: #e8f5e9; color: #2e7d32; text-decoration: none; border-radius: 20px; font-size: 0.9em; transition: all 0.3s ease;">🥟 Appetizers</a>
-                        <a href="#sushi-special-en" class="quick-nav-link" style="padding: 8px 16px; background: #e8f5e9; color: #2e7d32; text-decoration: none; border-radius: 20px; font-size: 0.9em; transition: all 0.3s ease;">🍣 Sushi</a>
-                        <a href="#stir-fries-en" class="quick-nav-link" style="padding: 8px 16px; background: #e8f5e9; color: #2e7d32; text-decoration: none; border-radius: 20px; font-size: 0.9em; transition: all 0.3s ease;">🍜 Stir-Fries & Dishes</a>
+                <div class="quick-nav" style="background: white; padding: 15px; border-radius: 15px; margin-bottom: 20px; box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);">
+                    <div class="quick-nav-links" style="display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;">
+                        <a href="#appetizers-en" class="quick-nav-link" style="padding: 6px 12px; background: #e8f5e9; color: #2e7d32; text-decoration: none; border-radius: 15px; font-size: 0.85em; transition: all 0.3s ease;">🥟 Appetizers</a>
+                        <a href="#sushi-special-en" class="quick-nav-link" style="padding: 6px 12px; background: #e8f5e9; color: #2e7d32; text-decoration: none; border-radius: 15px; font-size: 0.85em; transition: all 0.3s ease;">🍣 Sushi</a>
+                        <a href="#stir-fries-en" class="quick-nav-link" style="padding: 6px 12px; background: #e8f5e9; color: #2e7d32; text-decoration: none; border-radius: 15px; font-size: 0.85em; transition: all 0.3s ease;">🍜 Stir-Fries & Dishes</a>
                     </div>
+                </div>
+                
+                <!-- Food Tab English -->
+            <div id="food-en" class="tab-content active">
+                <!-- Welcome Message -->
+                <div class="welcome-message" style="background: linear-gradient(135deg, #ffffff 0%, #f8fdf8 100%); padding: 25px; border-radius: 20px; margin-bottom: 30px; box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08); position: relative; overflow: hidden;">
+                    <div style="position: absolute; top: -10px; right: -10px; font-size: 40px; opacity: 0.1;">🌿</div>
+                    <h2 style="color: #2e7d32; font-size: 1.4em; margin-bottom: 15px; text-align: center; font-weight: 600;">Welcome to Thai Garden 🌿</h2>
+                    <p style="color: #558b2f; font-size: 1.1em; margin-bottom: 12px; text-align: center; line-height: 1.5;">We're back in business after evacuation from the North – thank you for being here and supporting us! ❤️</p>
+                    <p style="color: #666; font-size: 1em; text-align: center; line-height: 1.6; margin: 0;">This is a food truck, not a restaurant – dishes come out one by one, and there's a wait. So take a breath, smile, and let us spoil you</p>
                 </div>
                 
                 <div class="category" id="appetizers-en">
