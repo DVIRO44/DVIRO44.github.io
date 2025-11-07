@@ -144,6 +144,59 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
         }
         
+        .sushi-section {
+            background: white;
+            margin-bottom: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+        
+        .sushi-section .category {
+            background: transparent;
+        }
+        
+        .sub-category-header {
+            background: transparent;
+            color: #2e7d32;
+            padding: 20px 20px 15px 20px;
+            font-size: 1.15em;
+            font-weight: 700;
+            position: relative;
+            margin: 0;
+            text-align: center;
+        }
+        
+        #classics .sub-category-header,
+        #classics-en .sub-category-header {
+            margin-top: 30px;
+            padding-top: 30px;
+        }
+        
+        #classics .sub-category-header::before,
+        #classics-en .sub-category-header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #e8f5e9 0%, #a5d6a7 30%, #81c784 50%, #a5d6a7 70%, #e8f5e9 100%);
+            box-shadow: 0 2px 4px rgba(102, 187, 106, 0.15);
+        }
+        
+        .sub-category-header::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            right: 50%;
+            transform: translateX(50%);
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #66bb6a, transparent);
+            border-radius: 2px;
+        }
+        
         .category-header {
             background: linear-gradient(135deg, #81c784 0%, #66bb6a 100%);
             color: white;
@@ -810,8 +863,11 @@
                 </div>
             </div>
             
-            <div class="category" id="sushi-special">
+            <div class="sushi-section">
                 <div class="category-header">🍣 סושי</div>
+                
+                <div class="category" id="sushi-special" style="margin-bottom: 0; border-radius: 0; box-shadow: none;">
+                    <div class="sub-category-header">ספיישלים</div>
                 
                 <div class="warning">
                     💡 לתשומת ליבכם: הטונה לא זמינה מדי יום. במידת הצורך, יוחלף בדג נא אחר.
@@ -970,10 +1026,10 @@
                         סלמון אפוי, בטטה וגבינת שמנת | קריספי בטטה ושבבי בוטנים
                     </div>
                 </div> -->
-            </div>
-            
-            <div class="category" id="classics">
-                <div class="category-header">🍣 קלאסיקות</div>
+                </div>
+                
+                <div class="category" id="classics" style="margin-bottom: 0; border-radius: 0; margin-top: 0;">
+                    <div class="sub-category-header">קלאסיקות</div>
                 
                 <div class="warning">
                     💡 החלפה לטונה בתוספת ₪10
@@ -1017,6 +1073,7 @@
                     <div class="item-description">
                         אצה עטופה באורז במילוי ירקות ודג: סלמון / דג לבן
                     </div>
+                </div>
                 </div>
             </div>   
             
@@ -1480,8 +1537,11 @@
                     </div>
                 </div>
                 
-                <div class="category" id="sushi-special-en">
+                <div class="sushi-section">
                     <div class="category-header">🍣 Sushi</div>
+                    
+                    <div class="category" id="sushi-special-en" style="margin-bottom: 0; border-radius: 0; box-shadow: none;">
+                        <div class="sub-category-header">Specials</div>
                     
                     <div class="warning">
                         💡 Note: Tuna is not available daily. If needed, it will be replaced with another raw fish.
@@ -1640,10 +1700,10 @@
                             Baked salmon, sweet potato, and cream cheese | Crispy sweet potato and peanut chips
                         </div>
                     </div> -->
-                </div>
-                
-                <div class="category" id="classics-en">
-                    <div class="category-header">🍣 Classics</div>
+                    </div>
+                    
+                    <div class="category" id="classics-en" style="margin-bottom: 0; border-radius: 0; margin-top: 0;">
+                        <div class="sub-category-header">Classics</div>
                     
                     <div class="warning">
                         💡 Tuna substitution for additional ₪10
@@ -1687,6 +1747,7 @@
                         <div class="item-description">
                             Seaweed wrapped in rice filled with vegetables and fish: salmon / white fish
                         </div>
+                    </div>
                     </div>
                 </div>
                  
