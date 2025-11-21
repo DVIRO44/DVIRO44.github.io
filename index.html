@@ -298,6 +298,34 @@
             background: var(--bg-tertiary);
         }
         
+        .add-ons-box {
+            background: var(--bg-tertiary);
+            padding: 12px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+            border: 1px solid var(--border-color);
+            transition: background 0.3s ease, border-color 0.3s ease;
+        }
+        
+        .add-ons-title {
+            color: var(--text-accent);
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 0.95em;
+        }
+        
+        .add-ons-content {
+            color: var(--text-secondary);
+            font-size: 0.9em;
+            line-height: 1.6;
+        }
+        
+        .add-ons-price {
+            color: var(--text-accent);
+            font-weight: 600;
+        }
+        
         .item-header {
             display: flex;
             justify-content: space-between;
@@ -1146,9 +1174,9 @@
                     </div>
                     <div class="item-description">
                         אבוקדו, גזר, בטטה וגבינת שמנת | רול מטוגן בציפוי פריך של פנקו, ספייסי מיונז וקריספי בטטה
-                    </div>
                 </div>
-                
+            </div>
+            
                 <div class="menu-item">
                     <div class="item-header">
                         <span class="item-name"><span class="new-badge">חדש</span> סאנרייס טונה רול</span>
@@ -1251,6 +1279,13 @@
             
             <div class="category" id="stir-fries">
                 <div class="category-header">🍜 מוקפצים ותבשילים</div>
+                
+                <div class="add-ons-box">
+                    <div class="add-ons-content">
+                        תוספת עוף / טופו: <span class="add-ons-price">₪10</span> | 
+                        תוספת בקר: <span class="add-ons-price">₪12</span>
+                    </div>
+                </div>
                 
                 <div class="menu-item">
                     <div class="item-header">
@@ -1584,7 +1619,7 @@
                         <div>
                             <div class="drink-name">Tropical Island</div>
                             <div class="drink-description">משקה אלכוהולי מתקתק וקליל בטעם פירות טרופיים</div>
-                        </div>
+                </div>
                         <span class="item-price">₪28</span>
                     </div>
                     
@@ -1666,10 +1701,10 @@
         
         <!-- English Content -->
         <div class="english-content">
-                            <header>
-                    <h1>Thai Garden</h1>
-                    <p class="subtitle">Bangkok's Flavors, Galilee's Views</p>
-                </header>
+            <header>
+                <h1>Thai Garden</h1>
+                <p class="subtitle">Bangkok's Flavors, Galilee's Views</p>
+            </header>
                 
                 <!-- Welcome Message -->
                 <div class="welcome-message">
@@ -1678,14 +1713,14 @@
                     <p style="font-size: 1em; margin-bottom: 8px; text-align: center; line-height: 1.4;">We're back in business after evacuation from the North – thank you for being here and supporting us! ❤️</p>
                     <p style="font-size: 0.9em; text-align: center; line-height: 1.5; margin: 0;">This is a food truck, not a restaurant – order at the counter, self-service, and dishes come out one by one. There's a wait, so take a breath, smile, and let us prepare especially delicious food for you 🍣</p>
                 </div>
-                
-                                <!-- Tab Navigation -->
-                <div class="tab-nav">
-                    <button class="tab-btn active" onclick="showTab('food-en')">🍴 Food</button>
-                    <button class="tab-btn" onclick="showTab('drinks-en')">🥤 Drinks</button>
-                </div>
-                
-                <!-- Food Tab English -->
+            
+            <!-- Tab Navigation -->
+            <div class="tab-nav">
+                <button class="tab-btn active" onclick="showTab('food-en')">🍴 Food</button>
+                <button class="tab-btn" onclick="showTab('drinks-en')">🥤 Drinks</button>
+            </div>
+            
+            <!-- Food Tab English -->
             <div id="food-en" class="tab-content active">
                 
                 <!-- Quick Navigation Menu -->
@@ -2020,9 +2055,9 @@
                         </div>
                         <div class="item-description">
                             Avocado, carrot, sweet potato, and cream cheese | Deep-fried roll with crispy panko coating, spicy mayo, and crispy sweet potato
-                        </div>
                     </div>
-                    
+                </div>
+                
                     <div class="menu-item">
                         <div class="item-header">
                             <span class="item-name"><span class="new-badge">NEW</span> Sunrise Tuna Roll</span>
@@ -2125,6 +2160,13 @@
                  
                 <div class="category" id="stir-fries-en">
                     <div class="category-header">🍜 Stir-Fries & Dishes</div>
+                    
+                    <div class="add-ons-box">
+                        <div class="add-ons-content">
+                            Add chicken / tofu: <span class="add-ons-price">₪10</span> | 
+                            Add beef: <span class="add-ons-price">₪12</span>
+                        </div>
+                    </div>
                     
                     <div class="menu-item">
                         <div class="item-header">
@@ -2458,7 +2500,7 @@
                             <div>
                                 <div class="drink-name">Tropical Island</div>
                                 <div class="drink-description">Sweet and light alcoholic drink with tropical fruit flavors</div>
-                            </div>
+                    </div>
                             <span class="item-price">₪28</span>
                         </div>
                         
