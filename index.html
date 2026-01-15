@@ -499,6 +499,37 @@
             object-fit: contain;
             border-radius: 10px;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .image-modal-content img.loaded {
+            opacity: 1;
+        }
+        
+        .image-modal-loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50px;
+            height: 50px;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-top-color: white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+        
+        .image-modal-content.loading .image-modal-loading {
+            display: block;
+        }
+        
+        .image-modal-content:not(.loading) .image-modal-loading {
+            display: none;
         }
         
         .image-modal-close {
@@ -517,6 +548,13 @@
             border-radius: 50%;
             background: rgba(255, 255, 255, 0.2);
             transition: all 0.3s ease;
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        .image-modal-content:not(.loading) .image-modal-close {
+            opacity: 1;
+            pointer-events: auto;
         }
         
         .image-modal-close:hover {
@@ -3291,8 +3329,9 @@
     
     <!-- Image Modal -->
     <div id="imageModal" class="image-modal" onclick="closeImageModal(event)">
-        <div class="image-modal-content">
+        <div class="image-modal-content loading">
             <span class="image-modal-close" onclick="closeImageModal(event)">&times;</span>
+            <div class="image-modal-loading"></div>
             <img id="modalImage" src="" alt="תמונה של מנה">
         </div>
     </div>
@@ -3362,10 +3401,30 @@
         // Image modal functionality
         function openImageModal(imageSrc) {
             const modal = document.getElementById('imageModal');
+            const modalContent = modal.querySelector('.image-modal-content');
             const modalImg = document.getElementById('modalImage');
-            modalImg.src = imageSrc;
+            
+            // Reset state
+            modalContent.classList.add('loading');
+            modalImg.classList.remove('loaded');
+            modalImg.src = '';
+            
+            // Show modal
             modal.classList.add('active');
-            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            document.body.style.overflow = 'hidden';
+            
+            // Load image
+            const img = new Image();
+            img.onload = function() {
+                modalImg.src = imageSrc;
+                modalImg.classList.add('loaded');
+                modalContent.classList.remove('loading');
+            };
+            img.onerror = function() {
+                modalContent.classList.remove('loading');
+                // You could show an error message here if needed
+            };
+            img.src = imageSrc;
         }
         
         function closeImageModal(event) {
