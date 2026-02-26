@@ -605,11 +605,22 @@
         .drink-item {
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            align-items: flex-start;
+            flex-wrap: nowrap;
+            gap: 12px;
             padding: 15px;
             background: var(--bg-tertiary);
             border-radius: 10px;
             transition: all 0.3s ease;
+        }
+        
+        .drink-item > div:first-child {
+            flex: 1;
+            min-width: 0;
+        }
+        
+        .drink-item .item-price {
+            flex-shrink: 0;
         }
         
         .drink-item:hover {
@@ -628,6 +639,26 @@
             font-size: 0.9em;
             margin-top: 5px;
             transition: color 0.3s ease;
+        }
+        
+        .wines-section .sub-category-header {
+            margin-top: 20px;
+            padding-top: 20px;
+        }
+        .wines-section .sub-category-header:first-child {
+            margin-top: 0;
+            padding-top: 0;
+        }
+        .wine-item .drink-name {
+            font-size: 1.05em;
+        }
+        .wine-item .drink-description {
+            font-style: italic;
+            line-height: 1.45;
+        }
+        .wine-item .item-price {
+            font-size: 0.95em;
+            white-space: nowrap;
         }
         
         /* Hide/show language switcher content */
@@ -2019,7 +2050,15 @@
                     <div class="drink-item">
                         <div>
                             <div class="drink-name">שתייה קלה</div>
-                            <div class="drink-description">קוקה קולה, קולה זירו, ספרייט, ספרייט זירו, פנטה, אשכוליות, תפוזים, ענבים, משקה אנרגיה, סודה</div>
+                            <div class="drink-description">תפוזים, ענבים, לימונדה, אשכוליות, תות בננה</div>
+                        </div>
+                        <span class="item-price">₪12</span>
+                    </div>
+                    
+                    <div class="drink-item">
+                        <div>
+                            <div class="drink-name">משקאות מוגזים</div>
+                            <div class="drink-description">קוקה קולה, קולה זירו, ספרייט, ספרייט זירו, פנטה, סודה</div>
                         </div>
                         <span class="item-price">₪12</span>
                     </div>
@@ -2033,19 +2072,40 @@
                     
                     <div class="drink-item">
                         <div>
-                            <div class="drink-name">מיץ טבעי</div>
-                            <div class="drink-description">לימונדה / תפוזים / תות בננה / אשכוליות</div>
+                            <div class="drink-name">פיוז טי</div>
+                        </div>
+                        <span class="item-price">₪16</span>
+                    </div>
+                    
+                    <div class="drink-item">
+                        <div>
+                            <div class="drink-name">בירה שחורה</div>
                         </div>
                         <span class="item-price">₪18</span>
                     </div>
                     
                     <div class="drink-item">
                         <div>
-                            <div class="drink-name">פיוזטי</div>
+                            <div class="drink-name">מיצי פרי טבעיים</div>
+                            <div class="drink-description">מבחר מיצים מ־100% פרי, ללא תוספת סוכר.<br>טעמים: תפוחים | תפוזים | לימונדה | תפוח–תפוז–ג'ינג'ר | תפוח–תפוז–גזר | תפוח–אננס | סלק–תפוח</div>
                         </div>
-                        <span class="item-price">₪16</span>
+                        <span class="item-price">₪18</span>
                     </div>
                     
+                    <div class="drink-item">
+                        <div>
+                            <div class="drink-name">קרף יין 500 מ"ל</div>
+                            <div class="drink-description">אדום, לבן</div>
+                        </div>
+                        <span class="item-price">₪49</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category" style="margin-top: 24px;">
+                <div class="category-header">🍺 בירות</div>
+                
+                <div class="drinks-grid">
                     <div class="drink-item">
                         <div>
                             <div class="drink-name">Vedett - בירה מהחבית</div>
@@ -2056,7 +2116,7 @@
                     
                     <div class="drink-item">
                         <div>
-                            <div class="drink-name">בירה</div>
+                            <div class="drink-name">בירה בבקבוק</div>
                             <div class="drink-description">גולדסטאר, אובולון, קראביס-בירה גינג'ר</div>
                         </div>
                         <span class="item-price">₪28</span>
@@ -2076,93 +2136,129 @@
                         </div>
                         <span class="item-price">₪31</span>
                     </div>
-                    
-                    <div class="drink-item">
+                </div>
+            </div>
+
+            <div class="category wines-section" style="margin-top: 24px;">
+                <div class="category-header">🍷 יינות</div>
+                
+                <div class="sub-category-header">יינות לבנים</div>
+                <div class="drinks-grid">
+                    <div class="drink-item wine-item">
                         <div>
-                            <div class="drink-name">בירה שחורה</div>
+                            <div class="drink-name">Notte Rossa Chardonnay – איטליה</div>
+                            <div class="drink-description">שרדונה מדרום איטליה, רענן ופירותי עם נגיעות הדרים ותפוח ירוק, קליל ונעים לשתייה.</div>
                         </div>
-                        <span class="item-price">₪18</span>
+                        <span class="item-price">כוס ₪29 | קרף ₪49</span>
                     </div>
-                    
-                    <div class="drink-item">
+                    <div class="drink-item wine-item">
                         <div>
-                            <div class="drink-name">קרף יין 500 מ"ל</div>
-                            <div class="drink-description">אדום, לבן</div>
+                            <div class="drink-name">Seméli Oreinos Helios – יוון</div>
+                            <div class="drink-description">יין לבן רענן וארומטי עם הדרים ונגיעות פרי לבן, מאוזן ואלגנטי.</div>
                         </div>
-                        <span class="item-price">₪49</span>
+                        <span class="item-price">כוס ₪45 | קרף ₪79</span>
+                    </div>
+                </div>
+                
+                <div class="sub-category-header">יינות אדומים</div>
+                <div class="drinks-grid">
+                    <div class="drink-item wine-item">
+                        <div>
+                            <div class="drink-name">Notte Rossa Primitivo – איטליה</div>
+                            <div class="drink-description">פרימיטיבו עשיר וחם עם ניחוחות שזיף ופירות יער בשלים, גוף בינוני וסיומת רכה.</div>
+                        </div>
+                        <span class="item-price">כוס ₪29 | קרף ₪49</span>
+                    </div>
+                    <div class="drink-item wine-item">
+                        <div>
+                            <div class="drink-name">Alamos Malbec – ארגנטינה</div>
+                            <div class="drink-description">מלבק ממנדוזה עם ניחוחות פירות יער ושזיף, גוף בינוני וסיומת חלקה.</div>
+                        </div>
+                        <span class="item-price">כוס ₪45 | קרף ₪79</span>
                     </div>
                 </div>
             </div>
 
             <div class="category" style="margin-top: 24px;">
-                <div class="category-header">☕ שתייה חמה</div>
+                <div class="category-header">🍹 קוקטיילים</div>
+                
+                <div class="add-ons-box">
+                    <div class="add-ons-content">
+                        ניתן להוסיף חיזוק צ'ייסר וודקה / ערק / ג'ין לכל קוקטייל בתוספת <span class="add-ons-price">₪14</span>
+                    </div>
+                </div>
                 
                 <div class="drinks-grid">
-                    <!-- <div class="drink-item">
-                        <div>
-                            <div class="drink-name">תה תאילנדי</div>
-                            <div class="drink-description">
-                                משקה חמים וקטיפתי על בסיס חלב קוקוס, בניחוחות למון גראס, ג'ינג'ר ותבלינים עדינים, במתיקות טבעית
-                            </div>
-                        </div>
-                        <span class="item-price">₪20</span>
-                    </div> -->
-                    
                     <div class="drink-item">
                         <div>
-                            <div class="drink-name">אספרסו קצר / ארוך</div>
-                            <div class="drink-description">
-                                בחירה בין 3 תערובות: עדין / מאוזן / חזק
-                            </div>
+                            <div class="drink-name">Garden Breeze</div>
+                            <div class="drink-description">מוחיטו קפוא על בסיס רום לבן, ליים ונענע</div>
                         </div>
-                        <span class="item-price">₪13</span>
+                        <span class="item-price">₪42</span>
+                    </div>
+
+                    <div class="drink-item">
+                        <div>
+                            <div class="drink-name">Mangorita</div>
+                            <div class="drink-description">מרגריטה קפואה על בסיס ג'ין ומנגו</div>
+                        </div>
+                        <span class="item-price">₪42</span>
+                    </div>
+
+                    <div class="drink-item">
+                        <div>
+                            <div class="drink-name">Passionfruit Margarita</div>
+                            <div class="drink-description">מרגריטה קפואה עם פסיפלורה</div>
+                        </div>
+                        <span class="item-price">₪42</span>
+                    </div>
+
+                    <div class="drink-item">
+                        <div>
+                            <div class="drink-name">Fizzy Gin Cocktails</div>
+                            <div class="drink-description">פסיפלורה ותפוז / פירות יער / תות וליים</div>
+                        </div>
+                        <span class="item-price">₪28</span>
                     </div>
                     
                     <div class="drink-item">
                         <div>
-                            <div class="drink-name">דאבל אספרסו</div>
-                            <div class="drink-description">
-                                בחירה בין 3 תערובות: עדין / מאוזן / חזק
-                            </div>
+                            <div class="drink-name">Tropical Island</div>
+                            <div class="drink-description">משקה אלכוהולי מתקתק וקליל בטעם פירות טרופיים</div>
                         </div>
-                        <span class="item-price">₪22</span>
+                        <span class="item-price">₪28</span>
                     </div>
                     
                     <div class="drink-item">
                         <div>
-                            <div class="drink-name">אמריקנו</div>
-                            <div class="drink-description">
-                                בחירה בין 3 תערובות: עדין / מאוזן / חזק
-                            </div>
+                            <div class="drink-name">Arak Breeze</div>
+                            <div class="drink-description">משקה אלכוהולי קל עם נגיעת אניס ולימון</div>
                         </div>
-                        <span class="item-price">₪15</span>
+                        <span class="item-price">₪28</span>
                     </div>
                     
                     <div class="drink-item">
                         <div>
-                            <div class="drink-name">תה ירוק / שחור</div>
+                            <div class="drink-name">Rum Lime Cooler</div>
+                            <div class="drink-description">קוקטייל על בסיס רום בטעם ליים ונגיעות נענע</div>
                         </div>
-                        <span class="item-price">₪12</span>
+                        <span class="item-price">₪28</span>
                     </div>
                     
                     <div class="drink-item">
                         <div>
-                            <div class="drink-name">סנגריה חמה אדומה</div>
-                            <div class="drink-description">
-                                יין אדום חם עם פירות והדרים, בניחוח קינמון, למונגראס ותבלינים
-                            </div>
+                            <div class="drink-name">Golden Sunset</div>
+                            <div class="drink-description">משקה אלכוהולי קל בטעם אקזוטי של אננס ובננה</div>
                         </div>
-                        <span class="item-price">₪46</span>
+                        <span class="item-price">₪28</span>
                     </div>
                     
                     <div class="drink-item">
                         <div>
-                            <div class="drink-name">סנגריה חמה לבנה</div>
-                            <div class="drink-description">
-                                יין לבן חם עם פירות והדרים, בתיבול עדין עם נגיעת דבש
-                            </div>
+                            <div class="drink-name">Garden of Eden</div>
+                            <div class="drink-description">משקה אלכוהולי קל בטעם אגס, תפוח וסברס</div>
                         </div>
-                        <span class="item-price">₪46</span>
+                        <span class="item-price">₪28</span>
                     </div>
                 </div>
             </div>
@@ -2230,85 +2326,64 @@
             </div>
             
             <div class="category">
-                <div class="category-header">🍹 קוקטיילים</div>
-                
-                <div class="add-ons-box">
-                    <div class="add-ons-content">
-                        ניתן להוסיף חיזוק צ'ייסר וודקה / ערק / ג'ין לכל קוקטייל בתוספת <span class="add-ons-price">₪14</span>
-                    </div>
-                </div>
+                <div class="category-header">☕ משקאות חמים</div>
                 
                 <div class="drinks-grid">
                     <div class="drink-item">
                         <div>
-                            <div class="drink-name">Garden Breeze</div>
-                            <div class="drink-description">מוחיטו קפוא על בסיס רום לבן, ליים ונענע</div>
+                            <div class="drink-name">אספרסו קצר / ארוך</div>
+                            <div class="drink-description">
+                                בחירה בין 3 תערובות: עדין / מאוזן / חזק
+                            </div>
                         </div>
-                        <span class="item-price">₪42</span>
-                    </div>
-
-                    <div class="drink-item">
-                        <div>
-                            <div class="drink-name">Mangorita</div>
-                            <div class="drink-description">מרגריטה קפואה על בסיס ג'ין ומנגו</div>
-                        </div>
-                        <span class="item-price">₪42</span>
-                    </div>
-
-                    <div class="drink-item">
-                        <div>
-                            <div class="drink-name">Passionfruit Margarita</div>
-                            <div class="drink-description">מרגריטה קפואה עם פסיפלורה</div>
-                        </div>
-                        <span class="item-price">₪42</span>
-                    </div>
-
-                    <div class="drink-item">
-                        <div>
-                            <div class="drink-name">Fizzy Gin Cocktails</div>
-                            <div class="drink-description">פסיפלורה ותפוז / פירות יער / תות וליים</div>
-                        </div>
-                        <span class="item-price">₪28</span>
+                        <span class="item-price">₪13</span>
                     </div>
                     
                     <div class="drink-item">
                         <div>
-                            <div class="drink-name">Tropical Island</div>
-                            <div class="drink-description">משקה אלכוהולי מתקתק וקליל בטעם פירות טרופיים</div>
-                </div>
-                        <span class="item-price">₪28</span>
+                            <div class="drink-name">דאבל אספרסו</div>
+                            <div class="drink-description">
+                                בחירה בין 3 תערובות: עדין / מאוזן / חזק
+                            </div>
+                        </div>
+                        <span class="item-price">₪22</span>
                     </div>
                     
                     <div class="drink-item">
                         <div>
-                            <div class="drink-name">Arak Breeze</div>
-                            <div class="drink-description">משקה אלכוהולי קל עם נגיעת אניס ולימון</div>
+                            <div class="drink-name">אמריקנו</div>
+                            <div class="drink-description">
+                                בחירה בין 3 תערובות: עדין / מאוזן / חזק
+                            </div>
                         </div>
-                        <span class="item-price">₪28</span>
+                        <span class="item-price">₪15</span>
                     </div>
                     
                     <div class="drink-item">
                         <div>
-                            <div class="drink-name">Rum Lime Cooler</div>
-                            <div class="drink-description">קוקטייל על בסיס רום בטעם ליים ונגיעות נענע</div>
+                            <div class="drink-name">תה ירוק / שחור</div>
                         </div>
-                        <span class="item-price">₪28</span>
+                        <span class="item-price">₪12</span>
                     </div>
                     
                     <div class="drink-item">
                         <div>
-                            <div class="drink-name">Golden Sunset</div>
-                            <div class="drink-description">משקה אלכוהולי קל בטעם אקזוטי של אננס ובננה</div>
+                            <div class="drink-name">סנגריה חמה אדומה</div>
+                            <div class="drink-description">
+                                יין אדום חם עם פירות והדרים, בניחוח קינמון, למונגראס ותבלינים
+                            </div>
                         </div>
-                        <span class="item-price">₪28</span>
+                        <span class="item-price">₪46</span>
                     </div>
                     
                     <div class="drink-item">
                         <div>
-                            <div class="drink-name">Garden of Eden</div>
-                            <div class="drink-description">משקה אלכוהולי קל בטעם אגס, תפוח וסברס</div>
+                            <div class="drink-name">סנגריה חמה לבנה</div>
+                            <div class="drink-description">
+                                יין לבן חם עם פירות והדרים, בתיבול עדין עם נגיעת דבש
+                            </div>
                         </div>
-                        <span class="item-price">₪28</span>
+                        <span class="item-price">₪46</span>
                     </div>
                 </div>
             </div>
@@ -3074,7 +3149,15 @@
                         <div class="drink-item">
                             <div>
                                 <div class="drink-name">Soft Drinks</div>
-                                <div class="drink-description">Coca-Cola, Coca-Cola Zero, Sprite, Sprite Zero, Fanta, grapefruit, orange, grape, energy drink, soda</div>
+                                <div class="drink-description">Oranges, grapes, lemonade, grapefruit, strawberry banana</div>
+                            </div>
+                            <span class="item-price">₪12</span>
+                        </div>
+                        
+                        <div class="drink-item">
+                            <div>
+                                <div class="drink-name">Carbonated Drinks</div>
+                                <div class="drink-description">Coca-Cola, Coca-Cola Zero, Sprite, Sprite Zero, Fanta, soda</div>
                             </div>
                             <span class="item-price">₪12</span>
                         </div>
@@ -3088,19 +3171,40 @@
                         
                         <div class="drink-item">
                             <div>
-                                <div class="drink-name">Natural Juice</div>
-                                <div class="drink-description">Lemonade / Oranges / Strawberry Banana / Grapefruit</div>
+                                <div class="drink-name">Fizzy Tea</div>
+                            </div>
+                            <span class="item-price">₪16</span>
+                        </div>
+                        
+                        <div class="drink-item">
+                            <div>
+                                <div class="drink-name">Dark Beer</div>
                             </div>
                             <span class="item-price">₪18</span>
                         </div>
                         
                         <div class="drink-item">
                             <div>
-                                <div class="drink-name">Fizzy Tea</div>
+                                <div class="drink-name">Natural Fruit Juices</div>
+                                <div class="drink-description">Selection of 100% fruit juices, no added sugar.<br>Flavors: Apples | Oranges | Lemonade | Apple–Orange–Ginger | Apple–Orange–Carrot | Apple–Pineapple | Beet–Apple</div>
                             </div>
-                            <span class="item-price">₪16</span>
+                            <span class="item-price">₪18</span>
                         </div>
                         
+                        <div class="drink-item">
+                            <div>
+                                <div class="drink-name">Wine Carafe (500 ml)</div>
+                                <div class="drink-description">White / Red</div>
+                            </div>
+                            <span class="item-price">₪49</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="category" style="margin-top: 24px;">
+                    <div class="category-header">🍺 Beers</div>
+                    
+                    <div class="drinks-grid">
                         <div class="drink-item">
                             <div>
                                 <div class="drink-name">Vedett - Draft Beer</div>
@@ -3111,7 +3215,7 @@
                         
                         <div class="drink-item">
                             <div>
-                                <div class="drink-name">Beer</div>
+                                <div class="drink-name">Bottled Beer</div>
                                 <div class="drink-description">Goldstar, Obolon, Crabbie's Ginger Beer</div>
                             </div>
                             <span class="item-price">₪28</span>
@@ -3131,93 +3235,129 @@
                             </div>
                             <span class="item-price">₪31</span>
                         </div>
-                        
-                        <div class="drink-item">
+                    </div>
+                </div>
+                
+                <div class="category wines-section" style="margin-top: 24px;">
+                    <div class="category-header">🍷 Wines</div>
+                    
+                    <div class="sub-category-header">White Wines</div>
+                    <div class="drinks-grid">
+                        <div class="drink-item wine-item">
                             <div>
-                                <div class="drink-name">Dark Beer</div>
+                                <div class="drink-name">Notte Rossa Chardonnay – Italy</div>
+                                <div class="drink-description">Chardonnay from southern Italy, fresh and fruity with citrus and green apple notes, light and easy to drink.</div>
                             </div>
-                            <span class="item-price">₪18</span>
+                            <span class="item-price">Glass ₪29 | Carafe ₪49</span>
                         </div>
-                        
-                        <div class="drink-item">
+                        <div class="drink-item wine-item">
                             <div>
-                                <div class="drink-name">Wine Carafe (500 ml)</div>
-                                <div class="drink-description">White / Red</div>
+                                <div class="drink-name">Seméli Oreinos Helios – Greece</div>
+                                <div class="drink-description">Fresh, aromatic white wine with citrus and white fruit notes, balanced and elegant.</div>
                             </div>
-                            <span class="item-price">₪49</span>
+                            <span class="item-price">Glass ₪45 | Carafe ₪79</span>
+                        </div>
+                    </div>
+                    
+                    <div class="sub-category-header">Red Wines</div>
+                    <div class="drinks-grid">
+                        <div class="drink-item wine-item">
+                            <div>
+                                <div class="drink-name">Notte Rossa Primitivo – Italy</div>
+                                <div class="drink-description">Rich, warm Primitivo with plum and ripe berry aromas, medium body and soft finish.</div>
+                            </div>
+                            <span class="item-price">Glass ₪29 | Carafe ₪49</span>
+                        </div>
+                        <div class="drink-item wine-item">
+                            <div>
+                                <div class="drink-name">Alamos Malbec – Argentina</div>
+                                <div class="drink-description">Malbec from Mendoza with berry and plum aromas, medium body and smooth finish.</div>
+                            </div>
+                            <span class="item-price">Glass ₪45 | Carafe ₪79</span>
                         </div>
                     </div>
                 </div>
                 
                 <div class="category" style="margin-top: 24px;">
-                    <div class="category-header">☕ Hot Drinks</div>
+                    <div class="category-header">🍹 Cocktails</div>
+                    
+                    <div class="add-ons-box">
+                        <div class="add-ons-content">
+                            You can add a shot of vodka / arak / gin to any cocktail for an additional <span class="add-ons-price">₪14</span>
+                        </div>
+                    </div>
                     
                     <div class="drinks-grid">
-                        <!-- <div class="drink-item">
-                            <div>
-                                <div class="drink-name">Thai Tea</div>
-                                <div class="drink-description">
-                                    Warm and velvety coconut milk–based drink with lemongrass, ginger, and delicate spices, naturally sweet
-                                </div>
-                            </div>
-                            <span class="item-price">₪20</span>
-                        </div> -->
-                        
                         <div class="drink-item">
                             <div>
-                                <div class="drink-name">Short Espresso / Long Espresso</div>
-                                <div class="drink-description">
-                                    Choice of 3 blends: Mild / Balanced / Strong
-                                </div>
+                                <div class="drink-name">Garden Breeze</div>
+                                <div class="drink-description">Frozen mojito with white rum, lime, and mint</div>
                             </div>
-                            <span class="item-price">₪13</span>
+                            <span class="item-price">₪42</span>
+                        </div>
+
+                        <div class="drink-item">
+                            <div>
+                                <div class="drink-name">Mangorita</div>
+                                <div class="drink-description">Frozen margarita with gin and mango</div>
+                            </div>
+                            <span class="item-price">₪42</span>
+                        </div>
+
+                        <div class="drink-item">
+                            <div>
+                                <div class="drink-name">Passionfruit Margarita</div>
+                                <div class="drink-description">Frozen margarita with passionfruit</div>
+                            </div>
+                            <span class="item-price">₪42</span>
+                        </div>
+
+                        <div class="drink-item">
+                            <div>
+                                <div class="drink-name">Fizzy Gin Cocktails</div>
+                                <div class="drink-description">Passionfruit & Orange / Berries / Strawberry & Lime</div>
+                            </div>
+                            <span class="item-price">₪28</span>
                         </div>
                         
                         <div class="drink-item">
                             <div>
-                                <div class="drink-name">Double Espresso</div>
-                                <div class="drink-description">
-                                    Choice of 3 blends: Mild / Balanced / Strong
-                                </div>
+                                <div class="drink-name">Tropical Island</div>
+                                <div class="drink-description">Sweet and light alcoholic drink with tropical fruit flavors</div>
                             </div>
-                            <span class="item-price">₪22</span>
+                            <span class="item-price">₪28</span>
                         </div>
                         
                         <div class="drink-item">
                             <div>
-                                <div class="drink-name">Americano</div>
-                                <div class="drink-description">
-                                    Choice of 3 blends: Mild / Balanced / Strong
-                                </div>
+                                <div class="drink-name">Arak Breeze</div>
+                                <div class="drink-description">Light alcoholic drink with anise and lemon notes</div>
                             </div>
-                            <span class="item-price">₪15</span>
+                            <span class="item-price">₪28</span>
                         </div>
                         
                         <div class="drink-item">
                             <div>
-                                <div class="drink-name">Green Tea / Black Tea</div>
+                                <div class="drink-name">Rum Lime Cooler</div>
+                                <div class="drink-description">Rum-based cocktail with lime flavor and mint touches</div>
                             </div>
-                            <span class="item-price">₪12</span>
+                            <span class="item-price">₪28</span>
                         </div>
                         
                         <div class="drink-item">
                             <div>
-                                <div class="drink-name">Hot Red Sangria</div>
-                                <div class="drink-description">
-                                    Hot red wine with fruits and citrus, scented with cinnamon, lemongrass, and spices
-                                </div>
+                                <div class="drink-name">Golden Sunset</div>
+                                <div class="drink-description">Light alcoholic drink with exotic pineapple and banana flavors</div>
                             </div>
-                            <span class="item-price">₪46</span>
+                            <span class="item-price">₪28</span>
                         </div>
                         
                         <div class="drink-item">
                             <div>
-                                <div class="drink-name">Hot White Sangria</div>
-                                <div class="drink-description">
-                                    Hot white wine with fruits and citrus, delicately spiced with a touch of honey
-                                </div>
+                                <div class="drink-name">Garden of Eden</div>
+                                <div class="drink-description">Light alcoholic drink with pear, apple and prickly pear flavors</div>
                             </div>
-                            <span class="item-price">₪46</span>
+                            <span class="item-price">₪28</span>
                         </div>
                     </div>
                 </div>
@@ -3285,85 +3425,64 @@
                 </div>
                 
                 <div class="category">
-                    <div class="category-header">🍹 Cocktails</div>
-                    
-                    <div class="add-ons-box">
-                        <div class="add-ons-content">
-                            You can add a shot of vodka / arak / gin to any cocktail for an additional <span class="add-ons-price">₪14</span>
-                        </div>
-                    </div>
+                    <div class="category-header">☕ Hot Drinks</div>
                     
                     <div class="drinks-grid">
                         <div class="drink-item">
                             <div>
-                                <div class="drink-name">Garden Breeze</div>
-                                <div class="drink-description">Frozen mojito with white rum, lime, and mint</div>
+                                <div class="drink-name">Short Espresso / Long Espresso</div>
+                                <div class="drink-description">
+                                    Choice of 3 blends: Mild / Balanced / Strong
+                                </div>
                             </div>
-                            <span class="item-price">₪42</span>
-                        </div>
-
-                        <div class="drink-item">
-                            <div>
-                                <div class="drink-name">Mangorita</div>
-                                <div class="drink-description">Frozen margarita with gin and mango</div>
-                            </div>
-                            <span class="item-price">₪42</span>
-                        </div>
-
-                        <div class="drink-item">
-                            <div>
-                                <div class="drink-name">Passionfruit Margarita</div>
-                                <div class="drink-description">Frozen margarita with passionfruit</div>
-                            </div>
-                            <span class="item-price">₪42</span>
-                        </div>
-
-                        <div class="drink-item">
-                            <div>
-                                <div class="drink-name">Fizzy Gin Cocktails</div>
-                                <div class="drink-description">Passionfruit & Orange / Berries / Strawberry & Lime</div>
-                            </div>
-                            <span class="item-price">₪28</span>
+                            <span class="item-price">₪13</span>
                         </div>
                         
                         <div class="drink-item">
                             <div>
-                                <div class="drink-name">Tropical Island</div>
-                                <div class="drink-description">Sweet and light alcoholic drink with tropical fruit flavors</div>
-                    </div>
-                            <span class="item-price">₪28</span>
+                                <div class="drink-name">Double Espresso</div>
+                                <div class="drink-description">
+                                    Choice of 3 blends: Mild / Balanced / Strong
+                                </div>
+                            </div>
+                            <span class="item-price">₪22</span>
                         </div>
                         
                         <div class="drink-item">
                             <div>
-                                <div class="drink-name">Arak Breeze</div>
-                                <div class="drink-description">Light alcoholic drink with anise and lemon notes</div>
+                                <div class="drink-name">Americano</div>
+                                <div class="drink-description">
+                                    Choice of 3 blends: Mild / Balanced / Strong
+                                </div>
                             </div>
-                            <span class="item-price">₪28</span>
+                            <span class="item-price">₪15</span>
                         </div>
                         
                         <div class="drink-item">
                             <div>
-                                <div class="drink-name">Rum Lime Cooler</div>
-                                <div class="drink-description">Rum-based cocktail with lime flavor and mint touches</div>
+                                <div class="drink-name">Green Tea / Black Tea</div>
                             </div>
-                            <span class="item-price">₪28</span>
+                            <span class="item-price">₪12</span>
                         </div>
                         
                         <div class="drink-item">
                             <div>
-                                <div class="drink-name">Golden Sunset</div>
-                                <div class="drink-description">Light alcoholic drink with exotic pineapple and banana flavors</div>
+                                <div class="drink-name">Hot Red Sangria</div>
+                                <div class="drink-description">
+                                    Hot red wine with fruits and citrus, scented with cinnamon, lemongrass, and spices
+                                </div>
                             </div>
-                            <span class="item-price">₪28</span>
+                            <span class="item-price">₪46</span>
                         </div>
                         
                         <div class="drink-item">
                             <div>
-                                <div class="drink-name">Garden of Eden</div>
-                                <div class="drink-description">Light alcoholic drink with pear, apple and prickly pear flavors</div>
+                                <div class="drink-name">Hot White Sangria</div>
+                                <div class="drink-description">
+                                    Hot white wine with fruits and citrus, delicately spiced with a touch of honey
+                                </div>
                             </div>
-                            <span class="item-price">₪28</span>
+                            <span class="item-price">₪46</span>
                         </div>
                     </div>
                 </div>
