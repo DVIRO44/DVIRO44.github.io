@@ -67,6 +67,8 @@
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: var(--bg-primary);
+            margin: 0;
+            padding: 0;
             min-height: 100vh;
             direction: rtl;
             scroll-behavior: smooth;
@@ -810,39 +812,49 @@
             margin: 0 10px;
         }
         
-        /* Language switcher */
-        .language-switcher {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            z-index: 1000;
-            display: flex;
-            gap: 10px;
-        }
-        
-        .lang-btn, .dark-mode-btn {
-            padding: 12px 20px;
-            border: none;
-            background: var(--bg-secondary);
-            color: var(--text-accent);
-            border-radius: 25px;
-            cursor: pointer;
-            font-size: 24px;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            box-shadow: 0 3px 10px var(--shadow);
+        /* Top section: language + theme buttons only (no rectangle background) */
+        .top-buttons-section {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 16px 20px;
             display: flex;
             align-items: center;
-            gap: 8px;
+            justify-content: flex-end;
+            gap: 10px;
+            background: transparent;
+            border: none;
+            box-shadow: none;
+        }
+        body.english .top-buttons-section {
+            justify-content: flex-start;
         }
         
-        .lang-btn:hover, .dark-mode-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px var(--shadow-hover);
+        .top-buttons-section .lang-btn,
+        .top-buttons-section .dark-mode-btn {
+            width: 40px;
+            height: 40px;
+            padding: 0;
+            border: none;
+            border-radius: 50%;
+            background: var(--bg-tertiary);
+            color: var(--text-accent);
+            cursor: pointer;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s ease, transform 0.2s ease;
+            box-shadow: 0 1px 3px var(--shadow);
         }
-        
-        .lang-btn:active, .dark-mode-btn:active {
-            transform: translateY(0);
+        .top-buttons-section .lang-btn:hover,
+        .top-buttons-section .dark-mode-btn:hover {
+            background: var(--category-bg);
+            color: var(--category-text);
+            transform: scale(1.05);
+        }
+        .top-buttons-section .lang-btn:active,
+        .top-buttons-section .dark-mode-btn:active {
+            transform: scale(0.98);
         }
         
         /* Hide/show based on language */
@@ -1011,19 +1023,19 @@
 <body>
     <div class="bamboo-bg"></div>
     
-    <!-- Language Switcher & Dark Mode -->
-    <div class="language-switcher">
-        <button class="dark-mode-btn" onclick="toggleDarkMode()" title="Dark Mode">
-            <span class="dark-mode-icon">🌙</span>
-            <span class="light-mode-icon" style="display: none;">☀️</span>
-        </button>
-        <button class="lang-btn" onclick="toggleLanguage()">
-            <span class="when-hebrew">🇺🇸</span>
-            <span class="when-english">🇮🇱</span>
-        </button>
-    </div>
-    
     <div class="container">
+        <!-- Top section: only language + dark/light buttons -->
+        <section class="top-buttons-section" aria-label="Language and theme">
+            <button class="dark-mode-btn" onclick="toggleDarkMode()" title="Dark Mode" aria-label="Toggle dark mode">
+                <span class="dark-mode-icon">🌙</span>
+                <span class="light-mode-icon" style="display: none;">☀️</span>
+            </button>
+            <button class="lang-btn" onclick="toggleLanguage()" aria-label="Switch language">
+                <span class="when-hebrew">🇺🇸</span>
+                <span class="when-english">🇮🇱</span>
+            </button>
+        </section>
+        
         <!-- Hebrew Content -->
         <div class="hebrew-content">
             <header>
