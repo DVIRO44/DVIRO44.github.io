@@ -36,8 +36,12 @@
             --warning-bg: #e8f5e9;
             --warning-border: #81c784;
             --warning-text: #2e7d32;
+            /* 🇮🇱 Independence Day (temporary — remove with .independence-section) */
+            --il-blue: #0038b8;
+            --il-blue-light: #2861d4;
+            --il-bg: #f5f8ff;
         }
-        
+
         body.dark-mode {
             --bg-primary: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
             --bg-secondary: #1e1e1e;
@@ -56,6 +60,10 @@
             --warning-bg: #2d4a2f;
             --warning-border: #66bb6a;
             --warning-text: #a5d6a7;
+            /* 🇮🇱 Independence Day (temporary — remove with .independence-section) */
+            --il-blue: #5a8dd9;
+            --il-blue-light: #7aa4e5;
+            --il-bg: #1a2544;
         }
         
         * {
@@ -649,7 +657,165 @@
             margin-top: 0;
             padding-top: 0;
         }
-        
+
+        /* ============================================================ */
+        /* 🇮🇱 Independence Day special — TEMPORARY                     */
+        /* Remove this block + the --il-* tokens + the markup blocks    */
+        /* in #drinks and #drinks-en when the holiday ends.             */
+        /* ============================================================ */
+        .independence-section {
+            position: relative;
+            border: 2px solid var(--il-blue);
+            background: var(--il-bg);
+        }
+        .independence-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            inset-inline: 0;
+            height: 4px;
+            background: linear-gradient(
+                90deg,
+                var(--il-blue) 0 30%,
+                #ffffff 30% 70%,
+                var(--il-blue) 70% 100%
+            );
+            z-index: 2;
+        }
+        .independence-section .category-header {
+            background: linear-gradient(135deg, var(--il-blue) 0%, var(--il-blue-light) 100%);
+            color: #ffffff;
+            text-align: center;
+            letter-spacing: 0.5px;
+        }
+        .independence-tagline {
+            padding: 16px 20px 4px;
+            margin: 0;
+            text-align: center;
+            font-size: 0.95em;
+            font-weight: 600;
+            color: var(--il-blue);
+            letter-spacing: 0.3px;
+        }
+        body.dark-mode .independence-tagline {
+            color: var(--il-blue-light);
+        }
+        .independence-section .drink-item {
+            background: var(--bg-card);
+            border-inline-start: 3px solid var(--il-blue);
+        }
+        .independence-section .drink-item:hover {
+            background: var(--il-bg);
+        }
+        .independence-section .drink-name {
+            color: var(--il-blue);
+            font-weight: 700;
+        }
+        body.dark-mode .independence-section .drink-name {
+            color: var(--il-blue-light);
+        }
+        .independence-section .item-price {
+            background: var(--il-blue);
+            color: #ffffff;
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .independence-section .drink-item:hover {
+                transform: none;
+            }
+        }
+
+        /* Tappable teaser strip at the top of the food tab */
+        .independence-teaser {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            width: 100%;
+            padding: 14px 20px;
+            margin: 0 0 18px;
+            background: linear-gradient(135deg, var(--il-blue) 0%, var(--il-blue-light) 100%);
+            color: #ffffff;
+            border: none;
+            border-radius: 12px;
+            font-family: inherit;
+            font-size: 1em;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0, 56, 184, 0.25);
+            transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .independence-teaser::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            inset-inline: 0;
+            height: 3px;
+            background: linear-gradient(
+                90deg,
+                #ffffff 0 30%,
+                var(--il-blue-light) 30% 70%,
+                #ffffff 70% 100%
+            );
+            opacity: 0.6;
+        }
+        .independence-teaser:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0, 56, 184, 0.35);
+            filter: brightness(1.05);
+        }
+        .independence-teaser:active {
+            transform: translateY(0);
+        }
+        .independence-teaser:focus-visible {
+            outline: 3px solid #ffffff;
+            outline-offset: 2px;
+        }
+        .independence-teaser .it-flag {
+            font-size: 1.3em;
+            line-height: 1;
+        }
+        .independence-teaser .it-text {
+            line-height: 1.3;
+        }
+        .independence-teaser .it-arrow {
+            --dir: -1;
+            font-size: 1.2em;
+            font-weight: 700;
+            display: inline-block;
+            animation: independence-arrow 1.6s ease-in-out infinite;
+        }
+        body.english .independence-teaser .it-arrow {
+            --dir: 1;
+        }
+        @keyframes independence-arrow {
+            0%, 100% { transform: translateX(0); opacity: 0.85; }
+            50% { transform: translateX(calc(var(--dir, -1) * 4px)); opacity: 1; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .independence-teaser .it-arrow { animation: none; }
+            .independence-teaser:hover { transform: none; }
+        }
+
+        /* Chaser / add-on note inside the independence card */
+        .independence-section .add-ons-box {
+            background: rgba(255, 255, 255, 0.5);
+            border: 1px solid var(--il-blue);
+            margin: 0 20px 20px;
+        }
+        body.dark-mode .independence-section .add-ons-box {
+            background: rgba(255, 255, 255, 0.04);
+        }
+        .independence-section .add-ons-price {
+            color: var(--il-blue);
+        }
+        body.dark-mode .independence-section .add-ons-price {
+            color: var(--il-blue-light);
+        }
+        /* ======= END Independence Day special ======= */
+
         /* Hide/show language switcher content */
         .when-english {
             display: none;
@@ -1079,7 +1245,20 @@
         
         <!-- Food Tab -->
         <div id="food" class="tab-content active">
-            
+
+            <!-- ============================================================ -->
+            <!-- 🇮🇱 INDEPENDENCE DAY TEASER — TEMPORARY                      -->
+            <!-- Remove with the rest of the independence special content.   -->
+            <!-- ============================================================ -->
+            <button type="button" class="independence-teaser"
+                    onclick="goToIndependence('independence-special')"
+                    aria-label="מעבר לספיישל יום העצמאות בתפריט המשקאות">
+                <span class="it-flag" aria-hidden="true">🇮🇱</span>
+                <span class="it-text">חדש לחג — ספיישל קוקטיילים עצמאות</span>
+                <span class="it-arrow" aria-hidden="true">←</span>
+            </button>
+            <!-- ============ END INDEPENDENCE DAY TEASER (HE) ============ -->
+
             <!-- Quick Navigation Menu -->
             <div class="quick-nav">
                 <div class="quick-nav-links" style="display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;">
@@ -2054,7 +2233,67 @@
         
         <!-- Drinks Tab -->
         <div id="drinks" class="tab-content">
-            <div class="category">
+            <!-- ============================================================ -->
+            <!-- 🇮🇱 INDEPENDENCE DAY SPECIAL — TEMPORARY                     -->
+            <!-- Remove this entire .independence-section block when the     -->
+            <!-- holiday ends. Also remove the matching block in #drinks-en, -->
+            <!-- the .independence-* CSS, and the --il-* tokens.             -->
+            <!-- ============================================================ -->
+            <div id="independence-special" class="category independence-section">
+                <div class="category-header">🇮🇱 ספיישל קוקטיילים – עצמאות 🇮🇱</div>
+                <p class="independence-tagline">חוגגים יחד — יום עצמאות שמח 💙🤍</p>
+
+                <div class="drinks-grid">
+                    <div class="drink-item">
+                        <div>
+                            <div class="drink-name">תפוזזה 🇮🇱🍊</div>
+                            <div class="drink-description">ג'ין קליל עם תפוז דם ונגיעות דומדמניות (100 אחוז טבעי)</div>
+                        </div>
+                        <span class="item-price">₪28</span>
+                    </div>
+
+                    <div class="drink-item">
+                        <div>
+                            <div class="drink-name">לימוננדה 🇮🇱🍋</div>
+                            <div class="drink-description">וודקה קרירה עם ליים ולימונדה חמצמצה ומרעננת (100 אחוז טבעי)</div>
+                        </div>
+                        <span class="item-price">₪28</span>
+                    </div>
+
+                    <div class="drink-item">
+                        <div>
+                            <div class="drink-name">לימונערק 🇮🇱🍋</div>
+                            <div class="drink-description">ערק ישראלי עם לימונדה קרה ונגיעה מתקתקה</div>
+                        </div>
+                        <span class="item-price">₪28</span>
+                    </div>
+
+                    <div class="drink-item">
+                        <div>
+                            <div class="drink-name">Garden Breeze 🇮🇱🍃</div>
+                            <div class="drink-description">מוחיטו קפוא על בסיס רום לבן, ליים ונענע</div>
+                        </div>
+                        <span class="item-price">₪42</span>
+                    </div>
+
+                    <div class="drink-item">
+                        <div>
+                            <div class="drink-name">Mangorita 🇮🇱🥭</div>
+                            <div class="drink-description">מרגריטה קפואה על בסיס ג'ין ומנגו</div>
+                        </div>
+                        <span class="item-price">₪42</span>
+                    </div>
+                </div>
+
+                <div class="add-ons-box">
+                    <div class="add-ons-content">
+                        לכבוד החג 🥂 ניתן להוסיף שוט חיזוק (וודקה / ערק / ג'ין) לכל קוקטייל בתוספת <span class="add-ons-price">₪12</span>
+                    </div>
+                </div>
+            </div>
+            <!-- ============ END INDEPENDENCE DAY SPECIAL (HE) ============ -->
+
+            <div class="category" style="margin-top: 24px;">
                 <div class="category-header">🥤 משקאות</div>
                 
                 <div class="drinks-grid">
@@ -2456,7 +2695,20 @@
             
             <!-- Food Tab English -->
             <div id="food-en" class="tab-content active">
-                
+
+                <!-- ============================================================ -->
+                <!-- 🇮🇱 INDEPENDENCE DAY TEASER — TEMPORARY                      -->
+                <!-- Remove with the rest of the independence special content.   -->
+                <!-- ============================================================ -->
+                <button type="button" class="independence-teaser"
+                        onclick="goToIndependence('independence-special-en')"
+                        aria-label="Jump to Independence Day cocktail special in drinks menu">
+                    <span class="it-flag" aria-hidden="true">🇮🇱</span>
+                    <span class="it-text">New for the holiday — Independence Day Cocktails</span>
+                    <span class="it-arrow" aria-hidden="true">→</span>
+                </button>
+                <!-- ============ END INDEPENDENCE DAY TEASER (EN) ============ -->
+
                 <!-- Quick Navigation Menu -->
                 <div class="quick-nav">
                     <div class="quick-nav-links" style="display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;">
@@ -3337,7 +3589,65 @@
             
             <!-- Drinks Tab English -->
             <div id="drinks-en" class="tab-content">
-                <div class="category">
+                <!-- ============================================================ -->
+                <!-- 🇮🇱 INDEPENDENCE DAY SPECIAL — TEMPORARY                     -->
+                <!-- Remove with the matching Hebrew block in #drinks.            -->
+                <!-- ============================================================ -->
+                <div id="independence-special-en" class="category independence-section">
+                    <div class="category-header">🇮🇱 Independence Day Cocktails Special 🇮🇱</div>
+                    <p class="independence-tagline">Celebrating together — Happy Independence Day 💙🤍</p>
+
+                    <div class="drinks-grid">
+                        <div class="drink-item">
+                            <div>
+                                <div class="drink-name">Tapuzza 🇮🇱🍊</div>
+                                <div class="drink-description">Light gin with blood orange and a touch of currants (100% natural)</div>
+                            </div>
+                            <span class="item-price">₪28</span>
+                        </div>
+
+                        <div class="drink-item">
+                            <div>
+                                <div class="drink-name">Limonenada 🇮🇱🍋</div>
+                                <div class="drink-description">Cool vodka with lime and a refreshing tangy lemonade (100% natural)</div>
+                            </div>
+                            <span class="item-price">₪28</span>
+                        </div>
+
+                        <div class="drink-item">
+                            <div>
+                                <div class="drink-name">Limon'arak 🇮🇱🍋</div>
+                                <div class="drink-description">Israeli arak with cold lemonade and a sweet finish</div>
+                            </div>
+                            <span class="item-price">₪28</span>
+                        </div>
+
+                        <div class="drink-item">
+                            <div>
+                                <div class="drink-name">Garden Breeze 🇮🇱🍃</div>
+                                <div class="drink-description">Frozen mojito with white rum, lime, and mint</div>
+                            </div>
+                            <span class="item-price">₪42</span>
+                        </div>
+
+                        <div class="drink-item">
+                            <div>
+                                <div class="drink-name">Mangorita 🇮🇱🥭</div>
+                                <div class="drink-description">Frozen margarita with gin and mango</div>
+                            </div>
+                            <span class="item-price">₪42</span>
+                        </div>
+                    </div>
+
+                    <div class="add-ons-box">
+                        <div class="add-ons-content">
+                            In honor of the holiday 🥂 add a shot (vodka / arak / gin) to any cocktail — <span class="add-ons-price">₪12</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- ============ END INDEPENDENCE DAY SPECIAL (EN) ============ -->
+
+                <div class="category" style="margin-top: 24px;">
                     <div class="category-header">🥤 Drinks</div>
                     
                     <div class="drinks-grid">
@@ -3768,6 +4078,17 @@
             }
         }
         
+        // 🇮🇱 Independence Day teaser → jump to drinks + scroll to the special
+        // (temporary — remove with the rest of the independence content)
+        function goToIndependence(targetId) {
+            const isEnglish = document.body.classList.contains('english');
+            showTab(isEnglish ? 'drinks-en' : 'drinks');
+            requestAnimationFrame(() => {
+                const el = document.getElementById(targetId);
+                if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        }
+
         // Dark mode functionality
         function toggleDarkMode() {
             const body = document.body;
