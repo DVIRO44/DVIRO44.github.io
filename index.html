@@ -36,10 +36,11 @@
             --warning-bg: #e8f5e9;
             --warning-border: #81c784;
             --warning-text: #2e7d32;
-            /* 🇮🇱 Independence Day (temporary — remove with .independence-section) */
-            --il-blue: #0038b8;
-            --il-blue-light: #2861d4;
-            --il-bg: #f5f8ff;
+            /* 🌿 Weekend special (temporary — remove with .weekend-section) */
+            --wk-teal: #0d6e6b;
+            --wk-teal-light: #2da39e;
+            --wk-gold: #d4a437;
+            --wk-bg: #f0f7f7;
         }
 
         body.dark-mode {
@@ -60,10 +61,11 @@
             --warning-bg: #2d4a2f;
             --warning-border: #66bb6a;
             --warning-text: #a5d6a7;
-            /* 🇮🇱 Independence Day (temporary — remove with .independence-section) */
-            --il-blue: #5a8dd9;
-            --il-blue-light: #7aa4e5;
-            --il-bg: #1a2544;
+            /* 🌿 Weekend special (temporary — remove with .weekend-section) */
+            --wk-teal: #5fb8b3;
+            --wk-teal-light: #88d4cf;
+            --wk-gold: #e6bf5e;
+            --wk-bg: #0e1f1e;
         }
         
         * {
@@ -659,73 +661,83 @@
         }
 
         /* ============================================================ */
-        /* 🇮🇱 Independence Day special — TEMPORARY                     */
-        /* Remove this block + the --il-* tokens + the markup blocks    */
-        /* in #drinks and #drinks-en when the holiday ends.             */
+        /* 🌿 Weekend special — TEMPORARY                               */
+        /* Remove this block + the --wk-* tokens + the markup blocks    */
+        /* in #drinks and #drinks-en when the weekend ends.             */
         /* ============================================================ */
-        .independence-section {
+        .weekend-section {
             position: relative;
-            border: 2px solid var(--il-blue);
-            background: var(--il-bg);
+            border: 1px solid var(--wk-teal-light);
+            background: var(--wk-bg);
         }
-        .independence-section::before {
+        .weekend-section::before {
             content: "";
             position: absolute;
             top: 0;
             inset-inline: 0;
-            height: 4px;
+            height: 2px;
             background: linear-gradient(
                 90deg,
-                var(--il-blue) 0 30%,
-                #ffffff 30% 70%,
-                var(--il-blue) 70% 100%
+                var(--wk-teal) 0%,
+                var(--wk-gold) 50%,
+                var(--wk-teal) 100%
             );
             z-index: 2;
         }
-        .independence-section .category-header {
-            background: linear-gradient(135deg, var(--il-blue) 0%, var(--il-blue-light) 100%);
+        .weekend-section .category-header {
+            background: linear-gradient(135deg, var(--wk-teal) 0%, var(--wk-teal-light) 100%);
             color: #ffffff;
             text-align: center;
             letter-spacing: 0.5px;
         }
-        .independence-tagline {
+        .weekend-section .category-header::after {
+            bottom: 0;
+            left: 50%;
+            right: auto;
+            transform: translateX(-50%);
+            width: 40%;
+            height: 1px;
+            background: var(--wk-gold);
+            border-radius: 1px;
+        }
+        .weekend-tagline {
             padding: 16px 20px 4px;
             margin: 0;
             text-align: center;
             font-size: 0.95em;
             font-weight: 600;
-            color: var(--il-blue);
+            color: var(--wk-teal);
             letter-spacing: 0.3px;
         }
-        body.dark-mode .independence-tagline {
-            color: var(--il-blue-light);
+        body.dark-mode .weekend-tagline {
+            color: var(--wk-teal-light);
         }
-        .independence-section .drink-item {
+        .weekend-section .drink-item {
             background: var(--bg-card);
-            border-inline-start: 3px solid var(--il-blue);
         }
-        .independence-section .drink-item:hover {
-            background: var(--il-bg);
+        .weekend-section .drink-item:hover {
+            background: var(--wk-bg);
         }
-        .independence-section .drink-name {
-            color: var(--il-blue);
-            font-weight: 700;
+        .weekend-section .drink-name {
+            color: var(--wk-teal);
+            font-weight: 600;
         }
-        body.dark-mode .independence-section .drink-name {
-            color: var(--il-blue-light);
+        body.dark-mode .weekend-section .drink-name {
+            color: var(--wk-teal-light);
         }
-        .independence-section .item-price {
-            background: var(--il-blue);
-            color: #ffffff;
+        .weekend-section .item-price {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--wk-gold);
         }
         @media (prefers-reduced-motion: reduce) {
-            .independence-section .drink-item:hover {
+            .weekend-section .drink-item:hover {
                 transform: none;
             }
         }
 
         /* Tappable teaser strip at the top of the food tab */
-        .independence-teaser {
+        .weekend-teaser {
             display: flex;
             align-items: center;
             justify-content: center;
@@ -733,7 +745,7 @@
             width: 100%;
             padding: 14px 20px;
             margin: 0 0 18px;
-            background: linear-gradient(135deg, var(--il-blue) 0%, var(--il-blue-light) 100%);
+            background: linear-gradient(135deg, var(--wk-teal) 0%, var(--wk-teal-light) 100%);
             color: #ffffff;
             border: none;
             border-radius: 12px;
@@ -742,12 +754,12 @@
             font-weight: 600;
             letter-spacing: 0.3px;
             cursor: pointer;
-            box-shadow: 0 4px 12px rgba(0, 56, 184, 0.25);
+            box-shadow: 0 4px 12px rgba(13, 110, 107, 0.25);
             transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
             position: relative;
             overflow: hidden;
         }
-        .independence-teaser::before {
+        .weekend-teaser::before {
             content: "";
             position: absolute;
             top: 0;
@@ -755,66 +767,64 @@
             height: 3px;
             background: linear-gradient(
                 90deg,
-                #ffffff 0 30%,
-                var(--il-blue-light) 30% 70%,
-                #ffffff 70% 100%
+                rgba(255, 255, 255, 0.4) 0%,
+                rgba(255, 255, 255, 0.75) 50%,
+                rgba(255, 255, 255, 0.4) 100%
             );
             opacity: 0.6;
         }
-        .independence-teaser:hover {
+        .weekend-teaser:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(0, 56, 184, 0.35);
+            box-shadow: 0 6px 16px rgba(13, 110, 107, 0.35);
             filter: brightness(1.05);
         }
-        .independence-teaser:active {
+        .weekend-teaser:active {
             transform: translateY(0);
         }
-        .independence-teaser:focus-visible {
+        .weekend-teaser:focus-visible {
             outline: 3px solid #ffffff;
             outline-offset: 2px;
         }
-        .independence-teaser .it-flag {
+        .weekend-teaser .wk-icon {
             font-size: 1.3em;
             line-height: 1;
         }
-        .independence-teaser .it-text {
+        .weekend-teaser .wk-text {
             line-height: 1.3;
         }
-        .independence-teaser .it-arrow {
+        .weekend-teaser .wk-arrow {
             --dir: -1;
             font-size: 1.2em;
             font-weight: 700;
             display: inline-block;
-            animation: independence-arrow 1.6s ease-in-out infinite;
+            animation: weekend-arrow 1.6s ease-in-out infinite;
         }
-        body.english .independence-teaser .it-arrow {
+        body.english .weekend-teaser .wk-arrow {
             --dir: 1;
         }
-        @keyframes independence-arrow {
+        @keyframes weekend-arrow {
             0%, 100% { transform: translateX(0); opacity: 0.85; }
             50% { transform: translateX(calc(var(--dir, -1) * 4px)); opacity: 1; }
         }
         @media (prefers-reduced-motion: reduce) {
-            .independence-teaser .it-arrow { animation: none; }
-            .independence-teaser:hover { transform: none; }
+            .weekend-teaser .wk-arrow { animation: none; }
+            .weekend-teaser:hover { transform: none; }
         }
 
-        /* Chaser / add-on note inside the independence card */
-        .independence-section .add-ons-box {
+        /* Chaser / add-on note inside the weekend card */
+        .weekend-section .add-ons-box {
             background: rgba(255, 255, 255, 0.5);
-            border: 1px solid var(--il-blue);
+            border: 1px solid var(--wk-gold);
             margin: 0 20px 20px;
         }
-        body.dark-mode .independence-section .add-ons-box {
+        body.dark-mode .weekend-section .add-ons-box {
             background: rgba(255, 255, 255, 0.04);
         }
-        .independence-section .add-ons-price {
-            color: var(--il-blue);
+        .weekend-section .add-ons-price {
+            color: var(--wk-gold);
+            font-weight: 700;
         }
-        body.dark-mode .independence-section .add-ons-price {
-            color: var(--il-blue-light);
-        }
-        /* ======= END Independence Day special ======= */
+        /* ======= END Weekend special ======= */
 
         /* Hide/show language switcher content */
         .when-english {
@@ -1247,17 +1257,17 @@
         <div id="food" class="tab-content active">
 
             <!-- ============================================================ -->
-            <!-- 🇮🇱 INDEPENDENCE DAY TEASER — TEMPORARY                      -->
-            <!-- Remove with the rest of the independence special content.   -->
+            <!-- 🌿 WEEKEND TEASER — TEMPORARY                                -->
+            <!-- Remove with the rest of the weekend special content.        -->
             <!-- ============================================================ -->
-            <button type="button" class="independence-teaser"
-                    onclick="goToIndependence('independence-special')"
-                    aria-label="מעבר לספיישל יום העצמאות בתפריט המשקאות">
-                <span class="it-flag" aria-hidden="true">🇮🇱</span>
-                <span class="it-text">חדש לחג — ספיישל קוקטיילים עצמאות</span>
-                <span class="it-arrow" aria-hidden="true">←</span>
+            <button type="button" class="weekend-teaser"
+                    onclick="goToWeekend('weekend-special')"
+                    aria-label="מעבר לספיישל סוף השבוע בתפריט המשקאות">
+                <span class="wk-icon" aria-hidden="true">🌿</span>
+                <span class="wk-text">ספיישל קוקטיילים לסופ"ש 🍸</span>
+                <span class="wk-arrow" aria-hidden="true">←</span>
             </button>
-            <!-- ============ END INDEPENDENCE DAY TEASER (HE) ============ -->
+            <!-- ============ END WEEKEND TEASER (HE) ============ -->
 
             <!-- Quick Navigation Menu -->
             <div class="quick-nav">
@@ -1321,6 +1331,21 @@
                 <div class="menu-item">
                     <div class="item-header">
                         <span class="item-name">
+                            סלט תאילנדי ברוטב שומשום עשיר
+                            <button class="item-image-btn" onclick="openImageModal('images/wPT_סלט תאילנדי שומשום.jpg')" aria-label="הצג תמונה">
+                                <img src="images/insert-picture-icon.png" alt="הצג תמונה">
+                            </button>
+                        </span>
+                        <span class="item-price">₪45</span>
+                    </div>
+                    <div class="item-description">
+                        חסה רעננה, כרוב, גזר, עגבניות טריות, קוביות אבוקדו, ג'ינג'ר ובוטנים קלויים
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-header">
+                        <span class="item-name">
                             🌶️🌶️ סלט סום טאם
                             <button class="item-image-btn" onclick="openImageModal('images/wPT_סלט סום טאם..jpg')" aria-label="הצג תמונה">
                                 <img src="images/insert-picture-icon.png" alt="הצג תמונה">
@@ -1332,19 +1357,14 @@
                         רצועות פפאיה ירוקה, עגבניות שרי, בוטנים כתושים, רוטב דגים, שום ולימון סחוט חריף
                     </div>
                 </div>
-                
+
                 <div class="menu-item">
                     <div class="item-header">
-                        <span class="item-name">
-                            סלט תאילנדי ברוטב שומשום עשיר
-                            <button class="item-image-btn" onclick="openImageModal('images/wPT_סלט תאילנדי שומשום.jpg')" aria-label="הצג תמונה">
-                                <img src="images/insert-picture-icon.png" alt="הצג תמונה">
-                            </button>
-                        </span>
-                        <span class="item-price">₪45</span>
+                        <span class="item-name">סטיקי רייס</span>
+                        <span class="item-price">₪25</span>
                     </div>
                     <div class="item-description">
-                        חסה רעננה, כרוב, גזר, עגבניות טריות, קוביות אבוקדו, ג'ינג'ר ובוטנים קלויים
+                        מנת אורז דביק
                     </div>
                 </div>
                 
@@ -1514,7 +1534,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="category" id="fried">
                 <div class="category-header">🌯 מטוגנים</div>
                 
@@ -2234,19 +2254,19 @@
         <!-- Drinks Tab -->
         <div id="drinks" class="tab-content">
             <!-- ============================================================ -->
-            <!-- 🇮🇱 INDEPENDENCE DAY SPECIAL — TEMPORARY                     -->
-            <!-- Remove this entire .independence-section block when the     -->
-            <!-- holiday ends. Also remove the matching block in #drinks-en, -->
-            <!-- the .independence-* CSS, and the --il-* tokens.             -->
+            <!-- 🌿 WEEKEND SPECIAL — TEMPORARY                               -->
+            <!-- Remove this entire .weekend-section block when the weekend  -->
+            <!-- ends. Also remove the matching block in #drinks-en, the     -->
+            <!-- .weekend-* CSS, and the --wk-* tokens.                      -->
             <!-- ============================================================ -->
-            <div id="independence-special" class="category independence-section">
-                <div class="category-header">🇮🇱 ספיישל קוקטיילים – עצמאות 🇮🇱</div>
-                <p class="independence-tagline">חוגגים יחד — יום עצמאות שמח 💙🤍</p>
+            <div id="weekend-special" class="category weekend-section">
+                <div class="category-header">🌿 ספיישל סוף שבוע 🌿</div>
+                <p class="weekend-tagline">מתחילים את הסופ"ש בקצב הנכון 🥂</p>
 
                 <div class="drinks-grid">
                     <div class="drink-item">
                         <div>
-                            <div class="drink-name">תפוזזה 🇮🇱🍊</div>
+                            <div class="drink-name">תפוזזה 🍊</div>
                             <div class="drink-description">ג'ין קליל עם תפוז דם ונגיעות דומדמניות</div>
                         </div>
                         <span class="item-price">₪28</span>
@@ -2254,7 +2274,7 @@
 
                     <div class="drink-item">
                         <div>
-                            <div class="drink-name">לימוננדה 🇮🇱🍋</div>
+                            <div class="drink-name">לימוננדה 🍋</div>
                             <div class="drink-description">וודקה קרירה עם ליים ולימונדה חמצמצה ומרעננת</div>
                         </div>
                         <span class="item-price">₪28</span>
@@ -2262,7 +2282,7 @@
 
                     <div class="drink-item">
                         <div>
-                            <div class="drink-name">לימונערק 🇮🇱🍋</div>
+                            <div class="drink-name">לימונערק 🍋</div>
                             <div class="drink-description">ערק ישראלי עם לימונדה קרה ונגיעה מתקתקה</div>
                         </div>
                         <span class="item-price">₪28</span>
@@ -2270,7 +2290,7 @@
 
                     <div class="drink-item">
                         <div>
-                            <div class="drink-name">Garden Breeze 🇮🇱🍃</div>
+                            <div class="drink-name">Garden Breeze 🍃</div>
                             <div class="drink-description">מוחיטו קפוא על בסיס רום לבן, ליים ונענע</div>
                         </div>
                         <span class="item-price">₪42</span>
@@ -2278,7 +2298,7 @@
 
                     <div class="drink-item">
                         <div>
-                            <div class="drink-name">Mangorita 🇮🇱🥭</div>
+                            <div class="drink-name">Mangorita 🥭</div>
                             <div class="drink-description">מרגריטה קפואה על בסיס ג'ין ומנגו</div>
                         </div>
                         <span class="item-price">₪42</span>
@@ -2287,11 +2307,11 @@
 
                 <div class="add-ons-box">
                     <div class="add-ons-content">
-                        לכבוד החג 🥂 ניתן להוסיף שוט חיזוק (וודקה / ערק / ג'ין) לכל קוקטייל בתוספת <span class="add-ons-price">₪12</span>
+                        לסופ"ש המושלם 🥂 ניתן להוסיף שוט חיזוק (וודקה / ערק / ג'ין) לכל קוקטייל בתוספת <span class="add-ons-price">₪12</span>
                     </div>
                 </div>
             </div>
-            <!-- ============ END INDEPENDENCE DAY SPECIAL (HE) ============ -->
+            <!-- ============ END WEEKEND SPECIAL (HE) ============ -->
 
             <div class="category" style="margin-top: 24px;">
                 <div class="category-header">🥤 משקאות</div>
@@ -2697,17 +2717,17 @@
             <div id="food-en" class="tab-content active">
 
                 <!-- ============================================================ -->
-                <!-- 🇮🇱 INDEPENDENCE DAY TEASER — TEMPORARY                      -->
-                <!-- Remove with the rest of the independence special content.   -->
+                <!-- 🌿 WEEKEND TEASER — TEMPORARY                                -->
+                <!-- Remove with the rest of the weekend special content.        -->
                 <!-- ============================================================ -->
-                <button type="button" class="independence-teaser"
-                        onclick="goToIndependence('independence-special-en')"
-                        aria-label="Jump to Independence Day cocktail special in drinks menu">
-                    <span class="it-flag" aria-hidden="true">🇮🇱</span>
-                    <span class="it-text">New for the holiday — Independence Day Cocktails</span>
-                    <span class="it-arrow" aria-hidden="true">→</span>
+                <button type="button" class="weekend-teaser"
+                        onclick="goToWeekend('weekend-special-en')"
+                        aria-label="Jump to weekend cocktail special in drinks menu">
+                    <span class="wk-icon" aria-hidden="true">🌿</span>
+                    <span class="wk-text">Our Weekend Cocktail Special 🍸</span>
+                    <span class="wk-arrow" aria-hidden="true">→</span>
                 </button>
-                <!-- ============ END INDEPENDENCE DAY TEASER (EN) ============ -->
+                <!-- ============ END WEEKEND TEASER (EN) ============ -->
 
                 <!-- Quick Navigation Menu -->
                 <div class="quick-nav">
@@ -2778,6 +2798,21 @@
                     <div class="menu-item">
                         <div class="item-header">
                             <span class="item-name">
+                                Thai Salad with Rich Sesame Dressing
+                                <button class="item-image-btn" onclick="openImageModal('images/wPT_סלט תאילנדי שומשום.jpg')" aria-label="Show image">
+                                    <img src="images/insert-picture-icon.png" alt="Show image">
+                                </button>
+                            </span>
+                            <span class="item-price">₪45</span>
+                        </div>
+                        <div class="item-description">
+                            Fresh lettuce, cabbage, carrot, fresh tomatoes, avocado cubes, ginger and roasted peanuts
+                        </div>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <span class="item-name">
                                 🌶️🌶️ Som Tam Salad
                                 <button class="item-image-btn" onclick="openImageModal('images/wPT_סלט סום טאם..jpg')" aria-label="Show image">
                                     <img src="images/insert-picture-icon.png" alt="Show image">
@@ -2789,19 +2824,14 @@
                             Green papaya strips, cherry tomatoes, crushed peanuts, fish sauce, garlic and spicy lime juice
                         </div>
                     </div>
-                    
+
                     <div class="menu-item">
                         <div class="item-header">
-                            <span class="item-name">
-                                Thai Salad with Rich Sesame Dressing
-                                <button class="item-image-btn" onclick="openImageModal('images/wPT_סלט תאילנדי שומשום.jpg')" aria-label="Show image">
-                                    <img src="images/insert-picture-icon.png" alt="Show image">
-                                </button>
-                            </span>
-                            <span class="item-price">₪45</span>
+                            <span class="item-name">Sticky Rice</span>
+                            <span class="item-price">₪25</span>
                         </div>
                         <div class="item-description">
-                            Fresh lettuce, cabbage, carrot, fresh tomatoes, avocado cubes, ginger and roasted peanuts
+                            Thai sticky rice
                         </div>
                     </div>
                     
@@ -2970,7 +3000,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="category" id="fried-en">
                     <div class="category-header">🌯 Fried</div>
                     
@@ -3590,17 +3620,17 @@
             <!-- Drinks Tab English -->
             <div id="drinks-en" class="tab-content">
                 <!-- ============================================================ -->
-                <!-- 🇮🇱 INDEPENDENCE DAY SPECIAL — TEMPORARY                     -->
+                <!-- 🌿 WEEKEND SPECIAL — TEMPORARY                               -->
                 <!-- Remove with the matching Hebrew block in #drinks.            -->
                 <!-- ============================================================ -->
-                <div id="independence-special-en" class="category independence-section">
-                    <div class="category-header">🇮🇱 Independence Day Cocktails Special 🇮🇱</div>
-                    <p class="independence-tagline">Celebrating together — Happy Independence Day 💙🤍</p>
+                <div id="weekend-special-en" class="category weekend-section">
+                    <div class="category-header">🌿 Weekend Special 🌿</div>
+                    <p class="weekend-tagline">Kicking off the weekend, served chilled 🥂</p>
 
                     <div class="drinks-grid">
                         <div class="drink-item">
                             <div>
-                                <div class="drink-name">Tapuzza 🇮🇱🍊</div>
+                                <div class="drink-name">Tapuzza 🍊</div>
                                 <div class="drink-description">Light gin with blood orange and a touch of currants</div>
                             </div>
                             <span class="item-price">₪28</span>
@@ -3608,7 +3638,7 @@
 
                         <div class="drink-item">
                             <div>
-                                <div class="drink-name">Limonenada 🇮🇱🍋</div>
+                                <div class="drink-name">Limonenada 🍋</div>
                                 <div class="drink-description">Cool vodka with lime and a refreshing tangy lemonade</div>
                             </div>
                             <span class="item-price">₪28</span>
@@ -3616,7 +3646,7 @@
 
                         <div class="drink-item">
                             <div>
-                                <div class="drink-name">Limon'arak 🇮🇱🍋</div>
+                                <div class="drink-name">Limon'arak 🍋</div>
                                 <div class="drink-description">Israeli arak with cold lemonade and a sweet finish</div>
                             </div>
                             <span class="item-price">₪28</span>
@@ -3624,7 +3654,7 @@
 
                         <div class="drink-item">
                             <div>
-                                <div class="drink-name">Garden Breeze 🇮🇱🍃</div>
+                                <div class="drink-name">Garden Breeze 🍃</div>
                                 <div class="drink-description">Frozen mojito with white rum, lime, and mint</div>
                             </div>
                             <span class="item-price">₪42</span>
@@ -3632,7 +3662,7 @@
 
                         <div class="drink-item">
                             <div>
-                                <div class="drink-name">Mangorita 🇮🇱🥭</div>
+                                <div class="drink-name">Mangorita 🥭</div>
                                 <div class="drink-description">Frozen margarita with gin and mango</div>
                             </div>
                             <span class="item-price">₪42</span>
@@ -3641,11 +3671,11 @@
 
                     <div class="add-ons-box">
                         <div class="add-ons-content">
-                            In honor of the holiday 🥂 add a shot (vodka / arak / gin) to any cocktail — <span class="add-ons-price">₪12</span>
+                            Make the weekend perfect 🥂 add a shot (vodka / arak / gin) to any cocktail — <span class="add-ons-price">₪12</span>
                         </div>
                     </div>
                 </div>
-                <!-- ============ END INDEPENDENCE DAY SPECIAL (EN) ============ -->
+                <!-- ============ END WEEKEND SPECIAL (EN) ============ -->
 
                 <div class="category" style="margin-top: 24px;">
                     <div class="category-header">🥤 Drinks</div>
@@ -4078,9 +4108,9 @@
             }
         }
         
-        // 🇮🇱 Independence Day teaser → jump to drinks + scroll to the special
-        // (temporary — remove with the rest of the independence content)
-        function goToIndependence(targetId) {
+        // 🌿 Weekend teaser → jump to drinks + scroll to the special
+        // (temporary — remove with the rest of the weekend content)
+        function goToWeekend(targetId) {
             const isEnglish = document.body.classList.contains('english');
             showTab(isEnglish ? 'drinks-en' : 'drinks');
             requestAnimationFrame(() => {
