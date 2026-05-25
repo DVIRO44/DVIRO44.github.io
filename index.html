@@ -41,6 +41,10 @@
             --wk-teal-light: #2da39e;
             --wk-gold: #d4a437;
             --wk-bg: #f0f7f7;
+            /* ☀️ Summer Special — sushi season (temporary — remove with .summer-special) */
+            --ss-gold: #c9a464;
+            --ss-gold-light: #e3c489;
+            --ss-cream: #fffbf2;
         }
 
         body.dark-mode {
@@ -66,6 +70,10 @@
             --wk-teal-light: #88d4cf;
             --wk-gold: #e6bf5e;
             --wk-bg: #0e1f1e;
+            /* ☀️ Summer Special — sushi season (temporary — remove with .summer-special) */
+            --ss-gold: #d4b06f;
+            --ss-gold-light: #e7c98a;
+            --ss-cream: #1f1a14;
         }
         
         * {
@@ -826,6 +834,51 @@
         }
         /* ======= END Weekend special ======= */
 
+        /* ============================================================ */
+        /* ☀️ Summer Special — sushi season — TEMPORARY               */
+        /* Remove this block + the --ss-* tokens + the .summer-special */
+        /* markup in #sushi-special and #sushi-special-en when over.   */
+        /* ============================================================ */
+        .sushi-section .category.summer-special {
+            background: var(--ss-cream);
+            border-radius: 14px;
+            margin: 0 0 20px 0;
+            border: 1px solid var(--ss-gold);
+            overflow: hidden;
+            position: relative;
+        }
+        .summer-special .sub-category-header {
+            background: transparent;
+            color: var(--text-accent);
+            padding: 18px 20px 12px;
+            margin: 0;
+            text-align: center;
+            font-size: 1.15em;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            border-bottom: 1px solid var(--ss-gold);
+            position: relative;
+        }
+        body.dark-mode .summer-special .sub-category-header {
+            color: var(--ss-gold-light);
+        }
+        .summer-special .sub-category-header::before,
+        .summer-special .sub-category-header::after {
+            display: none;
+        }
+        .summer-special .menu-item {
+            border-bottom-color: var(--ss-gold-light);
+        }
+        .summer-special .menu-item:last-child {
+            border-bottom: none;
+        }
+        .summer-special .item-price {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--ss-gold);
+        }
+        /* ======= END Summer Special ======= */
+
         /* Hide/show language switcher content */
         .when-english {
             display: none;
@@ -1275,7 +1328,7 @@
                     <a href="#soups" class="quick-nav-link" style="padding: 6px 12px; text-decoration: none; border-radius: 15px; font-size: 0.85em;">🍲 מרקים</a>
                     <a href="#appetizers" class="quick-nav-link" style="padding: 6px 12px; text-decoration: none; border-radius: 15px; font-size: 0.85em;">🥟 סלטים ומאודים</a>
                     <a href="#fried" class="quick-nav-link" style="padding: 6px 12px; text-decoration: none; border-radius: 15px; font-size: 0.85em;">🌯 מטוגנים</a>
-                    <a href="#sushi-special" class="quick-nav-link" style="padding: 6px 12px; text-decoration: none; border-radius: 15px; font-size: 0.85em;">🍣 סושי</a>
+                    <a href="#sushi" class="quick-nav-link" style="padding: 6px 12px; text-decoration: none; border-radius: 15px; font-size: 0.85em;">🍣 סושי</a>
                     <a href="#stir-fries" class="quick-nav-link" style="padding: 6px 12px; text-decoration: none; border-radius: 15px; font-size: 0.85em;">🍜 מוקפצים ותבשילים</a>
                     <a href="#desserts" class="quick-nav-link" style="padding: 6px 12px; text-decoration: none; border-radius: 15px; font-size: 0.85em;">🍰 קינוחים</a>
                 </div>
@@ -1644,9 +1697,100 @@
                 </div>
             </div>
             
-            <div class="sushi-section">
+            <div class="sushi-section" id="sushi">
                 <div class="category-header">🍣 סושי</div>
-                
+
+                <!-- ============================================================ -->
+                <!-- ☀️ SUMMER SPECIAL — sushi season — TEMPORARY                 -->
+                <!-- Remove this entire .summer-special block when the season    -->
+                <!-- ends. Also remove the matching block in #sushi-special-en,  -->
+                <!-- the .summer-special CSS, and the --ss-* tokens.             -->
+                <!-- ============================================================ -->
+                <div class="category summer-special" id="summer-special-sushi">
+                    <div class="sub-category-header">☀️ ספיישל קיץ ☀️</div>
+
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <span class="item-name">
+                                קווין שאלוט
+                                <button class="item-image-btn" onclick="openImageModal('images/wPT_קווין שאלוט.png')" aria-label="הצג תמונה">
+                                    <img src="images/insert-picture-icon.png" alt="הצג תמונה">
+                                </button>
+                            </span>
+                            <span class="item-price">₪66</span>
+                        </div>
+                        <div class="item-description">
+                            מלפפון, אבוקדו, גזר ועירית | מעל סביצ׳ה סלמון מתובל, שאלוט קריספי ופניני אורז קריספיים
+                        </div>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <span class="item-name">
+                                🌶️ ספייסי סלמון רול
+                                <button class="item-image-btn" onclick="openImageModal('images/wPT_ספייסי סלמון.png')" aria-label="הצג תמונה">
+                                    <img src="images/insert-picture-icon.png" alt="הצג תמונה">
+                                </button>
+                            </span>
+                            <span class="item-price">₪63</span>
+                        </div>
+                        <div class="item-description">
+                            ספייסי סלמון, אבוקדו, מלפפון, נענע ועירית | במעטפת סלמון נא עם לימון, צ'ילי חריף ועירית קצוצה
+                        </div>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <span class="item-name">
+                                🌶️ ספייסי טונה רול
+                                <button class="item-image-btn" onclick="openImageModal('images/wPT_ספייסי טונה.png')" aria-label="הצג תמונה">
+                                    <img src="images/insert-picture-icon.png" alt="הצג תמונה">
+                                </button>
+                            </span>
+                            <span class="item-price">₪67</span>
+                        </div>
+                        <div class="item-description">
+                            ספייסי טונה, אבוקדו, גזר ובצל ירוק | במעטפת טונה אדומה עם זילוף מיונז יוזו ופלח לימון טרי
+                        </div>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <span class="item-name">
+                                סנסיי ניגירי
+                                <button class="item-image-btn" onclick="openImageModal('images/wPT_סנסיי ניגירי.png')" aria-label="הצג תמונה">
+                                    <img src="images/insert-picture-icon.png" alt="הצג תמונה">
+                                </button>
+                            </span>
+                            <span class="item-price">₪91</span>
+                        </div>
+                        <div class="item-description">
+                            קומבינציית ניגירי של סלמון נא, סלמון צרוב עם וואסבי ועירית וטונה אדומה עם פניני אורז קריספיים | 6 יח׳
+                        </div>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <span class="item-name">קריספי סלמון</span>
+                            <span class="item-price">₪66</span>
+                        </div>
+                        <div class="item-description">
+                            4 יח׳ קריספי רייס עם אבוקדו, ספייסי סלמון, עירית ופניני אורז קריספיים
+                        </div>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <span class="item-name">קריספי טונה</span>
+                            <span class="item-price">₪72</span>
+                        </div>
+                        <div class="item-description">
+                            4 יח׳ קריספי רייס עם אבוקדו, ספייסי טונה, עירית ופניני אורז קריספיים
+                        </div>
+                    </div>
+                </div>
+                <!-- ============ END SUMMER SPECIAL (HE) ============ -->
+
                 <div class="category" id="sushi-special" style="margin-bottom: 0; border-radius: 0; box-shadow: none;">
                     <div class="sub-category-header">ספיישלים</div>
                 
@@ -2821,7 +2965,7 @@
                         <a href="#soups-en" class="quick-nav-link" style="padding: 6px 12px; text-decoration: none; border-radius: 15px; font-size: 0.85em;">🍲 Soups</a>
                         <a href="#appetizers-en" class="quick-nav-link" style="padding: 6px 12px; text-decoration: none; border-radius: 15px; font-size: 0.85em;">🥟 Salads & Steamed</a>
                         <a href="#fried-en" class="quick-nav-link" style="padding: 6px 12px; text-decoration: none; border-radius: 15px; font-size: 0.85em;">🌯 Fried</a>
-                        <a href="#sushi-special-en" class="quick-nav-link" style="padding: 6px 12px; text-decoration: none; border-radius: 15px; font-size: 0.85em;">🍣 Sushi</a>
+                        <a href="#sushi-en" class="quick-nav-link" style="padding: 6px 12px; text-decoration: none; border-radius: 15px; font-size: 0.85em;">🍣 Sushi</a>
                         <a href="#stir-fries-en" class="quick-nav-link" style="padding: 6px 12px; text-decoration: none; border-radius: 15px; font-size: 0.85em;">🍜 Stir-Fries & Dishes</a>
                         <a href="#desserts-en" class="quick-nav-link" style="padding: 6px 12px; text-decoration: none; border-radius: 15px; font-size: 0.85em;">🍰 Desserts</a>
                     </div>
@@ -3196,9 +3340,98 @@
                     </div>
                 </div>
                 
-                <div class="sushi-section">
+                <div class="sushi-section" id="sushi-en">
                     <div class="category-header">🍣 Sushi</div>
-                    
+
+                    <!-- ============================================================ -->
+                    <!-- ☀️ SUMMER SPECIAL — sushi season — TEMPORARY                 -->
+                    <!-- Remove with the matching Hebrew block in #sushi-special.    -->
+                    <!-- ============================================================ -->
+                    <div class="category summer-special" id="summer-special-sushi-en">
+                        <div class="sub-category-header">☀️ Summer Special ☀️</div>
+
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <span class="item-name">
+                                    Queen Shallot
+                                    <button class="item-image-btn" onclick="openImageModal('images/wPT_קווין שאלוט.png')" aria-label="Show image">
+                                        <img src="images/insert-picture-icon.png" alt="Show image">
+                                    </button>
+                                </span>
+                                <span class="item-price">₪66</span>
+                            </div>
+                            <div class="item-description">
+                                Cucumber, avocado, carrot, chives | Topped with seasoned salmon ceviche, crispy shallot and crispy rice pearls
+                            </div>
+                        </div>
+
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <span class="item-name">
+                                    🌶️ Spicy Salmon Roll
+                                    <button class="item-image-btn" onclick="openImageModal('images/wPT_ספייסי סלמון.png')" aria-label="Show image">
+                                        <img src="images/insert-picture-icon.png" alt="Show image">
+                                    </button>
+                                </span>
+                                <span class="item-price">₪63</span>
+                            </div>
+                            <div class="item-description">
+                                Spicy salmon, avocado, cucumber, mint, chives | Wrapped in raw salmon with lemon, hot chili and chopped chives
+                            </div>
+                        </div>
+
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <span class="item-name">
+                                    🌶️ Spicy Tuna Roll
+                                    <button class="item-image-btn" onclick="openImageModal('images/wPT_ספייסי טונה.png')" aria-label="Show image">
+                                        <img src="images/insert-picture-icon.png" alt="Show image">
+                                    </button>
+                                </span>
+                                <span class="item-price">₪67</span>
+                            </div>
+                            <div class="item-description">
+                                Spicy tuna, avocado, carrot, scallion | Wrapped in red tuna with yuzu mayo drizzle and a fresh lemon slice
+                            </div>
+                        </div>
+
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <span class="item-name">
+                                    Sensei Nigiri
+                                    <button class="item-image-btn" onclick="openImageModal('images/wPT_סנסיי ניגירי.png')" aria-label="Show image">
+                                        <img src="images/insert-picture-icon.png" alt="Show image">
+                                    </button>
+                                </span>
+                                <span class="item-price">₪91</span>
+                            </div>
+                            <div class="item-description">
+                                Nigiri combination of raw salmon, seared salmon with wasabi and chives, and red tuna with crispy rice pearls | 6 pcs
+                            </div>
+                        </div>
+
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <span class="item-name">Crispy Salmon</span>
+                                <span class="item-price">₪66</span>
+                            </div>
+                            <div class="item-description">
+                                4 pcs crispy rice with avocado, spicy salmon, chives and crispy rice pearls
+                            </div>
+                        </div>
+
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <span class="item-name">Crispy Tuna</span>
+                                <span class="item-price">₪72</span>
+                            </div>
+                            <div class="item-description">
+                                4 pcs crispy rice with avocado, spicy tuna, chives and crispy rice pearls
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ============ END SUMMER SPECIAL (EN) ============ -->
+
                     <div class="category" id="sushi-special-en" style="margin-bottom: 0; border-radius: 0; box-shadow: none;">
                         <div class="sub-category-header">Specials</div>
                     
