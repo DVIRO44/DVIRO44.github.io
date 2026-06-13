@@ -36,15 +36,19 @@
             --warning-bg: #e8f5e9;
             --warning-border: #81c784;
             --warning-text: #2e7d32;
-            /* 🌿 Weekend special (temporary — remove with .weekend-section) */
-            --wk-teal: #0d6e6b;
-            --wk-teal-light: #2da39e;
-            --wk-gold: #d4a437;
-            --wk-bg: #f0f7f7;
             /* ☀️ Summer Special — sushi season (temporary — remove with .summer-special) */
             --ss-gold: #c9a464;
             --ss-gold-light: #e3c489;
             --ss-cream: #fffbf2;
+            /* ⚽ World Cup Matchday Deal (temporary — remove with .matchday-deck) */
+            --md-navy: #0d1b3d;
+            --md-navy-light: #1a2a4a;
+            --md-gold: #d4a437;
+            --md-gold-light: #f4d27a;
+            --md-silver-bg: #e8eaf0;
+            --md-silver-bg-light: #cfd2dc;
+            --md-silver-line: #757f8b;
+            --md-silver-text: #2c2c2c;
         }
 
         body.dark-mode {
@@ -65,15 +69,19 @@
             --warning-bg: #2d4a2f;
             --warning-border: #66bb6a;
             --warning-text: #a5d6a7;
-            /* 🌿 Weekend special (temporary — remove with .weekend-section) */
-            --wk-teal: #5fb8b3;
-            --wk-teal-light: #88d4cf;
-            --wk-gold: #e6bf5e;
-            --wk-bg: #0e1f1e;
             /* ☀️ Summer Special — sushi season (temporary — remove with .summer-special) */
             --ss-gold: #d4b06f;
             --ss-gold-light: #e7c98a;
             --ss-cream: #1f1a14;
+            /* ⚽ World Cup Matchday Deal (temporary — remove with .matchday-deck) */
+            --md-navy: #0a142e;
+            --md-navy-light: #14213d;
+            --md-gold: #d4a437;
+            --md-gold-light: #f4d27a;
+            --md-silver-bg: #2a2e38;
+            --md-silver-bg-light: #1f232b;
+            --md-silver-line: #6c757d;
+            --md-silver-text: #e0e0e0;
         }
         
         * {
@@ -669,172 +677,6 @@
         }
 
         /* ============================================================ */
-        /* 🌿 Weekend special — TEMPORARY                               */
-        /* Remove this block + the --wk-* tokens + the markup blocks    */
-        /* in #drinks and #drinks-en when the weekend ends.             */
-        /* ============================================================ */
-        .weekend-section {
-            position: relative;
-            border: 1px solid var(--wk-teal-light);
-            background: var(--wk-bg);
-        }
-        .weekend-section::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            inset-inline: 0;
-            height: 2px;
-            background: linear-gradient(
-                90deg,
-                var(--wk-teal) 0%,
-                var(--wk-gold) 50%,
-                var(--wk-teal) 100%
-            );
-            z-index: 2;
-        }
-        .weekend-section .category-header {
-            background: linear-gradient(135deg, var(--wk-teal) 0%, var(--wk-teal-light) 100%);
-            color: #ffffff;
-            text-align: center;
-            letter-spacing: 0.5px;
-        }
-        .weekend-section .category-header::after {
-            bottom: 0;
-            left: 50%;
-            right: auto;
-            transform: translateX(-50%);
-            width: 40%;
-            height: 1px;
-            background: var(--wk-gold);
-            border-radius: 1px;
-        }
-        .weekend-tagline {
-            padding: 16px 20px 4px;
-            margin: 0;
-            text-align: center;
-            font-size: 0.95em;
-            font-weight: 600;
-            color: var(--wk-teal);
-            letter-spacing: 0.3px;
-        }
-        body.dark-mode .weekend-tagline {
-            color: var(--wk-teal-light);
-        }
-        .weekend-section .drink-item {
-            background: var(--bg-card);
-        }
-        .weekend-section .drink-item:hover {
-            background: var(--wk-bg);
-        }
-        .weekend-section .drink-name {
-            color: var(--wk-teal);
-            font-weight: 600;
-        }
-        body.dark-mode .weekend-section .drink-name {
-            color: var(--wk-teal-light);
-        }
-        .weekend-section .item-price {
-            background: transparent;
-            color: var(--text-primary);
-            border: 1px solid var(--wk-gold);
-        }
-        @media (prefers-reduced-motion: reduce) {
-            .weekend-section .drink-item:hover {
-                transform: none;
-            }
-        }
-
-        /* Tappable teaser strip at the top of the food tab */
-        .weekend-teaser {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            width: 100%;
-            padding: 14px 20px;
-            margin: 0 0 18px;
-            background: linear-gradient(135deg, var(--wk-teal) 0%, var(--wk-teal-light) 100%);
-            color: #ffffff;
-            border: none;
-            border-radius: 12px;
-            font-family: inherit;
-            font-size: 1em;
-            font-weight: 600;
-            letter-spacing: 0.3px;
-            cursor: pointer;
-            box-shadow: 0 4px 12px rgba(13, 110, 107, 0.25);
-            transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        .weekend-teaser::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            inset-inline: 0;
-            height: 3px;
-            background: linear-gradient(
-                90deg,
-                rgba(255, 255, 255, 0.4) 0%,
-                rgba(255, 255, 255, 0.75) 50%,
-                rgba(255, 255, 255, 0.4) 100%
-            );
-            opacity: 0.6;
-        }
-        .weekend-teaser:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(13, 110, 107, 0.35);
-            filter: brightness(1.05);
-        }
-        .weekend-teaser:active {
-            transform: translateY(0);
-        }
-        .weekend-teaser:focus-visible {
-            outline: 3px solid #ffffff;
-            outline-offset: 2px;
-        }
-        .weekend-teaser .wk-icon {
-            font-size: 1.3em;
-            line-height: 1;
-        }
-        .weekend-teaser .wk-text {
-            line-height: 1.3;
-        }
-        .weekend-teaser .wk-arrow {
-            --dir: -1;
-            font-size: 1.2em;
-            font-weight: 700;
-            display: inline-block;
-            animation: weekend-arrow 1.6s ease-in-out infinite;
-        }
-        body.english .weekend-teaser .wk-arrow {
-            --dir: 1;
-        }
-        @keyframes weekend-arrow {
-            0%, 100% { transform: translateX(0); opacity: 0.85; }
-            50% { transform: translateX(calc(var(--dir, -1) * 4px)); opacity: 1; }
-        }
-        @media (prefers-reduced-motion: reduce) {
-            .weekend-teaser .wk-arrow { animation: none; }
-            .weekend-teaser:hover { transform: none; }
-        }
-
-        /* Chaser / add-on note inside the weekend card */
-        .weekend-section .add-ons-box {
-            background: rgba(255, 255, 255, 0.5);
-            border: 1px solid var(--wk-gold);
-            margin: 0 20px 20px;
-        }
-        body.dark-mode .weekend-section .add-ons-box {
-            background: rgba(255, 255, 255, 0.04);
-        }
-        .weekend-section .add-ons-price {
-            color: var(--wk-gold);
-            font-weight: 700;
-        }
-        /* ======= END Weekend special ======= */
-
-        /* ============================================================ */
         /* ☀️ Summer Special — sushi season — TEMPORARY               */
         /* Remove this block + the --ss-* tokens + the .summer-special */
         /* markup in #sushi-special and #sushi-special-en when over.   */
@@ -878,6 +720,195 @@
             border: 1px solid var(--ss-gold);
         }
         /* ======= END Summer Special ======= */
+
+        /* ============================================================ */
+        /* ⚽ World Cup Matchday Deal — TEMPORARY                       */
+        /* FUT-style collectible card design. Remove this block + the   */
+        /* --md-* tokens + the .matchday-deck markup in #food and       */
+        /* #food-en when the tournament ends.                           */
+        /* ============================================================ */
+        .matchday-deck {
+            margin: 0 0 24px 0;
+        }
+        .matchday-deck-title {
+            text-align: center;
+            font-size: 1em;
+            font-weight: 800;
+            letter-spacing: 4px;
+            margin: 0 0 16px;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            position: relative;
+        }
+        .matchday-deck-title::before,
+        .matchday-deck-title::after {
+            content: "";
+            display: inline-block;
+            width: 32px;
+            height: 1px;
+            background: var(--text-secondary);
+            vertical-align: middle;
+            margin: 0 12px;
+            opacity: 0.5;
+        }
+        .matchday-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+        .matchday-card {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 16px 18px 18px;
+            border-radius: 12px;
+            min-height: 200px;
+            overflow: hidden;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            cursor: default;
+        }
+        .matchday-card:hover {
+            transform: translateY(-4px);
+        }
+        .matchday-card-watermark {
+            position: absolute;
+            inset-inline-end: -10px;
+            bottom: -12px;
+            font-size: 110px;
+            line-height: 1;
+            opacity: 0.08;
+            pointer-events: none;
+            transform: rotate(-12deg);
+        }
+        .matchday-card-tag {
+            font-size: 0.7em;
+            font-weight: 800;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            opacity: 0.75;
+            position: relative;
+            z-index: 1;
+        }
+        .matchday-card-name {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            font-size: 1.2em;
+            font-weight: 700;
+            line-height: 1.35;
+            margin: 14px 0 10px;
+            position: relative;
+            z-index: 1;
+        }
+        .matchday-card-price {
+            font-size: 1.55em;
+            font-weight: 800;
+            line-height: 1;
+            letter-spacing: -0.5px;
+            padding-top: 12px;
+            border-top: 1px solid currentColor;
+            opacity: 0.85;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* GOLD tier — the deal */
+        .matchday-card--gold {
+            background:
+                radial-gradient(ellipse at top right, rgba(244, 210, 122, 0.18) 0%, transparent 50%),
+                linear-gradient(150deg, var(--md-navy-light) 0%, var(--md-navy) 100%);
+            color: var(--md-gold-light);
+            box-shadow:
+                0 8px 22px rgba(13, 27, 61, 0.35),
+                inset 0 0 0 1px rgba(244, 210, 122, 0.25);
+        }
+        .matchday-card--gold::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            inset-inline: 0;
+            height: 2px;
+            background: linear-gradient(90deg,
+                rgba(212, 164, 55, 0) 0%,
+                var(--md-gold) 30%,
+                var(--md-gold-light) 50%,
+                var(--md-gold) 70%,
+                rgba(212, 164, 55, 0) 100%);
+        }
+        .matchday-card--gold .matchday-card-tag {
+            color: var(--md-gold-light);
+        }
+        .matchday-card--gold .matchday-card-name {
+            color: #ffffff;
+        }
+        .matchday-card--gold .matchday-card-price {
+            color: var(--md-gold-light);
+            border-top-color: rgba(244, 210, 122, 0.4);
+        }
+
+        /* SILVER tier — the snack */
+        .matchday-card--silver {
+            background:
+                radial-gradient(ellipse at top right, rgba(255, 255, 255, 0.5) 0%, transparent 55%),
+                linear-gradient(150deg, var(--md-silver-bg) 0%, var(--md-silver-bg-light) 100%);
+            color: var(--md-silver-text);
+            box-shadow:
+                0 8px 22px rgba(108, 117, 125, 0.25),
+                inset 0 0 0 1px rgba(108, 117, 125, 0.18);
+        }
+        .matchday-card--silver::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            inset-inline: 0;
+            height: 2px;
+            background: linear-gradient(90deg,
+                rgba(108, 117, 125, 0) 0%,
+                var(--md-silver-line) 30%,
+                #ffffff 50%,
+                var(--md-silver-line) 70%,
+                rgba(108, 117, 125, 0) 100%);
+        }
+        .matchday-card--silver .matchday-card-tag {
+            color: var(--md-silver-line);
+        }
+        .matchday-card--silver .matchday-card-price {
+            border-top-color: rgba(108, 117, 125, 0.4);
+        }
+
+        /* Mobile: tighter sizing, two columns down to ~340px, stack below */
+        @media (max-width: 600px) {
+            .matchday-card {
+                padding: 12px 14px 14px;
+                min-height: 0;
+            }
+            .matchday-card-tag {
+                font-size: 0.6em;
+                letter-spacing: 2px;
+            }
+            .matchday-card-name {
+                font-size: 0.95em;
+                margin: 10px 0 8px;
+            }
+            .matchday-card-price {
+                font-size: 1.25em;
+                padding-top: 10px;
+            }
+            .matchday-card-watermark {
+                font-size: 80px;
+            }
+        }
+        @media (max-width: 340px) {
+            .matchday-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .matchday-card:hover { transform: none; }
+        }
+        /* ======= END World Cup Matchday Deal ======= */
 
         /* Hide/show language switcher content */
         .when-english {
@@ -1309,19 +1340,6 @@
         <!-- Food Tab -->
         <div id="food" class="tab-content active">
 
-            <!-- ============================================================ -->
-            <!-- 🌿 WEEKEND TEASER — TEMPORARY                                -->
-            <!-- Remove with the rest of the weekend special content.        -->
-            <!-- ============================================================ -->
-            <button type="button" class="weekend-teaser"
-                    onclick="goToWeekend('weekend-special')"
-                    aria-label="מעבר לספיישל סוף השבוע בתפריט המשקאות">
-                <span class="wk-icon" aria-hidden="true">🌿</span>
-                <span class="wk-text">ספיישל קוקטיילים לסופ"ש 🍸</span>
-                <span class="wk-arrow" aria-hidden="true">←</span>
-            </button>
-            <!-- ============ END WEEKEND TEASER (HE) ============ -->
-
             <!-- Quick Navigation Menu -->
             <div class="quick-nav">
                 <div class="quick-nav-links" style="display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;">
@@ -1333,6 +1351,33 @@
                     <a href="#desserts" class="quick-nav-link" style="padding: 6px 12px; text-decoration: none; border-radius: 15px; font-size: 0.85em;">🍰 קינוחים</a>
                 </div>
             </div>
+
+            <!-- ============================================================ -->
+            <!-- ⚽ WORLD CUP MATCHDAY DEAL — TEMPORARY                       -->
+            <!-- Remove this entire .matchday-deck block when the            -->
+            <!-- tournament ends. Also remove the matching block in #food-en, -->
+            <!-- the .matchday-* CSS, and the --md-* tokens.                 -->
+            <!-- ============================================================ -->
+            <section class="matchday-deck" aria-label="World Cup deal">
+                <h3 class="matchday-deck-title">⚽ מבצע מונדיאל ⚽</h3>
+
+                <div class="matchday-cards">
+                    <article class="matchday-card matchday-card--gold">
+                        <span class="matchday-card-watermark" aria-hidden="true">⚽</span>
+                        <span class="matchday-card-tag">DEAL</span>
+                        <span class="matchday-card-name">חצי בירה מהחבית + תערובת פיצוחים</span>
+                        <span class="matchday-card-price">₪55</span>
+                    </article>
+
+                    <article class="matchday-card matchday-card--silver">
+                        <span class="matchday-card-watermark" aria-hidden="true">🥜</span>
+                        <span class="matchday-card-tag">SNACK</span>
+                        <span class="matchday-card-name">תערובת פיצוחים</span>
+                        <span class="matchday-card-price">₪25</span>
+                    </article>
+                </div>
+            </section>
+            <!-- ============ END WORLD CUP MATCHDAY DEAL (HE) ============ -->
 
             <div class="category" id="soups">
                 <div class="category-header">🍲 מרקים</div>
@@ -2484,67 +2529,8 @@
         
         <!-- Drinks Tab -->
         <div id="drinks" class="tab-content">
-            <!-- ============================================================ -->
-            <!-- 🌿 WEEKEND SPECIAL — TEMPORARY                               -->
-            <!-- Remove this entire .weekend-section block when the weekend  -->
-            <!-- ends. Also remove the matching block in #drinks-en, the     -->
-            <!-- .weekend-* CSS, and the --wk-* tokens.                      -->
-            <!-- ============================================================ -->
-            <div id="weekend-special" class="category weekend-section">
-                <div class="category-header">🌿 ספיישל סוף שבוע 🌿</div>
-                <p class="weekend-tagline">מתחילים את הסופ"ש בקצב הנכון 🥂</p>
 
-                <div class="drinks-grid">
-                    <div class="drink-item">
-                        <div>
-                            <div class="drink-name">תפוזזה 🍊</div>
-                            <div class="drink-description">ג'ין קליל עם תפוז דם ונגיעות דומדמניות</div>
-                        </div>
-                        <span class="item-price">₪34</span>
-                    </div>
-
-                    <div class="drink-item">
-                        <div>
-                            <div class="drink-name">לימוננדה 🍋</div>
-                            <div class="drink-description">וודקה קרירה עם ליים ולימונדה חמצמצה ומרעננת</div>
-                        </div>
-                        <span class="item-price">₪34</span>
-                    </div>
-
-                    <div class="drink-item">
-                        <div>
-                            <div class="drink-name">לימונערק 🍋</div>
-                            <div class="drink-description">ערק ישראלי עם לימונדה קרה ונגיעה מתקתקה</div>
-                        </div>
-                        <span class="item-price">₪28</span>
-                    </div>
-
-                    <div class="drink-item">
-                        <div>
-                            <div class="drink-name">Garden Breeze 🍃</div>
-                            <div class="drink-description">מוחיטו קפוא על בסיס רום לבן, ליים ונענע</div>
-                        </div>
-                        <span class="item-price">₪42</span>
-                    </div>
-
-                    <div class="drink-item">
-                        <div>
-                            <div class="drink-name">Mangorita 🥭</div>
-                            <div class="drink-description">מרגריטה קפואה על בסיס ג'ין ומנגו</div>
-                        </div>
-                        <span class="item-price">₪42</span>
-                    </div>
-                </div>
-
-                <div class="add-ons-box">
-                    <div class="add-ons-content">
-                        לסופ"ש המושלם 🥂 ניתן להוסיף שוט חיזוק (וודקה / ערק / ג'ין) לכל קוקטייל בתוספת <span class="add-ons-price">₪12</span>
-                    </div>
-                </div>
-            </div>
-            <!-- ============ END WEEKEND SPECIAL (HE) ============ -->
-
-            <div class="category" style="margin-top: 24px;">
+            <div class="category">
                 <div class="category-header">🥤 משקאות</div>
                 
                 <div class="drinks-grid">
@@ -2986,19 +2972,6 @@
             <!-- Food Tab English -->
             <div id="food-en" class="tab-content active">
 
-                <!-- ============================================================ -->
-                <!-- 🌿 WEEKEND TEASER — TEMPORARY                                -->
-                <!-- Remove with the rest of the weekend special content.        -->
-                <!-- ============================================================ -->
-                <button type="button" class="weekend-teaser"
-                        onclick="goToWeekend('weekend-special-en')"
-                        aria-label="Jump to weekend cocktail special in drinks menu">
-                    <span class="wk-icon" aria-hidden="true">🌿</span>
-                    <span class="wk-text">Our Weekend Cocktail Special 🍸</span>
-                    <span class="wk-arrow" aria-hidden="true">→</span>
-                </button>
-                <!-- ============ END WEEKEND TEASER (EN) ============ -->
-
                 <!-- Quick Navigation Menu -->
                 <div class="quick-nav">
                     <div class="quick-nav-links" style="display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;">
@@ -3010,6 +2983,31 @@
                         <a href="#desserts-en" class="quick-nav-link" style="padding: 6px 12px; text-decoration: none; border-radius: 15px; font-size: 0.85em;">🍰 Desserts</a>
                     </div>
                 </div>
+
+                <!-- ============================================================ -->
+                <!-- ⚽ WORLD CUP MATCHDAY DEAL — TEMPORARY                       -->
+                <!-- Remove with the matching Hebrew block in #food.              -->
+                <!-- ============================================================ -->
+                <section class="matchday-deck" aria-label="World Cup deal">
+                    <h3 class="matchday-deck-title">⚽ World Cup Deal ⚽</h3>
+
+                    <div class="matchday-cards">
+                        <article class="matchday-card matchday-card--gold">
+                            <span class="matchday-card-watermark" aria-hidden="true">⚽</span>
+                            <span class="matchday-card-tag">DEAL</span>
+                            <span class="matchday-card-name">Half Draft Beer + House Nut Mix</span>
+                            <span class="matchday-card-price">₪55</span>
+                        </article>
+
+                        <article class="matchday-card matchday-card--silver">
+                            <span class="matchday-card-watermark" aria-hidden="true">🥜</span>
+                            <span class="matchday-card-tag">SNACK</span>
+                            <span class="matchday-card-name">House Nut Mix</span>
+                            <span class="matchday-card-price">₪25</span>
+                        </article>
+                    </div>
+                </section>
+                <!-- ============ END WORLD CUP MATCHDAY DEAL (EN) ============ -->
                 <!-- Welcome Message -->
                 <div class="welcome-message">
                     <div style="position: absolute; top: -10px; right: -10px; font-size: 40px; opacity: 0.1;">🌿</div>
@@ -4065,65 +4063,8 @@
             
             <!-- Drinks Tab English -->
             <div id="drinks-en" class="tab-content">
-                <!-- ============================================================ -->
-                <!-- 🌿 WEEKEND SPECIAL — TEMPORARY                               -->
-                <!-- Remove with the matching Hebrew block in #drinks.            -->
-                <!-- ============================================================ -->
-                <div id="weekend-special-en" class="category weekend-section">
-                    <div class="category-header">🌿 Weekend Special 🌿</div>
-                    <p class="weekend-tagline">Kicking off the weekend, served chilled 🥂</p>
 
-                    <div class="drinks-grid">
-                        <div class="drink-item">
-                            <div>
-                                <div class="drink-name">Tapuzza 🍊</div>
-                                <div class="drink-description">Light gin with blood orange and a touch of currants</div>
-                            </div>
-                            <span class="item-price">₪34</span>
-                        </div>
-
-                        <div class="drink-item">
-                            <div>
-                                <div class="drink-name">Limonenada 🍋</div>
-                                <div class="drink-description">Cool vodka with lime and a refreshing tangy lemonade</div>
-                            </div>
-                            <span class="item-price">₪34</span>
-                        </div>
-
-                        <div class="drink-item">
-                            <div>
-                                <div class="drink-name">Limon'arak 🍋</div>
-                                <div class="drink-description">Israeli arak with cold lemonade and a sweet finish</div>
-                            </div>
-                            <span class="item-price">₪28</span>
-                        </div>
-
-                        <div class="drink-item">
-                            <div>
-                                <div class="drink-name">Garden Breeze 🍃</div>
-                                <div class="drink-description">Frozen mojito with white rum, lime, and mint</div>
-                            </div>
-                            <span class="item-price">₪42</span>
-                        </div>
-
-                        <div class="drink-item">
-                            <div>
-                                <div class="drink-name">Mangorita 🥭</div>
-                                <div class="drink-description">Frozen margarita with gin and mango</div>
-                            </div>
-                            <span class="item-price">₪42</span>
-                        </div>
-                    </div>
-
-                    <div class="add-ons-box">
-                        <div class="add-ons-content">
-                            Make the weekend perfect 🥂 add a shot (vodka / arak / gin) to any cocktail — <span class="add-ons-price">₪12</span>
-                        </div>
-                    </div>
-                </div>
-                <!-- ============ END WEEKEND SPECIAL (EN) ============ -->
-
-                <div class="category" style="margin-top: 24px;">
+                <div class="category">
                     <div class="category-header">🥤 Drinks</div>
                     
                     <div class="drinks-grid">
@@ -4593,17 +4534,6 @@
             }
         }
         
-        // 🌿 Weekend teaser → jump to drinks + scroll to the special
-        // (temporary — remove with the rest of the weekend content)
-        function goToWeekend(targetId) {
-            const isEnglish = document.body.classList.contains('english');
-            showTab(isEnglish ? 'drinks-en' : 'drinks');
-            requestAnimationFrame(() => {
-                const el = document.getElementById(targetId);
-                if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            });
-        }
-
         // Dark mode functionality
         function toggleDarkMode() {
             const body = document.body;
