@@ -4711,18 +4711,30 @@
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
             
-            // Load image
-            const img = new Image();
-            img.onload = function() {
-                modalImg.src = imageSrc;
+            // Prefer the lightweight optimized WebP (images/optimized/<name>.webp);
+            // fall back to the original file if a WebP isn't present.
+            const slash = imageSrc.lastIndexOf('/');
+            const dir = slash >= 0 ? imageSrc.slice(0, slash + 1) : '';
+            const file = slash >= 0 ? imageSrc.slice(slash + 1) : imageSrc;
+            const dot = file.lastIndexOf('.');
+            const optimizedSrc = dir + 'optimized/' + (dot >= 0 ? file.slice(0, dot) : file) + '.webp';
+
+            const show = function(src) {
+                modalImg.src = src;
                 modalImg.classList.add('loaded');
                 modalContent.classList.remove('loading');
             };
+
+            const img = new Image();
+            img.onload = function() { show(optimizedSrc); };
             img.onerror = function() {
-                modalContent.classList.remove('loading');
-                // You could show an error message here if needed
+                // No optimized version — load the original instead.
+                const orig = new Image();
+                orig.onload = function() { show(imageSrc); };
+                orig.onerror = function() { modalContent.classList.remove('loading'); };
+                orig.src = imageSrc;
             };
-            img.src = imageSrc;
+            img.src = optimizedSrc;
         }
         
         function closeImageModal(event) {
