@@ -1062,6 +1062,43 @@
         .welcome-message p:first-of-type {
             color: var(--text-accent-light);
         }
+        .welcome-how-lead {
+            font-size: 0.9em;
+            text-align: center;
+            margin: 0 0 6px;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+        .welcome-how {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 12px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 4px 20px;
+            font-size: 0.92em;
+            text-align: center;
+            color: var(--text-primary);
+        }
+        .welcome-how li {
+            padding: 2px 0;
+        }
+        .welcome-signoff {
+            text-align: center;
+            font-size: 0.88em;
+            font-style: italic;
+            color: var(--text-accent);
+            margin: 10px 0 0;
+            line-height: 1.5;
+            opacity: 0.9;
+        }
+        @media (max-width: 480px) {
+            .welcome-how {
+                flex-direction: column;
+                gap: 4px;
+            }
+        }
         
         .quick-nav {
             background: var(--bg-secondary);
@@ -1326,9 +1363,17 @@
             <!-- Welcome Message -->
             <div class="welcome-message">
                 <div style="position: absolute; top: -8px; right: -8px; font-size: 30px; opacity: 0.1;">🌿</div>
-                <h2 style="font-size: 1.2em; margin-bottom: 12px; text-align: center; font-weight: 600;">ברוכים הבאים ל־Thai Garden 🌿</h2>
-                <p style="font-size: 1em; margin-bottom: 8px; text-align: center; line-height: 1.4;">חזרנו לפעול אחרי פינוי מהצפון – תודה שאתם פה ותומכים! ❤️</p>
-                <p style="font-size: 0.9em; text-align: center; line-height: 1.5; margin: 0;">זה פוד טראק, לא מסעדה – מזמינים בקופה, השירות עצמי, והמנות יוצאות אחת-אחת. יש המתנה, אז קחו אוויר, חייכו, ותנו לנו להכין לכם אוכל טעים במיוחד 🍣</p>
+                <h2 style="font-size: 1.35em; margin-bottom: 12px; text-align: center; font-weight: 700;">ברוכים הבאים ל־Thai Garden 🌿</h2>
+                <p style="font-size: 1em; margin: 0 0 12px; text-align: center; line-height: 1.5;">שמחים לארח אתכם שוב אחרי תקופה לא פשוטה של פינוי מהצפון. תודה שבחרתם להגיע ולתמוך בנו – זה ממש לא מובן מאליו. ❤️</p>
+                <p style="font-size: 0.95em; margin: 0 0 14px; text-align: center; line-height: 1.5; color: var(--text-secondary);">אנחנו פועלים כרגע עם צוות מצומצם בעקבות התקופה, ולכן זמני ההמתנה עשויים להיות ארוכים מהרגיל, במיוחד בשעות העומס.</p>
+                <p class="welcome-how-lead">חשוב לדעת – זה פוד טראק ולא מסעדה:</p>
+                <ul class="welcome-how">
+                    <li>🍜 מזמינים בקופה</li>
+                    <li>🍣 השירות עצמי</li>
+                    <li>🥢 המנות יוצאות אחת-אחת, כשהן מוכנות וטריות</li>
+                </ul>
+                <p style="font-size: 0.95em; margin: 4px 0 0; text-align: center; line-height: 1.5; color: var(--text-secondary);">אנחנו עושים את המקסימום כדי להוציא כל מנה באיכות הכי גבוהה, ומעריכים מאוד את הסבלנות וההבנה שלכם.</p>
+                <p class="welcome-signoff">בתיאבון! ❤️</p>
             </div>
             
             <!-- Tab Navigation -->
@@ -3006,9 +3051,17 @@
                 <!-- Welcome Message -->
                 <div class="welcome-message">
                     <div style="position: absolute; top: -8px; right: -8px; font-size: 30px; opacity: 0.1;">🌿</div>
-                    <h2 style="font-size: 1.2em; margin-bottom: 12px; text-align: center; font-weight: 600;">Welcome to Thai Garden 🌿</h2>
-                    <p style="font-size: 1em; margin-bottom: 8px; text-align: center; line-height: 1.4;">We're back in business after evacuation from the North – thank you for being here and supporting us! ❤️</p>
-                    <p style="font-size: 0.9em; text-align: center; line-height: 1.5; margin: 0;">This is a food truck, not a restaurant – order at the counter, self-service, and dishes come out one by one. There's a wait, so take a breath, smile, and let us prepare especially delicious food for you 🍣</p>
+                    <h2 style="font-size: 1.35em; margin-bottom: 12px; text-align: center; font-weight: 700;">Welcome to Thai Garden 🌿</h2>
+                    <p style="font-size: 1em; margin: 0 0 12px; text-align: center; line-height: 1.5;">Glad to have you back after a difficult time following our evacuation from the North. Thank you for choosing to come and support us — it truly means a lot. ❤️</p>
+                    <p style="font-size: 0.95em; margin: 0 0 14px; text-align: center; line-height: 1.5; color: var(--text-secondary);">We're currently operating with a smaller team due to the situation, so wait times may be longer than usual, especially during peak hours.</p>
+                    <p class="welcome-how-lead">Please note — this is a food truck, not a restaurant:</p>
+                    <ul class="welcome-how">
+                        <li>🍜 Order at the counter</li>
+                        <li>🍣 Self-service</li>
+                        <li>🥢 Dishes come out one by one, when ready and fresh</li>
+                    </ul>
+                    <p style="font-size: 0.95em; margin: 4px 0 0; text-align: center; line-height: 1.5; color: var(--text-secondary);">We're doing our best to serve each dish at the highest quality, and we truly appreciate your patience and understanding.</p>
+                    <p class="welcome-signoff">Enjoy your meal! ❤️</p>
                 </div>
             
             <!-- Tab Navigation -->
@@ -3056,14 +3109,7 @@
                     </div>
                 </section>
                 <!-- ============ END WORLD CUP MATCHDAY DEAL (EN) ============ -->
-                <!-- Welcome Message -->
-                <div class="welcome-message">
-                    <div style="position: absolute; top: -10px; right: -10px; font-size: 40px; opacity: 0.1;">🌿</div>
-                    <h2 style="font-size: 1.4em; margin-bottom: 15px; text-align: center; font-weight: 600;">Welcome to Thai Garden 🌿</h2>
-                    <p style="font-size: 1.1em; margin-bottom: 12px; text-align: center; line-height: 1.5;">We're back in business after evacuation from the North – thank you for being here and supporting us! ❤️</p>
-                    <p style="font-size: 1em; text-align: center; line-height: 1.6; margin: 0;">This is a food truck, not a restaurant – dishes come out one by one, and there's a wait. So take a breath, smile, and let us spoil you</p>
-                </div>
-                
+
                 <div class="category" id="soups-en">
                     <div class="category-header">🍲 Soups</div>
                     
