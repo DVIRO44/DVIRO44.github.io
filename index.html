@@ -40,15 +40,6 @@
             --ss-gold: #c9a464;
             --ss-gold-light: #e3c489;
             --ss-cream: #fffbf2;
-            /* ⚽ World Cup Matchday Deal (temporary — remove with .matchday-deck) */
-            --md-navy: #0d1b3d;
-            --md-navy-light: #1a2a4a;
-            --md-gold: #d4a437;
-            --md-gold-light: #f4d27a;
-            --md-silver-bg: #e8eaf0;
-            --md-silver-bg-light: #cfd2dc;
-            --md-silver-line: #757f8b;
-            --md-silver-text: #2c2c2c;
         }
 
         body.dark-mode {
@@ -73,15 +64,6 @@
             --ss-gold: #d4b06f;
             --ss-gold-light: #e7c98a;
             --ss-cream: #1f1a14;
-            /* ⚽ World Cup Matchday Deal (temporary — remove with .matchday-deck) */
-            --md-navy: #0a142e;
-            --md-navy-light: #14213d;
-            --md-gold: #d4a437;
-            --md-gold-light: #f4d27a;
-            --md-silver-bg: #2a2e38;
-            --md-silver-bg-light: #1f232b;
-            --md-silver-line: #6c757d;
-            --md-silver-text: #e0e0e0;
         }
         
         * {
@@ -721,194 +703,6 @@
         }
         /* ======= END Summer Special ======= */
 
-        /* ============================================================ */
-        /* ⚽ World Cup Matchday Deal — TEMPORARY                       */
-        /* FUT-style collectible card design. Remove this block + the   */
-        /* --md-* tokens + the .matchday-deck markup in #food and       */
-        /* #food-en when the tournament ends.                           */
-        /* ============================================================ */
-        .matchday-deck {
-            margin: 0 0 24px 0;
-        }
-        .matchday-deck-title {
-            text-align: center;
-            font-size: 1em;
-            font-weight: 800;
-            letter-spacing: 4px;
-            margin: 0 0 16px;
-            color: var(--text-secondary);
-            text-transform: uppercase;
-            position: relative;
-        }
-        .matchday-deck-title::before,
-        .matchday-deck-title::after {
-            content: "";
-            display: inline-block;
-            width: 32px;
-            height: 1px;
-            background: var(--text-secondary);
-            vertical-align: middle;
-            margin: 0 12px;
-            opacity: 0.5;
-        }
-        .matchday-cards {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-        }
-        .matchday-card {
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            padding: 16px 18px 18px;
-            border-radius: 12px;
-            min-height: 200px;
-            overflow: hidden;
-            transition: transform 0.25s ease, box-shadow 0.25s ease;
-            cursor: default;
-        }
-        .matchday-card:hover {
-            transform: translateY(-4px);
-        }
-        .matchday-card-watermark {
-            position: absolute;
-            inset-inline-end: -10px;
-            bottom: -12px;
-            font-size: 110px;
-            line-height: 1;
-            opacity: 0.08;
-            pointer-events: none;
-            transform: rotate(-12deg);
-        }
-        .matchday-card-tag {
-            font-size: 0.7em;
-            font-weight: 800;
-            letter-spacing: 2.5px;
-            text-transform: uppercase;
-            opacity: 0.75;
-            position: relative;
-            z-index: 1;
-        }
-        .matchday-card-name {
-            flex: 1;
-            display: flex;
-            align-items: center;
-            font-size: 1.2em;
-            font-weight: 700;
-            line-height: 1.35;
-            margin: 14px 0 10px;
-            position: relative;
-            z-index: 1;
-        }
-        .matchday-card-price {
-            font-size: 1.55em;
-            font-weight: 800;
-            line-height: 1;
-            letter-spacing: -0.5px;
-            padding-top: 12px;
-            border-top: 1px solid currentColor;
-            opacity: 0.85;
-            position: relative;
-            z-index: 1;
-        }
-
-        /* GOLD tier — the deal */
-        .matchday-card--gold {
-            background:
-                radial-gradient(ellipse at top right, rgba(244, 210, 122, 0.18) 0%, transparent 50%),
-                linear-gradient(150deg, var(--md-navy-light) 0%, var(--md-navy) 100%);
-            color: var(--md-gold-light);
-            box-shadow:
-                0 8px 22px rgba(13, 27, 61, 0.35),
-                inset 0 0 0 1px rgba(244, 210, 122, 0.25);
-        }
-        .matchday-card--gold::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            inset-inline: 0;
-            height: 2px;
-            background: linear-gradient(90deg,
-                rgba(212, 164, 55, 0) 0%,
-                var(--md-gold) 30%,
-                var(--md-gold-light) 50%,
-                var(--md-gold) 70%,
-                rgba(212, 164, 55, 0) 100%);
-        }
-        .matchday-card--gold .matchday-card-tag {
-            color: var(--md-gold-light);
-        }
-        .matchday-card--gold .matchday-card-name {
-            color: #ffffff;
-        }
-        .matchday-card--gold .matchday-card-price {
-            color: var(--md-gold-light);
-            border-top-color: rgba(244, 210, 122, 0.4);
-        }
-
-        /* SILVER tier — the snack */
-        .matchday-card--silver {
-            background:
-                radial-gradient(ellipse at top right, rgba(255, 255, 255, 0.5) 0%, transparent 55%),
-                linear-gradient(150deg, var(--md-silver-bg) 0%, var(--md-silver-bg-light) 100%);
-            color: var(--md-silver-text);
-            box-shadow:
-                0 8px 22px rgba(108, 117, 125, 0.25),
-                inset 0 0 0 1px rgba(108, 117, 125, 0.18);
-        }
-        .matchday-card--silver::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            inset-inline: 0;
-            height: 2px;
-            background: linear-gradient(90deg,
-                rgba(108, 117, 125, 0) 0%,
-                var(--md-silver-line) 30%,
-                #ffffff 50%,
-                var(--md-silver-line) 70%,
-                rgba(108, 117, 125, 0) 100%);
-        }
-        .matchday-card--silver .matchday-card-tag {
-            color: var(--md-silver-line);
-        }
-        .matchday-card--silver .matchday-card-price {
-            border-top-color: rgba(108, 117, 125, 0.4);
-        }
-
-        /* Mobile: tighter sizing, two columns down to ~340px, stack below */
-        @media (max-width: 600px) {
-            .matchday-card {
-                padding: 12px 14px 14px;
-                min-height: 0;
-            }
-            .matchday-card-tag {
-                font-size: 0.6em;
-                letter-spacing: 2px;
-            }
-            .matchday-card-name {
-                font-size: 0.95em;
-                margin: 10px 0 8px;
-            }
-            .matchday-card-price {
-                font-size: 1.25em;
-                padding-top: 10px;
-            }
-            .matchday-card-watermark {
-                font-size: 80px;
-            }
-        }
-        @media (max-width: 340px) {
-            .matchday-cards {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            .matchday-card:hover { transform: none; }
-        }
-        /* ======= END World Cup Matchday Deal ======= */
 
         /* Hide/show language switcher content */
         .when-english {
@@ -1397,32 +1191,6 @@
                 </div>
             </div>
 
-            <!-- ============================================================ -->
-            <!-- ⚽ WORLD CUP MATCHDAY DEAL — TEMPORARY                       -->
-            <!-- Remove this entire .matchday-deck block when the            -->
-            <!-- tournament ends. Also remove the matching block in #food-en, -->
-            <!-- the .matchday-* CSS, and the --md-* tokens.                 -->
-            <!-- ============================================================ -->
-            <section class="matchday-deck" aria-label="World Cup deal">
-                <h3 class="matchday-deck-title">⚽ מבצע מונדיאל ⚽</h3>
-
-                <div class="matchday-cards">
-                    <article class="matchday-card matchday-card--gold">
-                        <span class="matchday-card-watermark" aria-hidden="true">⚽</span>
-                        <span class="matchday-card-tag">DEAL</span>
-                        <span class="matchday-card-name">חצי בירה מהחבית + תערובת פיצוחים</span>
-                        <span class="matchday-card-price">₪55</span>
-                    </article>
-
-                    <article class="matchday-card matchday-card--silver">
-                        <span class="matchday-card-watermark" aria-hidden="true">🥜</span>
-                        <span class="matchday-card-tag">SNACK</span>
-                        <span class="matchday-card-name">תערובת פיצוחים</span>
-                        <span class="matchday-card-price">₪25</span>
-                    </article>
-                </div>
-            </section>
-            <!-- ============ END WORLD CUP MATCHDAY DEAL (HE) ============ -->
 
             <div class="category" id="soups">
                 <div class="category-header">🍲 מרקים</div>
@@ -1670,10 +1438,40 @@
                                 <img src="images/insert-picture-icon.png" alt="הצג תמונה">
                             </button>
                         </span>
-                        <span class="item-price">₪47</span>
+                        <span class="item-price">₪50</span>
                     </div>
                     <div class="item-description">
                         כופתאות ממולאות בתערובת ירקות ועשבי תיבול | 6 יח
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-header">
+                        <span class="item-name">
+                            דים סאם עוף
+                            <button class="item-image-btn" onclick="openImageModal('images/wPT_דים סאם 6 יח׳.jpg')" aria-label="הצג תמונה">
+                                <img src="images/insert-picture-icon.png" alt="הצג תמונה">
+                            </button>
+                        </span>
+                        <span class="item-price">₪57</span>
+                    </div>
+                    <div class="item-description">
+                        כופתאות ממולאות במילוי עוף | 6 יח
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-header">
+                        <span class="item-name">
+                            דים סאם פטריות שיטאקי
+                            <button class="item-image-btn" onclick="openImageModal('images/wPT_דים סאם 6 יח׳.jpg')" aria-label="הצג תמונה">
+                                <img src="images/insert-picture-icon.png" alt="הצג תמונה">
+                            </button>
+                        </span>
+                        <span class="item-price">₪55</span>
+                    </div>
+                    <div class="item-description">
+                        כופתאות ממולאות במילוי תערובת פטריות שיטאקי | 6 יח
                     </div>
                 </div>
                 
@@ -2267,7 +2065,7 @@
                                 <img src="images/insert-picture-icon.png" alt="הצג תמונה">
                             </button>
                         </span>
-                        <span class="item-price">60 / 65 / ₪69</span>
+                        <span class="item-price">₪60 / ₪65 / ₪69</span>
                     </div>
                     <div class="item-description">
                         אטריות אורז מוקפצות עם ביצה טרופה, כרוב, גזר, נבטים, בצל ירוק ובוטנים כתושים בצד
@@ -2282,7 +2080,7 @@
                                 <img src="images/insert-picture-icon.png" alt="הצג תמונה">
                             </button>
                         </span>
-                        <span class="item-price">62 / 67 / ₪71</span>
+                        <span class="item-price">₪62 / ₪67 / ₪71</span>
                     </div>
                     <div class="item-description">
                         אטריות אורז רחבות עם ברוקולי, גמבה, באק צ'וי, פטריות ובצל ירוק ברוטב סויה כהה
@@ -2297,7 +2095,7 @@
                                 <img src="images/insert-picture-icon.png" alt="הצג תמונה">
                             </button>
                         </span>
-                        <span class="item-price">62 / 67 / ₪71</span>
+                        <span class="item-price">₪62 / ₪67 / ₪71</span>
                     </div>
                     <div class="item-description">
                         אטריות ביצים עם ברוקולי, גמבה, באק צ'וי, פטריות ובצל ירוק ברוטב סויה כהה
@@ -2312,7 +2110,7 @@
                                 <img src="images/insert-picture-icon.png" alt="הצג תמונה">
                             </button>
                         </span>
-                        <span class="item-price">62 / 67 / ₪71</span>
+                        <span class="item-price">₪62 / ₪67 / ₪71</span>
                     </div>
                     <div class="item-description">
                         אטריות ביצים עם ברוקולי, גמבה, באק צ'וי, פטריות ובצל ירוק ברוטב קרם קוקוס עשיר
@@ -2357,10 +2155,10 @@
                                 <img src="images/insert-picture-icon.png" alt="הצג תמונה">
                             </button>
                         </span>
-                        <span class="item-price">56 / 61 / ₪65</span>
+                        <span class="item-price">₪56 / ₪61 / ₪65</span>
                     </div>
                     <div class="item-description">
-                        אורז מוקפץ עם עוף, ביצה, אפונה, גזר ובצל ירוק
+                        אורז מוקפץ עם ביצה, אפונה, גזר ובצל ירוק
                     </div>
                 </div>
                 
@@ -2372,7 +2170,7 @@
                                 <img src="images/insert-picture-icon.png" alt="הצג תמונה">
                             </button>
                         </span>
-                        <span class="item-price">68 / 73 / ₪77</span>
+                        <span class="item-price">₪68 / ₪73 / ₪77</span>
                     </div>
                     <div class="item-description">
                         תבשיל על בסיס חלב קוקוס וקארי אדום עם ירקות עונתיים, מוגש לצד אורז
@@ -2387,7 +2185,7 @@
                                 <img src="images/insert-picture-icon.png" alt="הצג תמונה">
                             </button>
                         </span>
-                        <span class="item-price">70 / 75 / ₪79</span>
+                        <span class="item-price">₪70 / ₪75 / ₪79</span>
                     </div>
                     <div class="item-description">
                         אטריות ביצים מוקפצות ברוטב קארי אדום עם ירקות עונתיים
@@ -3085,30 +2883,6 @@
                     </div>
                 </div>
 
-                <!-- ============================================================ -->
-                <!-- ⚽ WORLD CUP MATCHDAY DEAL — TEMPORARY                       -->
-                <!-- Remove with the matching Hebrew block in #food.              -->
-                <!-- ============================================================ -->
-                <section class="matchday-deck" aria-label="World Cup deal">
-                    <h3 class="matchday-deck-title">⚽ World Cup Deal ⚽</h3>
-
-                    <div class="matchday-cards">
-                        <article class="matchday-card matchday-card--gold">
-                            <span class="matchday-card-watermark" aria-hidden="true">⚽</span>
-                            <span class="matchday-card-tag">DEAL</span>
-                            <span class="matchday-card-name">Half Draft Beer + House Nut Mix</span>
-                            <span class="matchday-card-price">₪55</span>
-                        </article>
-
-                        <article class="matchday-card matchday-card--silver">
-                            <span class="matchday-card-watermark" aria-hidden="true">🥜</span>
-                            <span class="matchday-card-tag">SNACK</span>
-                            <span class="matchday-card-name">House Nut Mix</span>
-                            <span class="matchday-card-price">₪25</span>
-                        </article>
-                    </div>
-                </section>
-                <!-- ============ END WORLD CUP MATCHDAY DEAL (EN) ============ -->
 
                 <div class="category" id="soups-en">
                     <div class="category-header">🍲 Soups</div>
@@ -3355,10 +3129,40 @@
                                     <img src="images/insert-picture-icon.png" alt="Show image">
                                 </button>
                             </span>
-                            <span class="item-price">₪47</span>
+                            <span class="item-price">₪50</span>
                         </div>
                         <div class="item-description">
                             Dumplings filled with vegetable and herb mixture | 6 pcs
+                        </div>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <span class="item-name">
+                                Chicken Dim Sum
+                                <button class="item-image-btn" onclick="openImageModal('images/wPT_דים סאם 6 יח׳.jpg')" aria-label="Show image">
+                                    <img src="images/insert-picture-icon.png" alt="Show image">
+                                </button>
+                            </span>
+                            <span class="item-price">₪57</span>
+                        </div>
+                        <div class="item-description">
+                            Dumplings filled with chicken | 6 pcs
+                        </div>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <span class="item-name">
+                                Shiitake Mushroom Dim Sum
+                                <button class="item-image-btn" onclick="openImageModal('images/wPT_דים סאם 6 יח׳.jpg')" aria-label="Show image">
+                                    <img src="images/insert-picture-icon.png" alt="Show image">
+                                </button>
+                            </span>
+                            <span class="item-price">₪55</span>
+                        </div>
+                        <div class="item-description">
+                            Dumplings filled with shiitake mushroom mixture | 6 pcs
                         </div>
                     </div>
                     
@@ -3414,7 +3218,7 @@
                     <div class="menu-item">
                         <div class="item-header">
                             <span class="item-name">
-                                Handmade Namus with Vegetables
+                                Handmade Nem Roll with Vegetables
                                 <button class="item-image-btn" onclick="openImageModal('images/wPT_נאמס פרגית וגם נאמס ירקות וגם נאמס עוף.jpg')" aria-label="Show image">
                                     <img src="images/insert-picture-icon.png" alt="Show image">
                                 </button>
@@ -3422,14 +3226,14 @@
                             <span class="item-price">₪48</span>
                         </div>
                         <div class="item-description">
-                            Handmade namus filled with vegetables | 2 pcs
+                            Handmade nem roll filled with vegetables | 2 pcs
                         </div>
                     </div>
                     
                     <div class="menu-item">
                         <div class="item-header">
                             <span class="item-name">
-                                Handmade Namus with Chicken Thigh
+                                Handmade Nem Roll with Chicken Thigh
                                 <button class="item-image-btn" onclick="openImageModal('images/wPT_נאמס פרגית וגם נאמס ירקות וגם נאמס עוף.jpg')" aria-label="Show image">
                                     <img src="images/insert-picture-icon.png" alt="Show image">
                                 </button>
@@ -3437,14 +3241,14 @@
                             <span class="item-price">₪59</span>
                         </div>
                         <div class="item-description">
-                            Handmade namus filled with chicken thigh | 2 pcs
+                            Handmade nem roll filled with chicken thigh | 2 pcs
                         </div>
                     </div>
                     
                     <div class="menu-item">
                         <div class="item-header">
                             <span class="item-name">
-                                Handmade Namus with Chicken
+                                Handmade Nem Roll with Chicken
                                 <button class="item-image-btn" onclick="openImageModal('images/wPT_נאמס פרגית וגם נאמס ירקות וגם נאמס עוף.jpg')" aria-label="Show image">
                                     <img src="images/insert-picture-icon.png" alt="Show image">
                                 </button>
@@ -3452,7 +3256,7 @@
                             <span class="item-price">₪57</span>
                         </div>
                         <div class="item-description">
-                            Handmade namus filled with chicken | 2 pcs
+                            Handmade nem roll filled with chicken | 2 pcs
                         </div>
                     </div>
                     
@@ -3615,7 +3419,7 @@
                     <div class="menu-item">
                         <div class="item-header">
                             <span class="item-name">
-                                Thai Pho Roll
+                                Taipo Roll
                                 <button class="item-image-btn" onclick="openImageModal('images/wPT_טייפו.jpg')" aria-label="Show image">
                                     <img src="images/insert-picture-icon.png" alt="Show image">
                                 </button>
@@ -3983,7 +3787,7 @@
                             <span class="item-price">₪56 / ₪61 / ₪65</span>
                         </div>
                         <div class="item-description">
-                            Stir-fried jasmine rice with egg, peas, carrots, and scallions
+                            Stir-fried rice with egg, peas, carrots, and scallions
                         </div>
                     </div>
                     
@@ -4009,7 +3813,7 @@
                 </div>
                 
                 <div class="category" id="kids-menu-en">
-                    <div class="category-header">👧 Kids Menu</div>
+                    <div class="category-header">🍽️ Kids Menu</div>
                     
                     <div class="menu-item">
                         <div class="item-header">
@@ -4183,15 +3987,20 @@
                         </div>
                     </div>
                     
-                    <!-- <div class="menu-item">
+                    <div class="menu-item">
                         <div class="item-header">
-                            <span class="item-name">Lemon Pie</span>
+                            <span class="item-name">
+                                Lemon Pie
+                                <button class="item-image-btn" onclick="openImageModal('images/wPT_פאי לימון.jpg')" aria-label="Show image">
+                                    <img src="images/insert-picture-icon.png" alt="Show image">
+                                </button>
+                            </span>
                             <span class="item-price">₪45</span>
                         </div>
                         <div class="item-description">
                             Crispy tart filled with fresh lemon cream, decorated with torched meringue
                         </div>
-                    </div> -->
+                    </div>
                 </div>
             </div>
             
