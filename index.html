@@ -383,6 +383,22 @@
             letter-spacing: 0.5px;
             box-shadow: 0 2px 5px rgba(245, 124, 0, 0.3);
         }
+
+        /* Portion note beside a dish name, e.g. מנה זוגית / Serves 2 */
+        .portion-badge {
+            display: inline-block;
+            background: var(--price-bg);
+            color: var(--text-accent);
+            border: 1px solid var(--warning-border);
+            font-size: 0.6em;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 20px;
+            letter-spacing: 0.3px;
+            white-space: nowrap;
+            vertical-align: middle;
+            transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+        }
         
         .item-price {
             color: var(--text-accent);
@@ -2246,14 +2262,15 @@
                     <div class="item-header">
                         <span class="item-name">
                             מנגו סטיקי רייס
+                            <span class="portion-badge">מנה זוגית</span>
                             <button class="item-image-btn" onclick="openImageModal('images/wPT_מנגו סטיקי רייס.png')" aria-label="הצג תמונה">
                                 <img src="images/insert-picture-icon.png" alt="הצג תמונה">
                             </button>
                         </span>
-                        <span class="item-price">₪47</span>
+                        <span class="item-price">₪58</span>
                     </div>
                     <div class="item-description">
-                        הקינוח התאילנדי הקלאסי – אורז דביק מתוק, מנגו טרי ורוטב קרם קוקוס
+                        הקינוח התאילנדי הקלאסי – אורז דביק מתוק, מנגו שלם ורוטב קרם קוקוס
                     </div>
                 </div>
 
@@ -3842,14 +3859,15 @@
                         <div class="item-header">
                             <span class="item-name">
                                 Mango Sticky Rice
+                                <span class="portion-badge">Serves 2</span>
                                 <button class="item-image-btn" onclick="openImageModal('images/wPT_מנגו סטיקי רייס.png')" aria-label="Show image">
                                     <img src="images/insert-picture-icon.png" alt="Show image">
                                 </button>
                             </span>
-                            <span class="item-price">₪47</span>
+                            <span class="item-price">₪58</span>
                         </div>
                         <div class="item-description">
-                            The classic Thai dessert – sweet sticky rice, fresh mango and coconut cream sauce
+                            The classic Thai dessert – sweet sticky rice, a whole fresh mango and coconut cream sauce
                         </div>
                     </div>
 
